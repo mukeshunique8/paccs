@@ -1,0 +1,27 @@
+<!-- Top Bar - Scrollable on desktop, hidden on mobile -->
+<div class="shadow-lg border-b border-gray-100 w-full hidden md:block overflow-x-auto z-20">
+  <div class="container mx-auto min-w-max px-4 py-2">
+    <div class="flex items-center justify-between min-w-max">
+      
+      <!-- 🔵 Left Content (Tagline / Info) -->
+      <div class="flex items-center space-x-4">
+        <img src="/images/inetlogo.png" alt="Your Logo" class="h-16">
+        <span class="text-lg font-semibold whitespace-nowrap opacity-0 animate-fade-in">
+    Empowering Digital India with B2B Services
+  </span>
+      </div>
+
+      <!-- 🔴 Right: Partner Logos -->
+      <div class="flex justify-end w-full space-x-16">
+        @for (partner of partners; track partner.id) {
+          <img 
+            [src]="partner.img" 
+            [alt]="partner.alt" 
+            class="h-14 object-contain flex-shrink-0"
+          >
+        }
+      </div>
+
+    </div>
+  </div>
+</div>

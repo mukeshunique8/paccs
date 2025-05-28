@@ -1,0 +1,243 @@
+<!-- partners.component.html -->
+<div class="partners-page bg-gray-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+  <!-- Hero Section -->
+  <section class="hero-section text-center mb-16">
+    <div class="max-w-4xl mx-auto">
+      <lucide-icon name="handshake" class="w-16 h-16 text-blue-600 mx-auto mb-6"></lucide-icon>
+      <h1 class="text-4xl font-bold text-gray-900 mb-4">Our Valued Partners</h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Collaborating with industry leaders to deliver exceptional solutions and drive innovation forward.
+      </p>
+      <div class="flex justify-center gap-4">
+        <p-button label="Become a Partner" icon="pi pi-plus" styleClass="p-button-primary"></p-button>
+        <p-button  label="Contact Us" icon="pi pi-envelope" styleClass="p-button-outlined"></p-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Grid -->
+  <section class="partners-grid mb-20">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-8 text-center flex items-center justify-center">
+        <lucide-icon name="award" class="w-8 h-8 text-yellow-500 mr-3"></lucide-icon>
+        Trusted By Industry Leaders
+      </h2>
+      
+      <p-carousel [value]="partners" [numVisible]="6" [numScroll]="2" [responsiveOptions]="responsiveOptions" class="mb-12">
+        <ng-template let-partner pTemplate="item">
+          <div class="border rounded-lg p-6 m-2 bg-white hover:shadow-md transition-shadow">
+            <img [src]="partner.logo" [alt]="partner.name" class="h-12 mx-auto object-contain">
+          </div>
+        </ng-template>
+      </p-carousel>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div *ngFor="let partner of partners" class="border rounded-lg p-6 bg-white hover:shadow-md transition-shadow">
+          <img [src]="partner.logo" [alt]="partner.name" class="h-12 mx-auto mb-4 object-contain">
+          <h3 class="text-lg font-medium text-center mb-2">{{ partner.name }}</h3>
+          <p class="text-gray-600 text-sm text-center">{{ partner.industry }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section bg-white py-16 mb-20 rounded-xl shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-12 text-center flex items-center justify-center">
+        <lucide-icon name="sparkles" class="w-8 h-8 text-purple-600 mr-3"></lucide-icon>
+        Partnership Benefits
+      </h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <div class="flex items-center mb-4">
+            <lucide-icon name="rocket" class="w-8 h-8 text-blue-600 mr-3"></lucide-icon>
+            <h3 class="text-xl font-medium">Growth Opportunities</h3>
+          </div>
+          <p class="text-gray-600">Access new markets and customer segments through our extensive network and resources.</p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <div class="flex items-center mb-4">
+            <lucide-icon name="bar-chart-4" class="w-8 h-8 text-green-600 mr-3"></lucide-icon>
+            <h3 class="text-xl font-medium">Revenue Sharing</h3>
+          </div>
+          <p class="text-gray-600">Competitive revenue sharing models that reward performance and mutual success.</p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <div class="flex items-center mb-4">
+            <lucide-icon name="users" class="w-8 h-8 text-orange-600 mr-3"></lucide-icon>
+            <h3 class="text-xl font-medium">Joint Marketing</h3>
+          </div>
+          <p class="text-gray-600">Co-marketing initiatives to amplify your brand alongside ours.</p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <div class="flex items-center mb-4">
+            <lucide-icon name="book-open" class="w-8 h-8 text-red-600 mr-3"></lucide-icon>
+            <h3 class="text-xl font-medium">Training & Support</h3>
+          </div>
+          <p class="text-gray-600">Comprehensive training programs and dedicated support teams.</p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <div class="flex items-center mb-4">
+            <lucide-icon name="shield-check" class="w-8 h-8 text-indigo-600 mr-3"></lucide-icon>
+            <h3 class="text-xl font-medium">Technology Access</h3>
+          </div>
+          <p class="text-gray-600">Early access to our latest technologies and product roadmaps.</p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <div class="flex items-center mb-4">
+            <lucide-icon name="globe" class="w-8 h-8 text-teal-600 mr-3"></lucide-icon>
+            <h3 class="text-xl font-medium">Global Network</h3>
+          </div>
+          <p class="text-gray-600">Connect with a worldwide network of partners and customers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Tiers -->
+  <section class="tiers-section mb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-12 text-center flex items-center justify-center">
+        <lucide-icon name="layers" class="w-8 h-8 text-blue-600 mr-3"></lucide-icon>
+        Partnership Tiers
+      </h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border rounded-xl overflow-hidden">
+          <div class="bg-gray-100 p-6 border-b">
+            <h3 class="text-xl font-bold text-center">Silver</h3>
+            <p class="text-gray-600 text-center mt-2">Ideal for emerging businesses</p>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>Basic training resources</span>
+              </li>
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>Access to partner portal</span>
+              </li>
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>Standard marketing materials</span>
+              </li>
+            </ul>
+            <p-button label="Learn More" styleClass="p-button-outlined w-full mt-6"></p-button>
+          </div>
+        </div>
+        
+        <div class="border rounded-xl overflow-hidden shadow-lg transform scale-105 z-10">
+          <div class="bg-blue-600 p-6 border-b">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-xl font-bold text-white">Gold</h3>
+                <p class="text-blue-100 text-center mt-2">Recommended for growing businesses</p>
+              </div>
+              <span class="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full text-sm font-bold">Popular</span>
+            </div>
+          </div>
+          <div class="p-6 bg-white">
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>All Silver benefits</span>
+              </li>
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>Enhanced revenue share</span>
+              </li>
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>Dedicated account manager</span>
+              </li>
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>Co-marketing opportunities</span>
+              </li>
+            </ul>
+            <p-button label="Get Started" styleClass="p-button-primary w-full mt-6"></p-button>
+          </div>
+        </div>
+        
+        <div class="border rounded-xl overflow-hidden">
+          <div class="bg-gray-900 p-6 border-b">
+            <h3 class="text-xl font-bold text-white">Platinum</h3>
+            <p class="text-gray-300 text-center mt-2">For strategic enterprise partners</p>
+          </div>
+          <div class="p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>All Gold benefits</span>
+              </li>
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>Executive sponsorship</span>
+              </li>
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>Product roadmap influence</span>
+              </li>
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>Global event participation</span>
+              </li>
+              <li class="flex items-start">
+                <lucide-icon name="check" class="w-5 h-5 text-green-500 mt-0.5 mr-2"></lucide-icon>
+                <span>Customized solutions</span>
+              </li>
+            </ul>
+            <p-button label="Contact Sales" styleClass="p-button-secondary w-full mt-6"></p-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section mb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-12 text-center flex items-center justify-center">
+        <lucide-icon name="message-square-heart" class="w-8 h-8 text-pink-600 mr-3"></lucide-icon>
+        Partner Testimonials
+      </h2>
+      
+      <p-carousel [value]="testimonials" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="5000">
+        <ng-template let-testimonial pTemplate="item">
+          <div class="bg-white p-8 rounded-xl shadow-sm text-center max-w-3xl mx-auto">
+            <lucide-icon name="quote" class="w-10 h-10 text-gray-300 mx-auto mb-6"></lucide-icon>
+            <p class="text-lg text-gray-700 italic mb-6">{{ testimonial.quote }}</p>
+            <div class="flex items-center justify-center">
+              <img [src]="testimonial.avatar" [alt]="testimonial.name" class="w-12 h-12 rounded-full mr-4">
+              <div>
+                <p class="font-medium">{{ testimonial.name }}</p>
+                <p class="text-gray-600 text-sm">{{ testimonial.position }}, {{ testimonial.company }}</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16 rounded-xl">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <lucide-icon name="megaphone" class="w-12 h-12 mx-auto mb-6"></lucide-icon>
+      <h2 class="text-3xl font-bold mb-4">Ready to Join Our Partner Network?</h2>
+      <p class="text-xl text-blue-100 mb-8">Let's build something great together.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <p-button label="Apply Now" icon="pi pi-send" styleClass="p-button-rounded p-button-success"></p-button>
+        <p-button label="Schedule a Call" icon="pi pi-phone" styleClass="p-button-rounded p-button-outlined p-button-secondary"></p-button>
+      </div>
+    </div>
+  </section>
+</div>

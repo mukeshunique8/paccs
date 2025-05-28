@@ -1,0 +1,149 @@
+<!-- services.component.html -->
+<div class="services-page bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+  
+  <!-- Hero Section -->
+  <section class="hero-section text-center mb-16 animate-fade-in">
+    <div class="max-w-4xl mx-auto">
+      <lucide-icon name="layers" class="w-16 h-16 text-indigo-600 mx-auto mb-6 animate-bounce"></lucide-icon>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Comprehensive Services</h1>
+      <p class="text-xl text-gray-600 mb-8">
+        One-stop solution for all your financial, utility, and government service needs
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <p-button label="Explore All" icon="pi pi-search" styleClass="p-button-primary animate-pulse"></p-button>
+        <p-button label="Contact Support" icon="pi pi-headset" styleClass="p-button-outlined"></p-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Categories -->
+  <section class="service-categories mb-20">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-8 text-center flex items-center justify-center">
+        <lucide-icon name="grid" class="w-8 h-8 text-purple-600 mr-3"></lucide-icon>
+        Service Categories
+      </h2>
+      
+      <!-- Category Tabs -->
+      <p-tabView class="mb-12">
+        <p-tabPanel header="Financial Services">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            <div *ngFor="let service of financialServices" class="service-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div class="p-6">
+                <div class="flex items-center mb-4">
+                  <div [ngClass]="service.color" class="p-3 rounded-full mr-4">
+                    <lucide-icon [name]="service.icon" class="w-6 h-6 text-white"></lucide-icon>
+                  </div>
+                  <h3 class="text-lg font-semibold">{{ service.name }}</h3>
+                </div>
+                <p class="text-gray-600 text-sm">{{ service.description }}</p>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        
+        <p-tabPanel header="Government Services">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            <div *ngFor="let service of governmentServices" class="service-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div class="p-6">
+                <div class="flex items-center mb-4">
+                  <div [ngClass]="service.color" class="p-3 rounded-full mr-4">
+                    <lucide-icon [name]="service.icon" class="w-6 h-6 text-white"></lucide-icon>
+                  </div>
+                  <h3 class="text-lg font-semibold">{{ service.name }}</h3>
+                </div>
+                <p class="text-gray-600 text-sm">{{ service.description }}</p>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        
+        <p-tabPanel header="Utility Services">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+            <div *ngFor="let service of utilityServices" class="service-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div class="p-6">
+                <div class="flex items-center mb-4">
+                  <div [ngClass]="service.color" class="p-3 rounded-full mr-4">
+                    <lucide-icon [name]="service.icon" class="w-6 h-6 text-white"></lucide-icon>
+                  </div>
+                  <h3 class="text-lg font-semibold">{{ service.name }}</h3>
+                </div>
+                <p class="text-gray-600 text-sm">{{ service.description }}</p>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </section>
+
+  <!-- Popular Services -->
+  <section class="popular-services mb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-8 text-center flex items-center justify-center">
+        <lucide-icon name="star" class="w-8 h-8 text-yellow-500 mr-3"></lucide-icon>
+        Most Popular Services
+      </h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div *ngFor="let service of popularServices" 
+             class="popular-service-card bg-white rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow duration-300 animate-fade-in-up"
+             [style.animation-delay]="(0.1 * popularServices.indexOf(service)) + 's'">
+          <div [ngClass]="service.color" class="p-3 rounded-full w-12 h-12 mx-auto mb-3 flex items-center justify-center">
+            <lucide-icon [name]="service.icon" class="w-6 h-6 text-white"></lucide-icon>
+          </div>
+          <h3 class="font-medium text-sm">{{ service.name }}</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works bg-white py-16 mb-20 rounded-xl shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-12 text-center flex items-center justify-center">
+        <lucide-icon name="help-circle" class="w-8 h-8 text-blue-600 mr-3"></lucide-icon>
+        How Our Services Work
+      </h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <lucide-icon name="user" class="w-8 h-8 text-blue-600"></lucide-icon>
+          </div>
+          <h3 class="text-lg font-medium mb-2">1. Select Service</h3>
+          <p class="text-gray-600">Choose from 50+ services across categories</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <lucide-icon name="credit-card" class="w-8 h-8 text-purple-600"></lucide-icon>
+          </div>
+          <h3 class="text-lg font-medium mb-2">2. Make Payment</h3>
+          <p class="text-gray-600">Secure transactions via multiple payment options</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <lucide-icon name="check-circle" class="w-8 h-8 text-green-600"></lucide-icon>
+          </div>
+          <h3 class="text-lg font-medium mb-2">3. Get Confirmation</h3>
+          <p class="text-gray-600">Instant confirmation with service details</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-16 rounded-xl animate-pulse-slow">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <lucide-icon name="zap" class="w-12 h-12 mx-auto mb-6"></lucide-icon>
+      <h2 class="text-3xl font-bold mb-4">Need Help With Services?</h2>
+      <p class="text-xl text-indigo-100 mb-8">Our support team is available 24/7 to assist you</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <p-button label="Chat Now" icon="pi pi-comments" styleClass="p-button-rounded p-button-success"></p-button>
+        <p-button label="Call Support" icon="pi pi-phone" styleClass="p-button-rounded p-button-outlined p-button-secondary"></p-button>
+      </div>
+    </div>
+  </section>
+</div>

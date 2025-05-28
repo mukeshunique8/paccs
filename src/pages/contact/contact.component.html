@@ -1,0 +1,139 @@
+<div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Get In Touch</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        We'd love to hear from you. Reach out to us with any questions or inquiries.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Contact Information -->
+      <div class="">
+        <p-card class="shadow-none  rounded-xl">
+          <div class="flex items-start gap-4 p-6">
+            <div class="bg-blue-50 p-3 rounded-full">
+                <lucide-icon name="map-pin"  class="w-6 h-6 text-blue-600"></lucide-icon>
+
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">Our Office</h3>
+              <p class="text-gray-600">123 Government Plaza<br>New Delhi, DL 110001</p>
+            </div>
+          </div>
+        </p-card>
+
+        <p-card class="shadow-none  rounded-xl">
+          <div class="flex items-start gap-4 p-6">
+            <div class="bg-green-50 p-3 rounded-full">
+                <lucide-icon name="phone"  class="w-6 h-6 text-blue-600"></lucide-icon>
+              
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">Phone</h3>
+              <p class="text-gray-600">+91 11 2345 6789<br>Mon-Fri, 9am-6pm</p>
+            </div>
+          </div>
+        </p-card>
+
+        <p-card class="shadow-none  rounded-xl">
+          <div class="flex items-start gap-4 p-6">
+            <div class="bg-purple-50 p-3 rounded-full">
+                <lucide-icon name="mail"  class="w-6 h-6 text-blue-600"></lucide-icon>
+              
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">Email</h3>
+              <p class="text-gray-600">contact&#64;csc.gov.in<br>Response within 24 hours</p>
+            </div>
+          </div>
+        </p-card>
+
+        <p-card class="shadow-none  rounded-xl">
+          <div class="flex items-start gap-4 p-6">
+            <div class="bg-amber-50 p-3 rounded-full">
+                <lucide-icon name="clock"  class="w-6 h-6 text-blue-600"></lucide-icon>
+              
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-1">Working Hours</h3>
+              <p class="text-gray-600">Monday - Friday: 9:00 - 18:00<br>Saturday: 10:00 - 15:00</p>
+            </div>
+          </div>
+        </p-card>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-white rounded-xl shadow-sm  p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Send us a message</h2>
+        
+        <form class="space-y-6">
+          <div class="space-y-1">
+            <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              pInputText 
+              class="w-full" 
+              placeholder="Enter your name"
+              [(ngModel)]="formData.name"
+              name="name"
+            />
+          </div>
+
+          <div class="space-y-1">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+            <input 
+              type="email" 
+              id="email" 
+              pInputText 
+              class="w-full" 
+              placeholder="Enter your email"
+              [(ngModel)]="formData.email"
+              name="email"
+            />
+          </div>
+
+          <div class="space-y-1">
+            <label for="message" class="block text-sm font-medium text-gray-700">Your Message</label>
+            <textarea 
+              id="message" 
+              pInputTextarea 
+              rows="5" 
+              class="w-full" 
+              placeholder="How can we help you?"
+              [(ngModel)]="formData.message"
+              name="message"
+            ></textarea>
+          </div>
+
+          <p-button 
+            label="Send Message" 
+            icon="lucide-send" 
+            iconPos="right"
+            styleClass="bg-blue-600 hover:bg-blue-700 border-blue-600"
+            (onClick)="submitForm()"
+          ></p-button>
+        </form>
+
+        <p-divider class="my-8">
+          <span class="text-gray-400 text-sm">OR</span>
+        </p-divider>
+
+        <div class="text-center">
+          <p class="text-gray-600 mb-4">Prefer to call or visit us?</p>
+          <p-button 
+            label="View Office Locations" 
+            icon="lucide-map-pin" 
+            iconPos="right"
+            styleClass="p-button-outlined border-gray-300 text-gray-700 hover:bg-gray-50"
+          ></p-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast 
+  position="bottom-right" 
+/>

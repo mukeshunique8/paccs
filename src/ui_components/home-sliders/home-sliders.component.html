@@ -1,0 +1,23 @@
+<section class="container p-0 mx-auto">
+  <p-carousel
+    [value]="images"
+    [numVisible]="1"
+    [numScroll]="1"
+    [circular]="true"
+    [autoplayInterval]="3000"
+    [responsiveOptions]="responsiveOptions"
+    [showIndicators]="true"
+    [showNavigators]="true"
+    styleClass="custom-carousel"
+  >
+    <ng-template pTemplate="item" let-image>
+      <div class="relative w-full aspect-[16/7] rounded-xl overflow-hidden">
+        <img
+          [src]="image"
+          alt="Slide"
+          class="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+    </ng-template>
+  </p-carousel>
+</section>

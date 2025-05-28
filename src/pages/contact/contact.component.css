@@ -1,0 +1,54 @@
+/* Custom toast styling */
+:host ::ng-deep .p-toast-bottom-left {
+  left: 1.5rem;
+  bottom: 1.5rem;
+}
+
+:host ::ng-deep .p-toast .p-toast-message.p-toast-message-success {
+  background: rgba(20, 83, 45, 0.9); /* bg-green-900 with 90% opacity */
+  border: none;
+  color: white;
+  backdrop-filter: blur(4px); /* Adds subtle blur effect */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+:host ::ng-deep .p-toast .p-toast-message-content {
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+}
+
+:host ::ng-deep .p-toast .p-toast-message-icon {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.25rem;
+}
+
+:host ::ng-deep .p-toast .p-toast-message-text {
+  margin-left: 0.75rem;
+}
+
+:host ::ng-deep .p-toast .p-toast-summary {
+  font-weight: 500;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 1);
+}
+
+:host ::ng-deep .p-toast .p-toast-detail {
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.875rem;
+}
+
+:host ::ng-deep .p-toast .p-toast-icon-close {
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+}
+
+:host ::ng-deep .p-toast .p-toast-icon-close:hover {
+  color: white;
+  transform: scale(1.1);
+}
+
+:host ::ng-deep .p-card {
+ background-color: white;
+ margin-bottom: 22px;
+}
