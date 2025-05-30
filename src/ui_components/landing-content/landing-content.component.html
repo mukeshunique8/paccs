@@ -1,7 +1,7 @@
 <!-- home.component.html -->
 <div class="home-page bg-gray-50">
   <!-- Hero Section -->
-  <section class="hero-section bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 px-4 sm:px-6 lg:px-8">
+  <!-- <section class="hero-section bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">
         Your All-in-One Digital Services Platform
@@ -13,14 +13,12 @@
         <p-button label="Get Started" icon="pi pi-arrow-right" styleClass="p-button-rounded p-button-lg"></p-button>
         <p-button label="Learn More" icon="pi pi-info-circle" styleClass="p-button-rounded p-button-outlined p-button-lg"></p-button>
       </div>
-      <!-- <div class="mt-16 animate-fade-in delay-300">
-        <img src="assets/images/hero-dashboard.png" alt="Dashboard Preview" class="rounded-xl shadow-2xl mx-auto max-w-4xl w-full">
-      </div> -->
+    
     </div>
-  </section>
+  </section> -->
 
   <!-- Trusted By Section -->
-  <section class="trusted-section py-12 bg-white">
+  <!-- <section class="trusted-section py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="text-gray-500 text-center mb-8">TRUSTED BY 50,000+ BUSINESSES</p>
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
@@ -32,72 +30,48 @@
         <img src="/images/partners/6.png" alt="Partner 6" class="h-12 mx-auto opacity-90 hover:opacity-100 transition-opacity">
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <!-- Key Features -->
-  <section class="features-section py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Platform?</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          We provide seamless, secure, and reliable services to meet all your financial and utility needs
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-          <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-            <lucide-icon name="zap" class="w-8 h-8 text-blue-600"></lucide-icon>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Lightning Fast Transactions</h3>
-          <p class="text-gray-600">Process payments and services in seconds with our optimized platform</p>
+  <!-- Stats Section -->
+  <section class="stats-section py-16 bg-gradient-to-r from-indigo-600 to-blue-600 text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-8 text-center">
+      <div class="p-4" *ngFor="let stat of statsData">
+        <div class="flex justify-center items-center mb-2">
+          <lucide-icon [name]="stat.icon" [class]="stat.iconColor + ' w-8 h-8 mr-3'"></lucide-icon>
+          <div class="text-4xl font-bold">{{ stat.value }}</div>
         </div>
-
-        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-          <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-            <lucide-icon name="shield-check" class="w-8 h-8 text-green-600"></lucide-icon>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Bank-Grade Security</h3>
-          <p class="text-gray-600">256-bit encryption and multi-factor authentication for all transactions</p>
-        </div>
-
-        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-          <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-            <lucide-icon name="smartphone" class="w-8 h-8 text-purple-600"></lucide-icon>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Mobile Friendly</h3>
-          <p class="text-gray-600">Access all services from any device with our responsive interface</p>
-        </div>
-
-        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-          <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-            <lucide-icon name="headphones" class="w-8 h-8 text-orange-600"></lucide-icon>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">24/7 Support</h3>
-          <p class="text-gray-600">Dedicated customer care team available round the clock</p>
-        </div>
-
-        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-          <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-            <lucide-icon name="badge-percent" class="w-8 h-8 text-red-600"></lucide-icon>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Special Discounts</h3>
-          <p class="text-gray-600">Exclusive offers and cashback on bill payments and recharges</p>
-        </div>
-
-        <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-          <div class="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-            <lucide-icon name="refresh-cw" class="w-8 h-8 text-indigo-600"></lucide-icon>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Auto Pay Options</h3>
-          <p class="text-gray-600">Schedule recurring payments and never miss a due date</p>
+        <div class="text-lg">
+          {{ 'stats.' + stat.titleKey | translate }}
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+  <!-- Key Features -->
+  <section class="features-section py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ 'FEATURES.HEADING' | translate }}</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ 'FEATURES.SUBHEADING' | translate }}</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div *ngFor="let feature of features" class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+        <div [ngClass]="[feature.color, 'w-16 h-16 rounded-full flex items-center justify-center mb-6']">
+          <lucide-icon [name]="feature.icon" class="w-8 h-8" [ngClass]="feature.iconColor"></lucide-icon>
+        </div>
+        <h3 class="text-xl font-semibold text-black mb-3">{{ feature.titleKey | translate }}</h3>
+        <p class="text-gray-600">{{ feature.descKey | translate }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Popular Services -->
-  <section class="services-section py-20 bg-white">
+  <!-- <section class="services-section py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Popular Services</h2>
@@ -152,34 +126,11 @@
         <p-button label="View All Services" icon="pi pi-list" styleClass="p-button-outlined"></p-button>
       </div>
     </div>
-  </section>
+  </section> -->
 
-  <!-- Stats Section -->
-  <section class="stats-section py-16 bg-gradient-to-r from-indigo-600 to-blue-600 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-8 text-center">
-        <div class="p-4">
-          <div class="text-4xl font-bold mb-2">50K+</div>
-          <div class="text-lg">Happy Customers</div>
-        </div>
-        <div class="p-4">
-          <div class="text-4xl font-bold mb-2">120+</div>
-          <div class="text-lg">Services Offered</div>
-        </div>
-        <div class="p-4">
-          <div class="text-4xl font-bold mb-2">24/7</div>
-          <div class="text-lg">Customer Support</div>
-        </div>
-        <div class="p-4">
-          <div class="text-4xl font-bold mb-2">10M+</div>
-          <div class="text-lg">Transactions Monthly</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Testimonials -->
-  <section class="testimonials-section py-20 bg-gray-50">
+  <!-- <section class="testimonials-section py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
@@ -204,10 +155,10 @@
         </ng-template>
       </p-carousel>
     </div>
-  </section>
+  </section> -->
 
   <!-- CTA Section -->
-  <section class="cta-section py-20 bg-white">
+  <!-- <section class="cta-section py-20 bg-white">
     <div class="max-w-4xl mx-auto text-center px-4">
       <h2 class="text-3xl font-bold text-gray-900 mb-6">Ready to Get Started?</h2>
       <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -218,5 +169,5 @@
         <p-button label="Contact Sales" icon="pi pi-phone" styleClass="p-button-outlined p-button-lg"></p-button>
       </div>
     </div>
-  </section>
+  </section> -->
 </div>

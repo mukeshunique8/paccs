@@ -35,28 +35,29 @@ timelineItems = [
 
   teamMembers = [
     {
-      name: 'Dr. Rajesh Kumar',
+      name: 'Mr.Gajapathy',
       position: 'CEO',
       bio: '20+ years experience in public service delivery',
-      image: '/assets/team/rajesh.jpg'
+      image: '/images/team/gajapathy.jpg'
     },
     {
-      name: 'Priya Sharma',
+      name: 'Mr.Gajapathy',
+      position: 'CEO',
+      bio: '20+ years experience in public service delivery',
+      image: '/images/team/gajapathy.jpg'
+    },
+    {
+      name: 'Prabakar',
       position: 'CTO',
       bio: 'Technology visionary driving digital transformation',
-      image: '/assets/team/priya.jpg'
+      image: '/images/team/prabakar.jpg'
     },
     {
-      name: 'Amit Patel',
+      name: 'JayaKumar',
       position: 'Operations Head',
       bio: 'Manages nationwide network of service centres',
-      image: '/assets/team/amit.jpg'
+      image: '/images/team/jayakumar.jpg'
     },
-    {
-      name: 'Neha Gupta',
-      position: 'Service Development',
-      bio: 'Leads expansion of service offerings service offerings',
-      image: '/assets/team/neha.jpg'
-    }
+   
   ];
 }

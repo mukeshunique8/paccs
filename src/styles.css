@@ -1,13 +1,30 @@
 @import "tailwindcss";
+/* @import "primeicons/primeicons.css";
 
+@import "/assets/layout/layout.css";
+@import "/assets/layout/variables/_common.css";
+@import "/assets/layout/variables/_light.css";      
+@import "/assets/layout/variables/_dark.css";
+@import "/assets/layout/_mixins.css";
+@import "/assets/layout/_preloading.css";
+@import "/assets/layout/_core.css";
+@import "/assets/layout/_main.css";
+@import "/assets/layout/_topbar.css";
+@import "/assets/layout/_menu.css";
+@import "/assets/layout/_footer.css";
+@import "/assets/layout/_responsive.css";
+@import "/assets/layout/_utils.css";
+@import "/assets/layout/_typography.css"; */
 
-
+body{
+  background-color: #FFFFFF;
+}
 
 
 /* Custom scrollbar for the entire app */
 :root {
-  --scrollbar-track: #ffffff;
-  --scrollbar-thumb: #4CAF50; /* Green color */
+  --scrollbar-track: #EEEEEE;
+  --scrollbar-thumb: #00c9a7; /* Green color */
   --scrollbar-thumb-hover: #45a049; /* Darker green */
 }
 
@@ -37,3 +54,75 @@
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
+
+:root {
+  --gov-font-inter: 'Inter', sans-serif;
+  --gov-font-roboto: 'Roboto', sans-serif;
+  --gov-font-noto: 'Noto Sans', sans-serif;
+  --gov-font-source: 'Source Sans 3', sans-serif;
+  --gov-font-open: 'Open Sans', sans-serif;
+  --gov-font-merriweather: 'Merriweather', serif; 
+    --tamil-font: 'Noto Sans Tamil', sans-serif;
+}
+
+body {
+  font-family: var(--gov-font-source);
+}
+
+body.lang-ta {
+  font-family: var(--tamil-font);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+body.lang-ta h1 {font-family: var(--tamil-font) !important;  font-size: 22px !important; }
+body.lang-ta h2 {font-family: var(--tamil-font) !important;  font-size: 20px !important; }
+body.lang-ta h3 {font-family: var(--tamil-font) !important;  font-size: 18px !important; }
+
+
+/* TAILWIND PRIMARY SECONDARY COLORS */
+:root {
+  --color-primary: #00c9a7;   /* green-500 - vibrant green */
+  --color-secondary: #845ec2; /* emerald-500 - harmonious with green */
+  --color-text: #1f2937;      /* gray-800 for good readability */
+  --color-bg: #FFFFFF;        /* default white background */
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.text-foreground {
+  color: var(--color-text);
+}
+
+/* Background Colors */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.bg-surface {
+  background-color: var(--color-bg);
+}
+
+/* Border Colors */
+.border-primary {
+  border-color: var(--color-primary);
+}
+.border-secondary {
+  border-color: var(--color-secondary);
+}
+
+
+
+
+
+
+
+
+

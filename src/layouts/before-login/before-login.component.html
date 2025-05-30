@@ -1,0 +1,19 @@
+
+<main  class="bg-bg min-h-screen flex flex-col">
+  <nav  class="bg-surface w-full hidden md:block overflow-x-auto z-40 fixed top-0 left-0">
+
+    <app-top-navbar></app-top-navbar>
+  </nav>
+  <div class="md:h-[100px] md:block hidden"></div>
+
+  <!-- Navbar (outside container to be full-width) -->
+  <app-navbar></app-navbar>
+  
+  <router-outlet></router-outlet>
+  
+  <!-- Footer -->
+  <app-footer></app-footer>
+  <p-toast 
+  position="bottom-left" 
+/>
+</main>

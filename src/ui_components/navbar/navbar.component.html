@@ -1,138 +1,70 @@
-<!-- navbar.component.html -->
-
-
-<!-- Main Navbar - Sticky below top bar -->
-<nav class="bg-white w-full mt-4 border-b border-gray-100 z-10">
-  <!-- Rest of your navbar code remains the same -->
+<!-- Navbar Component -->
+<nav class="bg-white w-full border-b md:mt-5 border-gray-100 z-10">
   <div class="container mx-auto px-4">
     <div class="flex justify-center items-center h-16">
+      
       <!-- Logo -->
-      <!-- <div class="flex-shrink-0 flex items-center">
-          <img 
-            src="/images/inetlogo.png" 
-            alt="inet" 
-            class="h-18 object-contain flex-shrink-0"
-          >
+      <!-- <div class="flex items-center">
+        <img src="/images/inetlogo.png" alt="inet logo" class="h-10 object-contain" />
       </div> -->
 
       <!-- Desktop Menu -->
-      <div class="hidden md:flex font-semibold  items-center space-x-8">
+      <div class="hidden md:flex items-center space-x-6 font-medium">
         @for (item of menuItems; track item.name) {
-          <div class="relative group">
-            <a 
-             [routerLink]="item.href" 
-  routerLinkActive="bg-green-50 text-green-700 font-semibold"
-  class="text-gray-700 hover:text-green-900 hover:bg-gray-100 px-3 py-2 flex items-center rounded transition duration-150"
-  [routerLinkActiveOptions]="{ exact: true }"
-              [href]="item.href" 
-            >
-              {{ item.name }}
-              @if (item.subItems.length > 0) {
-                <lucide-icon name="chevron-down" class="w-4 h-4 ml-1"></lucide-icon>
-
-              }
-            </a>
-            
-            <!-- @if (item.subItems.length > 0) {
-              <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20
-       opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto
-       transform scale-95 group-hover:scale-100 translate-y-1 group-hover:translate-y-0
-       transition ease-out duration-300"
->
-                @for (subItem of item.subItems; track subItem.name) {
-                  <a 
-                    [href]="subItem.href" 
-                    class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                  >
-                    {{ subItem.name }}
-                  </a>
-                }
-              </div>
-            } -->
-          </div>
+          <a
+            [routerLink]="item.href"
+            routerLinkActive="bg-primary text-white"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-primary transition"
+          >
+            {{ item.name }}
+          </a>
         }
+
+        <!-- Always-visible Login Button -->
+        <!-- <a
+          href="/login"
+          class="px-4 py-2 bg-secondary text-white rounded-md hover:opacity-90 transition font-semibold"
+        >
+          Login
+        </a> -->
       </div>
 
-      <!-- Right Icons -->
-      <!-- <div class="hidden md:flex items-center space-x-4">
-        <button class="p-2 text-gray-700 hover:text-green-900">
-                <lucide-icon name="search" class="w-4 h-4 ml-1"></lucide-icon>
-        </button>
-        <button class="p-2 text-gray-700 hover:text-green-900">
-                <lucide-icon name="user" class="w-4 h-4 ml-1"></lucide-icon>
-
-        </button>
-        <button class="p-2 text-gray-700 hover:text-green-900 relative">
-                <lucide-icon name="shopping-cart" class="w-4 h-4 ml-1"></lucide-icon>
-
-          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
-        </button>
-      </div> -->
-
-      <!-- Mobile menu button -->
+      <!-- Mobile Menu Button -->
       <div class="md:hidden flex items-center">
-        <button 
+        <button
           (click)="toggleMenu()"
-          class="p-2 text-gray-700 hover:text-green-900 focus:outline-none"
+          class="p-2 text-gray-700 hover:text-primary focus:outline-none"
         >
-          @if (isMenuOpen) {
-                <lucide-icon name="x" class="w-4 h-4 ml-1"></lucide-icon>
-
-          } @else {
-                <lucide-icon name="menu" class="w-4 h-4 ml-1"></lucide-icon>
-
-          }
+          <lucide-icon [name]="isMenuOpen ? 'x' : 'menu'" class="w-5 h-5"></lucide-icon>
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile Menu Dropdown -->
   @if (isMenuOpen) {
-    <div class="md:hidden bg-white pb-4">
-      <div class="px-2 pt-2 pb-3 space-y-1">
+    <div class="md:hidden bg-white border-t border-gray-200">
+      <div class="px-4 py-3 space-y-2">
         @for (item of menuItems; track item.name) {
-          <div>
-            <a 
-              [href]="item.href" 
-              class="block px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              {{ item.name }}
-            </a>
-            <!-- @if (item.subItems.length > 0) {
-              <div class="pl-4">
-                @for (subItem of item.subItems; track subItem.name) {
-                  <a 
-                    [href]="subItem.href" 
-                    class="block px-3 py-2 text-gray-600 hover:bg-gray-50 rounded-md"
-                  >
-                    {{ subItem.name }}
-                  </a>
-                }
-              </div>
-            } -->
-          </div>
+          <a
+            [routerLink]="item.href"
+            routerLinkActive="bg-primary text-white"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="block px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-primary transition"
+          >
+            {{ item.name }}
+          </a>
         }
-      </div>
-      <div class="px-5 py-4 border-t border-gray-200 flex items-center justify-between">
-        <div class="flex space-x-4">
-          <button class="text-gray-700 hover:text-green-900">
-                <lucide-icon name="search" class="w-4 h-4 ml-1"></lucide-icon>
 
-          </button>
-          <button class="text-gray-700 hover:text-green-900">
-                <lucide-icon name="user" class="w-4 h-4 ml-1"></lucide-icon>
-
-          </button>
-        </div>
-        <button class="text-gray-700 hover:text-green-900 relative">
-                <lucide-icon name="shopping-cart" class="w-4 h-4 ml-1"></lucide-icon>
-
-          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">3</span>
-        </button>
+        <!-- Login Button in Mobile -->
+        <a
+          href="/login"
+          class="block w-full text-center px-4 py-2 bg-primary text-white rounded-md font-semibold hover:opacity-90 transition"
+        >
+          Login
+        </a>
       </div>
     </div>
   }
 </nav>
-
-<!-- Spacer to account for fixed navbar -->

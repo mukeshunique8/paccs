@@ -1,0 +1,90 @@
+{
+  "WELCOME": "Welcome🙏",
+  "GREETING": "Hello {{name}}!",
+  "HEADER": {
+    "TITLE": "My Website"
+  },
+  "HEROHEADER": "Your Trusted Gateway to Government & Essential Services",
+  "HEROSUBHEADER": "<span class='text-blue-600 font-bold text-lg'>Inet</span> provides convenient access to 300+ government and utility services across India - from passport applications to bill payments, all within your neighborhood.",
+  "CUSTOMERCARE": "Customer Care",
+  "NAV": {
+    "HOME": "Home",
+    "PARTNERS": "Partners",
+    "SERVICES": "Services",
+    "ABOUT": "About",
+    "CONTACT": "Contact",
+    "LOGIN": "Login"
+  },
+  "LOGININTOYOURACCOUNT": "Login into your account",
+  "EXPLOREALLSERVICES": "Explore all services",
+  "SERVICES": {
+    "BILL_PAYMENT": "Bill Payment",
+    "RECHARGE": "Recharge",
+    "ASTROLOGY": "Astrology",
+    "LIC_PREMIUM": "LIC Premium",
+    "ANTI_VIRUS": "Anti Virus",
+    "PRODUCT_SALE": "Product Sale",
+    "RD_SERVICE": "RD Service",
+    "PAN_UTIITSL": "PAN UTIITSL",
+    "AEPS": "AEPS",
+    "GST_REGISTRATION": "GST Registration",
+    "GST_LEAD": "GST Lead",
+    "GST_FILING": "GST Filing",
+    "GST_CANCELLATION": "GST Cancellation",
+    "GST_AMENDMENT": "GST Amendment",
+    "MOVE_TO_BANK": "Move to Bank",
+    "M_ATM": "M-ATM",
+    "PAN_NSDL": "PAN NSDL",
+    "BUS_TICKET_BOOKING": "Bus Ticket Booking",
+    "IT_FILING": "IT Filing",
+    "IT_NOTICE": "IT Notice",
+    "MONEY_TRANSFER": "Money Transfer",
+    "PASSPORT": "Passport",
+    "DIGITAL_SIGNATURE": "Digital Signature",
+    "INSURANCE": "Insurance",
+    "INSURANCE_OFFLINE": "Insurance Offline",
+    "TRAIN_BOOKING": "Train Booking"
+  },
+  "CATEGORIES": {
+    "UTILITY": "Utility Services",
+    "BOOKING": "Travel Bookings",
+    "GOVERNMENT": "Government Services",
+    "FINANCIAL": "Financial Services",
+    "DIGITAL": "Digital Services",
+    "OTHER": "Other Services"
+  },
+  "FEATURES": {
+    "HEADING": "Why Choose Our Platform?",
+    "SUBHEADING": "We provide seamless, secure, and reliable services to meet all your financial and utility needs",
+    "FAST_TRANSACTIONS": {
+      "TITLE": "Lightning Fast Transactions",
+      "DESCRIPTION": "Process payments and services in seconds with our optimized platform"
+    },
+    "SECURITY": {
+      "TITLE": "Bank-Grade Security",
+      "DESCRIPTION": "256-bit encryption and multi-factor authentication for all transactions"
+    },
+    "MOBILE": {
+      "TITLE": "Mobile Friendly",
+      "DESCRIPTION": "Access all services from any device with our responsive interface"
+    },
+    "SUPPORT": {
+      "TITLE": "24/7 Support",
+      "DESCRIPTION": "Dedicated customer care team available round the clock"
+    },
+    "DISCOUNTS": {
+      "TITLE": "Special Discounts",
+      "DESCRIPTION": "Exclusive offers and cashback on bill payments and recharges"
+    },
+    "AUTO_PAY": {
+      "TITLE": "Auto Pay Options",
+      "DESCRIPTION": "Schedule recurring payments and never miss a due date"
+    }
+  },
+   "stats": {
+    "happyCustomers": "Happy Customers",
+    "servicesOffered": "Services Offered",
+    "customerSupport": "Customer Support",
+    "transactionsMonthly": "Transactions Monthly"
+  }
+}

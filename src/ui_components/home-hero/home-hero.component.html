@@ -1,68 +1,94 @@
-<!-- hero.component.html -->
 <section class="relative bg-white overflow-hidden">
-  <!-- Background subtle pattern (optional) -->
-  <div class="absolute inset-0 opacity-5 bg-[url('/svg/pattern-grid.svg')]"></div>
-  
-  <div class="container mx-auto px-4 py-16 md:py-20 relative z-10">
-    <div class="max-w-4xl mx-auto text-center">
-      <!-- Logo/Badge (uncomment if needed) -->
-      <!-- <div class="mb-8 flex justify-center">
-        <div class="rounded-full border border-green-100">
-          <img src="/images/inetlogo.png" alt="CSC Logo" class="h-14 w-auto">
-        </div>
-      </div> -->
+  <div class="container mx-auto px-4 py-10">
+    <div class="flex flex-col md:flex-row items-center md:items-start md:pt-4 gap-10">
       
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">
-        Your Trusted Gateway to<br>
-        <span class="text-green-600">Government & Essential Services</span>
-      </h1>
-      
-      <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-        Common Services Centres provide convenient access to 300+ government and 
-        utility services across India - from passport applications to bill payments, 
-        all within your neighborhood.
-      </p>
-      
-      <!-- Service badges with better contrast -->
-      <div class="flex flex-wrap justify-center gap-3 mb-10">
-        <div class="bg-green-50 px-4 py-2 rounded-full border border-green-100 flex items-center">
-          <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <span class="text-gray-700">Passport Services</span>
+      <!-- 🟩 Left Content -->
+      <div class="w-full md:w-1/2 text-center md:text-left">
+        <h1 class="text-2xl md:text-3xl font-bold mb-6 leading-tight text-gray-900">
+          <span class="">{{ 'HEROHEADER' | translate }}</span>
+        </h1>
+
+        <p class=" text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
+        <span [innerHTML]=" 'HEROSUBHEADER' | translate" ></span> 
+        </p>
+
+       
+
+        <!-- ✅ CTA Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+          <a href="/services" target="_blank"
+            class="border-2 border-secondary text-secondary hover:bg-primary hover:text-primary px-8 py-3 rounded-lg font-semibold text-lg transition">
+          {{ 'EXPLOREALLSERVICES' | translate }}
+          </a>
+          <a href="/login"
+            class="bg-primary hover:bg-secondary text-white px-8 py-3 rounded-lg font-semibold text-lg transition shadow-md hover:shadow-lg">
+            {{ 'LOGININTOYOURACCOUNT' | translate }}
+
+          </a>
+          
         </div>
-        <div class="bg-green-50 px-4 py-2 rounded-full border border-green-100 flex items-center">
-          <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <span class="text-gray-700">Aadhaar & PAN</span>
-        </div>
-        <div class="bg-green-50 px-4 py-2 rounded-full border border-green-100 flex items-center">
-          <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <span class="text-gray-700">Bill Payments</span>
-        </div>
-        <div class="bg-green-50 px-4 py-2 rounded-full border border-green-100 flex items-center">
-          <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <span class="text-gray-700">Travel Bookings</span>
-        </div>
+        <!-- ✅ News Section -->
+         <section class="text-black mt-2 md:mt-4 h-auto py-2 ">
+  <ngx-fast-marquee [speed]="50" gradient="false" [pauseOnHover]="true">
+    <div class="mx-8 flex items-center gap-2">
+      <lucide-icon name="info" class="w-5 h-5 text-yellow-400"></lucide-icon>
+      <span>Introducing AutoPay! Never miss a bill again. </span>
+    </div>
+    <div class="mx-8 flex items-center gap-2">
+      <lucide-icon name="gift" class="w-5 h-5 text-pink-400"></lucide-icon>
+      <span>Get 5% cashback on your first recharge this month.</span>
+    </div>
+    <div class="mx-8 flex items-center gap-2">
+      <lucide-icon name="shield-check" class="w-5 h-5 text-green-400"></lucide-icon>
+      <span>All transactions are protected with 256-bit encryption.</span>
+    </div>
+    <div class="mx-8 flex items-center gap-2">
+      <lucide-icon name="headphones" class="w-5 h-5 text-blue-300"></lucide-icon>
+      <span>Need help? Our support team is available 24/7.</span>
+    </div>
+    <div class="mx-8 flex items-center gap-2">
+      <lucide-icon name="zap" class="w-5 h-5 text-orange-400"></lucide-icon>
+      <span>Experience lightning-fast transactions like never before!</span>
+    </div>
+  </ngx-fast-marquee>
+</section>
+
       </div>
-      
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#services" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all shadow-md hover:shadow-lg">
-          Explore All Services
-        </a>
-        <a href='https://ui-portal.inetcsc.com/' target="_blank" class="border-2 border-green-600 text-green-600 hover:bg-green-50 px-8 py-3 rounded-lg font-semibold text-lg transition-all">
-          Visit Inet CSC
-        </a>
+
+      <!-- 🟦 Right Image Placeholder / Slider -->
+      <div class="w-full md:w-1/2 flex justify-center">
+        <app-home-sliders></app-home-sliders>
       </div>
     </div>
   </div>
-  
-  <!-- Bottom divider (optional) -->
-  <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent z-0"></div>
+
+
+  <!-- SERVICES -->
+ <div class="container mx-auto px-4 py-10">
+  <!-- Loop through categories -->
+  <div *ngFor="let category of categories" class="mb-12">
+    <!-- Category Title with Icon -->
+    <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center">
+      <lucide-icon [name]="getCategoryIcon(category.name)" 
+                  class="w-6 h-6 mr-3 {{category.text}}"></lucide-icon>
+      {{ 'CATEGORIES.' + category.name | translate }}
+    </h2>
+    
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <!-- Loop through services in this category -->
+      <div *ngFor="let service of category.services"
+           class="{{category.color}} p-4 rounded-xl border {{category.border}} flex items-center shadow-sm hover:shadow-md transition-all">
+        <!-- Service Icon -->
+        <div class="p-2 rounded-lg {{category.color}} mr-3">
+          <lucide-icon [name]="getServiceIcon(service)" 
+                      class="w-5 h-5 {{category.text}}"></lucide-icon>
+        </div>
+        
+        <!-- Service Name -->
+        <span class="{{category.text}} font-medium">{{ 'SERVICES.' + service | translate }}</span>
+      </div>
+    </div>
+  </div>
+</div>
 </section>

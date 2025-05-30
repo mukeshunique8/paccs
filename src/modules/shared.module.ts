@@ -5,19 +5,22 @@ import { RouterLinkActive, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { LucideIconsModule } from './lucide-icons.module';
 import { CarouselModule } from 'primeng/carousel';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageSwitcherComponent } from '../ui_components/language-switcher/language-switcher.component';
 
 @NgModule({
   imports: [
+    TranslateModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
     RouterLinkActive,
-
     LucideIconsModule,
     // UI modules
     ButtonModule,
-    CarouselModule
+    CarouselModule,
+    LanguageSwitcherComponent
   ],
   exports: [
     CommonModule,
@@ -27,7 +30,9 @@ import { CarouselModule } from 'primeng/carousel';
 LucideIconsModule,
     // UI modules
     ButtonModule,
-    CarouselModule
+    CarouselModule,
+    LanguageSwitcherComponent,TranslateModule
+    
     
   ]
 })

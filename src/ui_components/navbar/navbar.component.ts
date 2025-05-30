@@ -10,6 +10,7 @@ import {
   ChevronDown
 } from 'lucide-angular';
 import { SharedModule } from '../../modules/shared.module';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -19,20 +20,31 @@ import { SharedModule } from '../../modules/shared.module';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  menuItems: { name: any; href: string; subItems: never[]; }[] | undefined;
+  constructor(private translate: TranslateService) {}
+
   isMenuOpen = false;
-  
-  // Menu items
-  menuItems = [
-    { name: 'Home', href: '/', subItems: [] },
-    // { name: 'Products', href: '/products', subItems: [
-    //   { name: 'Product 1', href: '/products/1' },
-    //   { name: 'Product 2', href: '/products/2' }
-    // ]},
-    { name: 'Partners', href: '/partners', subItems: [] },
-    { name: 'Services', href: '/services', subItems: [] },
-    { name: 'About', href: '/about', subItems: [] },
-    { name: 'Contact', href: '/contact', subItems: [] }
-  ];
+  ngOnInit() {
+  this.translate.stream([
+    'NAV.HOME',
+    'NAV.PARTNERS',
+    'NAV.SERVICES',
+    'NAV.ABOUT',
+    'NAV.CONTACT',
+    'NAV.LOGIN',
+  ]).subscribe(translations => {
+    this.menuItems = [
+      { name: translations['NAV.HOME'], href: '/', subItems: [] },
+      { name: translations['NAV.PARTNERS'], href: '/partners', subItems: [] },
+      { name: translations['NAV.SERVICES'], href: '/services', subItems: [] },
+      { name: translations['NAV.ABOUT'], href: '/about', subItems: [] },
+      { name: translations['NAV.CONTACT'], href: '/contact', subItems: [] },
+      { name: translations['NAV.LOGIN'], href: '/login', subItems: [] },
+    ];
+  });
+}
+
+
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

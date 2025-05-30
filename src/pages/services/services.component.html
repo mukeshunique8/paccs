@@ -18,63 +18,35 @@
 
   <!-- Service Categories -->
   <section class="service-categories mb-20">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-2xl font-semibold text-gray-800 mb-8 text-center flex items-center justify-center">
-        <lucide-icon name="grid" class="w-8 h-8 text-purple-600 mr-3"></lucide-icon>
-        Service Categories
-      </h2>
-      
-      <!-- Category Tabs -->
-      <p-tabView class="mb-12">
-        <p-tabPanel header="Financial Services">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            <div *ngFor="let service of financialServices" class="service-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div class="p-6">
-                <div class="flex items-center mb-4">
-                  <div [ngClass]="service.color" class="p-3 rounded-full mr-4">
-                    <lucide-icon [name]="service.icon" class="w-6 h-6 text-white"></lucide-icon>
-                  </div>
-                  <h3 class="text-lg font-semibold">{{ service.name }}</h3>
-                </div>
-                <p class="text-gray-600 text-sm">{{ service.description }}</p>
-              </div>
-            </div>
+    <div class="container mx-auto px-4 py-10">
+  <div *ngFor="let category of categories" class="mb-12">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center">
+      <!-- <span class="w-8 h-8 rounded-full {{category.color}} {{category.text}} flex items-center justify-center mr-3">
+        {{ category.name.charAt(0) }}
+      </span> -->
+      {{ 'CATEGORIES.' + category.name | translate }}
+    </h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div *ngFor="let service of category.services"
+           class="{{category.color}} p-4 rounded-xl border {{category.border}} flex flex-col hover:shadow-lg transition-all">
+        <div class="flex items-center mb-3">
+          <div class="w-10 h-10 rounded-full {{category.color}} {{category.border}} border-2 flex items-center justify-center mr-3">
+            <svg class="w-5 h-5 {{category.text}}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
-        </p-tabPanel>
-        
-        <p-tabPanel header="Government Services">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            <div *ngFor="let service of governmentServices" class="service-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div class="p-6">
-                <div class="flex items-center mb-4">
-                  <div [ngClass]="service.color" class="p-3 rounded-full mr-4">
-                    <lucide-icon [name]="service.icon" class="w-6 h-6 text-white"></lucide-icon>
-                  </div>
-                  <h3 class="text-lg font-semibold">{{ service.name }}</h3>
-                </div>
-                <p class="text-gray-600 text-sm">{{ service.description }}</p>
-              </div>
-            </div>
-          </div>
-        </p-tabPanel>
-        
-        <p-tabPanel header="Utility Services">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            <div *ngFor="let service of utilityServices" class="service-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div class="p-6">
-                <div class="flex items-center mb-4">
-                  <div [ngClass]="service.color" class="p-3 rounded-full mr-4">
-                    <lucide-icon [name]="service.icon" class="w-6 h-6 text-white"></lucide-icon>
-                  </div>
-                  <h3 class="text-lg font-semibold">{{ service.name }}</h3>
-                </div>
-                <p class="text-gray-600 text-sm">{{ service.description }}</p>
-              </div>
-            </div>
-          </div>
-        </p-tabPanel>
-      </p-tabView>
+          <h3 class="{{category.text}} font-semibold text-lg">{{ 'SERVICES.' + service | translate }}</h3>
+        </div>
+        <p class="text-gray-600 text-sm">Service description would go here</p>
+        <button class="mt-4 {{category.text}} hover:underline self-start text-sm font-medium">
+          Learn more →
+        </button>
+      </div>
     </div>
+  </div>
+</div>
   </section>
 
   <!-- Popular Services -->
@@ -92,7 +64,7 @@
           <div [ngClass]="service.color" class="p-3 rounded-full w-12 h-12 mx-auto mb-3 flex items-center justify-center">
             <lucide-icon [name]="service.icon" class="w-6 h-6 text-white"></lucide-icon>
           </div>
-          <h3 class="font-medium text-sm">{{ service.name }}</h3>
+          <h3 class="font-medium text-black text-sm">{{ service.name }}</h3>
         </div>
       </div>
     </div>
@@ -111,7 +83,7 @@
           <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
             <lucide-icon name="user" class="w-8 h-8 text-blue-600"></lucide-icon>
           </div>
-          <h3 class="text-lg font-medium mb-2">1. Select Service</h3>
+          <h3 class="text-lg font-medium text-black mb-2">1. Select Service</h3>
           <p class="text-gray-600">Choose from 50+ services across categories</p>
         </div>
         
@@ -119,7 +91,7 @@
           <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
             <lucide-icon name="credit-card" class="w-8 h-8 text-purple-600"></lucide-icon>
           </div>
-          <h3 class="text-lg font-medium mb-2">2. Make Payment</h3>
+          <h3 class="text-lg font-medium text-black mb-2">2. Make Payment</h3>
           <p class="text-gray-600">Secure transactions via multiple payment options</p>
         </div>
         
@@ -127,7 +99,7 @@
           <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
             <lucide-icon name="check-circle" class="w-8 h-8 text-green-600"></lucide-icon>
           </div>
-          <h3 class="text-lg font-medium mb-2">3. Get Confirmation</h3>
+          <h3 class="text-lg font-medium text-black mb-2">3. Get Confirmation</h3>
           <p class="text-gray-600">Instant confirmation with service details</p>
         </div>
       </div>

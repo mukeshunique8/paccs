@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pacss": {
+    "Paccs": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
               "allowedCommonJsDependencies": ["leaflet"],
-            "outputPath": "dist/pacss",
+            "outputPath": "dist/Paccs",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -29,6 +29,8 @@
             ],
             "styles": [
               "src/styles.css",
+                           "src/styles/layout/layout.css",
+
                "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
@@ -61,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "pacss:build:production"
+              "buildTarget": "Paccs:build:production"
             },
             "development": {
-              "buildTarget": "pacss:build:development"
+              "buildTarget": "Paccs:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -88,6 +90,8 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/styles/layout/layout.css",
+
                "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []

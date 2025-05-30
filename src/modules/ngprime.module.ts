@@ -102,7 +102,6 @@
     import { IconFieldModule } from 'primeng/iconfield';
     import { InputIconModule } from 'primeng/inputicon';
     import { DrawerModule } from 'primeng/drawer';
-import { ProductService } from '../service/productservice';
 import { TabViewModule } from 'primeng/tabview';
 
 
@@ -318,7 +317,6 @@ import { TabViewModule } from 'primeng/tabview';
             AutoFocusModule,
             OverlayBadgeModule,
           ],
-      providers: [ ProductService ]
     })
     export class NgPrimeModule {}
     

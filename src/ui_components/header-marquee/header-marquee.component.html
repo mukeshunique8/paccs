@@ -1,0 +1,9 @@
+<div class="w-full py-2 bg-orange-600 flex flex-col gap-2 items-center overflow-hidden">
+  <ng-container *ngIf="showMarquee">
+    <ngx-fast-marquee >
+      <div class="flex flex-column justify-start items-start">
+        <div>{{ currentKural?.Line1 }}, {{ currentKural?.Line2 }}</div> 
+      </div>
+    </ngx-fast-marquee>
+  </ng-container>
+</div>

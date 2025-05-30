@@ -34,4 +34,77 @@ testimonials =[
   }
 ]
 
+features = [
+  {
+    icon: 'zap',
+    color: 'bg-blue-100',
+    iconColor: 'text-blue-600',
+    titleKey: 'FEATURES.FAST_TRANSACTIONS.TITLE',
+    descKey: 'FEATURES.FAST_TRANSACTIONS.DESCRIPTION'
+  },
+  {
+    icon: 'shield-check',
+    color: 'bg-green-100',
+    iconColor: 'text-green-600',
+    titleKey: 'FEATURES.SECURITY.TITLE',
+    descKey: 'FEATURES.SECURITY.DESCRIPTION'
+  },
+  {
+    icon: 'smartphone',
+    color: 'bg-purple-100',
+    iconColor: 'text-purple-600',
+    titleKey: 'FEATURES.MOBILE.TITLE',
+    descKey: 'FEATURES.MOBILE.DESCRIPTION'
+  },
+  {
+    icon: 'headphones',
+    color: 'bg-orange-100',
+    iconColor: 'text-orange-600',
+    titleKey: 'FEATURES.SUPPORT.TITLE',
+    descKey: 'FEATURES.SUPPORT.DESCRIPTION'
+  },
+  {
+    icon: 'badge-percent',
+    color: 'bg-red-100',
+    iconColor: 'text-red-600',
+    titleKey: 'FEATURES.DISCOUNTS.TITLE',
+    descKey: 'FEATURES.DISCOUNTS.DESCRIPTION'
+  },
+  {
+    icon: 'refresh-cw',
+    color: 'bg-indigo-100',
+    iconColor: 'text-indigo-600',
+    titleKey: 'FEATURES.AUTO_PAY.TITLE',
+    descKey: 'FEATURES.AUTO_PAY.DESCRIPTION'
+  }
+];
+ statsData = [
+  {
+    icon: 'smile',
+    value: '50K+',
+    titleKey: 'happyCustomers',
+    iconColor: 'text-green-400',
+  },
+  {
+    icon: 'grid',
+    value: '120+',
+    titleKey: 'servicesOffered',
+    iconColor: 'text-yellow-400',
+  },
+  {
+    icon: 'headphones',
+    value: '24/7',
+    titleKey: 'customerSupport',
+    iconColor: 'text-white',
+  },
+  {
+    icon: 'credit-card',
+    value: '10M+',
+    titleKey: 'transactionsMonthly',
+    iconColor: 'text-pink-400',
+  },
+];
+
+
+
 }
