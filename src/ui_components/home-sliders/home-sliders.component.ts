@@ -9,11 +9,17 @@ import { SharedModule } from '../../modules/shared.module';
 })
 export class HomeSlidersComponent {
   images = [
-    '/sliders/1.png',
-    '/sliders/2.png',
-    '/sliders/3.png',
-    '/sliders/4.png',
-    '/sliders/5.png',
+    '/images/hero/1.jpg',
+    '/images/hero/2.jpg',
+    '/images/hero/3.jpg',
+    '/images/hero/4.jpg',
+    '/images/hero/5.jpg',
+    '/images/hero/6.jpg',
+    '/images/hero/8.jpg',
+    '/images/hero/9.jpg',
+    '/images/hero/10.jpg',
+    // '/images/hero/4.png',
+    // '/images/hero/5.png',
   ];
 
   responsiveOptions = [

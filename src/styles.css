@@ -78,6 +78,7 @@ body.lang-ta {
 body.lang-ta h1 {font-family: var(--tamil-font) !important;  font-size: 22px !important; }
 body.lang-ta h2 {font-family: var(--tamil-font) !important;  font-size: 20px !important; }
 body.lang-ta h3 {font-family: var(--tamil-font) !important;  font-size: 18px !important; }
+body.lang-ta a {font-family: var(--tamil-font) !important;  font-size: 12px !important; }
 
 
 /* TAILWIND PRIMARY SECONDARY COLORS */
@@ -119,6 +120,9 @@ body.lang-ta h3 {font-family: var(--tamil-font) !important;  font-size: 18px !im
 }
 
 
+.hover\:bg-primary:hover {
+  background-color: var(--color-primary);
+}
 
 
 

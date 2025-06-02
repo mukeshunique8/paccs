@@ -1,94 +1,97 @@
 <section class="relative bg-white overflow-hidden">
-  <div class="container mx-auto px-4 py-10">
-    <div class="flex flex-col md:flex-row items-center md:items-start md:pt-4 gap-10">
-      
-      <!-- 🟩 Left Content -->
-      <div class="w-full md:w-1/2 text-center md:text-left">
-        <h1 class="text-2xl md:text-3xl font-bold mb-6 leading-tight text-gray-900">
-          <span class="">{{ 'HEROHEADER' | translate }}</span>
-        </h1>
-
-        <p class=" text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
-        <span [innerHTML]=" 'HEROSUBHEADER' | translate" ></span> 
-        </p>
-
-       
-
-        <!-- ✅ CTA Buttons -->
-        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-          <a href="/services" target="_blank"
-            class="border-2 border-secondary text-secondary hover:bg-primary hover:text-primary px-8 py-3 rounded-lg font-semibold text-lg transition">
-          {{ 'EXPLOREALLSERVICES' | translate }}
-          </a>
-          <a href="/login"
-            class="bg-primary hover:bg-secondary text-white px-8 py-3 rounded-lg font-semibold text-lg transition shadow-md hover:shadow-lg">
-            {{ 'LOGININTOYOURACCOUNT' | translate }}
-
-          </a>
-          
-        </div>
-        <!-- ✅ News Section -->
-         <section class="text-black mt-2 md:mt-4 h-auto py-2 ">
-  <ngx-fast-marquee [speed]="50" gradient="false" [pauseOnHover]="true">
-    <div class="mx-8 flex items-center gap-2">
-      <lucide-icon name="info" class="w-5 h-5 text-yellow-400"></lucide-icon>
-      <span>Introducing AutoPay! Never miss a bill again. </span>
-    </div>
-    <div class="mx-8 flex items-center gap-2">
-      <lucide-icon name="gift" class="w-5 h-5 text-pink-400"></lucide-icon>
-      <span>Get 5% cashback on your first recharge this month.</span>
-    </div>
-    <div class="mx-8 flex items-center gap-2">
-      <lucide-icon name="shield-check" class="w-5 h-5 text-green-400"></lucide-icon>
-      <span>All transactions are protected with 256-bit encryption.</span>
-    </div>
-    <div class="mx-8 flex items-center gap-2">
-      <lucide-icon name="headphones" class="w-5 h-5 text-blue-300"></lucide-icon>
-      <span>Need help? Our support team is available 24/7.</span>
-    </div>
-    <div class="mx-8 flex items-center gap-2">
-      <lucide-icon name="zap" class="w-5 h-5 text-orange-400"></lucide-icon>
-      <span>Experience lightning-fast transactions like never before!</span>
-    </div>
-  </ngx-fast-marquee>
-</section>
-
-      </div>
-
-      <!-- 🟦 Right Image Placeholder / Slider -->
-      <div class="w-full md:w-1/2 flex justify-center">
-        <app-home-sliders></app-home-sliders>
-      </div>
-    </div>
+  <div class="relative w-full min-h-[90vh] overflow-hidden">
+  <!-- Background Image Slider with Dark Overlay -->
+  <div class="absolute inset-0 z-0">
+    <app-home-sliders></app-home-sliders>
+    <div class="absolute inset-0 bg-black/50"></div>
   </div>
 
+  <!-- Foreground Content -->
+  <div class="relative z-10 container mx-auto px-4 h-full flex items-center justify-center">
+    <div class="w-full max-w-4xl py-12">
+      <!-- Main Content Card -->
+         <!-- <div class="bg-white/10 backdrop-blur-md p-8 md:p-10 rounded-xl border border-white/20 shadow-2xl"></div> -->
+      <div class=" p-8 md:p-10 rounded-xl ">
+        <!-- Header -->
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center text-white leading-tight drop-shadow-lg">
+          {{ 'HEROHEADER' | translate }}
+        </h1>
 
-  <!-- SERVICES -->
- <div class="container mx-auto px-4 py-10">
-  <!-- Loop through categories -->
-  <div *ngFor="let category of categories" class="mb-12">
-    <!-- Category Title with Icon -->
-    <h2 class="text-2xl font-bold mb-6 text-gray-800 flex items-center">
-      <lucide-icon [name]="getCategoryIcon(category.name)" 
-                  class="w-6 h-6 mr-3 {{category.text}}"></lucide-icon>
-      {{ 'CATEGORIES.' + category.name | translate }}
-    </h2>
-    
-    <!-- Services Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <!-- Loop through services in this category -->
-      <div *ngFor="let service of category.services"
-           class="{{category.color}} p-4 rounded-xl border {{category.border}} flex items-center shadow-sm hover:shadow-md transition-all">
-        <!-- Service Icon -->
-        <div class="p-2 rounded-lg {{category.color}} mr-3">
-          <lucide-icon [name]="getServiceIcon(service)" 
-                      class="w-5 h-5 {{category.text}}"></lucide-icon>
+        <!-- Subheader -->
+        <p class="text-lg md:text-xl text-white/90 mb-10 text-center leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+          <span [innerHTML]="'HEROSUBHEADER' | translate"></span>
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+          <a href="/services" target="_blank"
+            class="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
+            {{ 'EXPLOREALLSERVICES' | translate }}
+          </a>
+          <a href="/login"
+            class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
+            {{ 'LOGININTOYOURACCOUNT' | translate }}
+          </a>
         </div>
-        
-        <!-- Service Name -->
-        <span class="{{category.text}} font-medium">{{ 'SERVICES.' + service | translate }}</span>
+
+        <!-- News Marquee -->
+        <div class="bg-black/30 p-4 rounded-lg border border-white/10">
+          <ngx-fast-marquee [speed]="50" gradient="false" [pauseOnHover]="true">
+            <div class="mx-4 flex items-center gap-3">
+              <lucide-icon name="info" class="w-5 h-5 text-yellow-300 shrink-0"></lucide-icon>
+              <span class="font-medium text-white">Introducing AutoPay! Never miss a bill again.</span>
+            </div>
+            <div class="mx-4 flex items-center gap-3">
+              <lucide-icon name="gift" class="w-5 h-5 text-pink-300 shrink-0"></lucide-icon>
+              <span class="font-medium text-white">Get 5% cashback on your first recharge this month.</span>
+            </div>
+            <div class="mx-4 flex items-center gap-3">
+              <lucide-icon name="shield-check" class="w-5 h-5 text-green-300 shrink-0"></lucide-icon>
+              <span class="font-medium text-white">All transactions are protected with 256-bit encryption.</span>
+            </div>
+          </ngx-fast-marquee>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+  <!-- SERVICES -->
+   <h2 class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-black text-center py-10">
+  Our Services
+</h2>
+
+ <!-- SERVICES SECTION -->
+<div class="container mx-auto px-4 py-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    
+    <!-- Loop through categories -->
+    <div *ngFor="let category of categories" class="rounded-2xl p-6   transition-all bg-white group">
+      
+      <!-- Category Header -->
+      <div class="flex items-center mb-4">
+        <div class="bg-primary  p-3 rounded-full">
+          <lucide-icon [name]="getCategoryIcon(category.name)" class="w-5 h-5"></lucide-icon>
+        </div>
+        <h2 class="ml-4 text-xl font-bold text-gray-800 group-hover:text-primary transition">
+          {{ 'CATEGORIES.' + category.name | translate }}
+        </h2>
+      </div>
+      
+      <!-- Services List -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div *ngFor="let service of category.services"
+             class="flex items-center gap-3 px-4 py-3 rounded-lg bg-gray-100 hover:bg-primary cursor-pointer transition-all duration-200">
+          <div class="p-2 bg-white rounded shadow">
+            <lucide-icon [name]="getServiceIcon(service)" class="w-4 h-4 text-gray-700 -"></lucide-icon>
+          </div>
+          <span class="text-sm font-medium">{{ 'SERVICES.' + service | translate }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 </section>

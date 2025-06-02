@@ -66,5 +66,29 @@ export class HomeHeroComponent {
   getCategoryIcon(category: string): string {
     return CATEGORY_ICONS[category] || 'folder';
   }
+images = [
+    '/images/hero/1.png',
+    '/images/hero/2.png',
+    '/images/hero/3.png',
+    // '/images/hero/4.png',
+    // '/images/hero/5.png',
+  ];
 
+  responsiveOptions = [
+    {
+      breakpoint: '1024px',
+      numVisible: 1,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 1,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1,
+      numScroll: 1,
+    },
+  ];
 }
