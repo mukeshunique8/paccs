@@ -1,34 +1,136 @@
 @import "tailwindcss";
-/* @import "primeicons/primeicons.css";
 
-@import "/assets/layout/layout.css";
-@import "/assets/layout/variables/_common.css";
-@import "/assets/layout/variables/_light.css";      
-@import "/assets/layout/variables/_dark.css";
-@import "/assets/layout/_mixins.css";
-@import "/assets/layout/_preloading.css";
-@import "/assets/layout/_core.css";
-@import "/assets/layout/_main.css";
-@import "/assets/layout/_topbar.css";
-@import "/assets/layout/_menu.css";
-@import "/assets/layout/_footer.css";
-@import "/assets/layout/_responsive.css";
-@import "/assets/layout/_utils.css";
-@import "/assets/layout/_typography.css"; */
-
-body{
-  background-color: #FFFFFF;
-}
-
-
-/* Custom scrollbar for the entire app */
+/* Base color scheme */
 :root {
+  /* Light mode colors */
+  --color-primary: #00c9a7;
+  --color-primary-hover: #00b397;
+  --color-secondary: #845ec2;
+  --color-secondary-hover: #764bc9;
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-bg: #ffffff;
+  --color-surface: #f9fafb;
+  --color-border: #e5e7eb;
+
+  /* Dark mode colors */
+  --color-dark-primary: #00d6b2;
+  --color-dark-primary-hover: #00c9a7;
+  --color-dark-secondary: #9a7bd4;
+  --color-dark-secondary-hover: #8a6bcb;
+  --color-dark-text: #f3f4f6;
+  --color-dark-text-muted: #9ca3af;
+  --color-dark-bg: #0e1014;
+  --color-dark-surface: #1f2937;
+  --color-dark-border: #374151;
+
+  /* Scrollbar */
   --scrollbar-track: #EEEEEE;
-  --scrollbar-thumb: #00c9a7; /* Green color */
-  --scrollbar-thumb-hover: #45a049; /* Darker green */
+  --scrollbar-thumb: var(--color-primary);
+  --scrollbar-thumb-hover: var(--color-primary-hover);
+    --gov-font-inter: 'Inter', sans-serif;
+  --gov-font-roboto: 'Roboto', sans-serif;
+  --gov-font-noto: 'Noto Sans', sans-serif;
+  --gov-font-source: 'Source Sans 3', sans-serif;
+  --gov-font-open: 'Open Sans', sans-serif;
+  --gov-font-merriweather: 'Merriweather', serif; 
+    --tamil-font: 'Noto Sans Tamil', sans-serif;
+
 }
 
-/* Works for Chrome, Edge, and Safari */
+/* Dark mode class */
+.dark {
+  --color-primary: var(--color-dark-primary);
+  --color-primary-hover: var(--color-dark-primary-hover);
+  --color-secondary: var(--color-dark-secondary);
+  --color-secondary-hover: var(--color-dark-secondary-hover);
+  --color-text: var(--color-dark-text);
+  --color-text-muted: var(--color-dark-text-muted);
+  --color-bg: var(--color-dark-bg);
+  --color-surface: var(--color-dark-surface);
+  --color-border: var(--color-dark-border);
+  
+  --scrollbar-track: #1f2937;
+  --scrollbar-thumb: var(--color-dark-primary);
+  --scrollbar-thumb-hover: var(--color-dark-primary-hover);
+}
+
+/* Base styles */
+body {
+  /* background-color: var(--color-bg); */
+  /* color: var(--color-text); */
+  font-family: var(--gov-font-roboto);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.text-foreground {
+  color: var(--color-text);
+}
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+/* Background Colors */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+/* Hover States */
+.hover\:bg-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+.hover\:bg-secondary:hover {
+  background-color: var(--color-secondary-hover);
+}
+.hover\:text-primary:hover {
+  color: var(--color-primary-hover);
+}
+.hover\:text-secondary:hover {
+  color: var(--color-secondary-hover);
+}
+
+/* Border Colors */
+.border-primary {
+  border-color: var(--color-primary);
+}
+.border-secondary {
+  border-color: var(--color-secondary);
+}
+.border-surface {
+  border-color: var(--color-border);
+}
+
+/* Gradients */
+.bg-primary-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+/* Tamil language specific styles */
+body.lang-ta {
+  font-family: var(--tamil-font);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+body.lang-ta h1 { font-family: var(--tamil-font) !important; font-size: 22px !important; }
+body.lang-ta h2 { font-family: var(--tamil-font) !important; font-size: 20px !important; }
+body.lang-ta h3 { font-family: var(--tamil-font) !important; font-size: 18px !important; }
+body.lang-ta a { font-family: var(--tamil-font) !important; font-size: 12px !important; }
+
+/* Scrollbar styles (same as before) */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -49,84 +151,7 @@ body{
   background: var(--scrollbar-thumb-hover);
 }
 
-/* Firefox support */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
-
-:root {
-  --gov-font-inter: 'Inter', sans-serif;
-  --gov-font-roboto: 'Roboto', sans-serif;
-  --gov-font-noto: 'Noto Sans', sans-serif;
-  --gov-font-source: 'Source Sans 3', sans-serif;
-  --gov-font-open: 'Open Sans', sans-serif;
-  --gov-font-merriweather: 'Merriweather', serif; 
-    --tamil-font: 'Noto Sans Tamil', sans-serif;
-}
-
-body {
-  font-family: var(--gov-font-source);
-}
-
-body.lang-ta {
-  font-family: var(--tamil-font);
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-body.lang-ta h1 {font-family: var(--tamil-font) !important;  font-size: 22px !important; }
-body.lang-ta h2 {font-family: var(--tamil-font) !important;  font-size: 20px !important; }
-body.lang-ta h3 {font-family: var(--tamil-font) !important;  font-size: 18px !important; }
-body.lang-ta a {font-family: var(--tamil-font) !important;  font-size: 12px !important; }
-
-
-/* TAILWIND PRIMARY SECONDARY COLORS */
-:root {
-  --color-primary: #00c9a7;   /* green-500 - vibrant green */
-  --color-secondary: #845ec2; /* emerald-500 - harmonious with green */
-  --color-text: #1f2937;      /* gray-800 for good readability */
-  --color-bg: #FFFFFF;        /* default white background */
-}
-
-/* Text Colors */
-.text-primary {
-  color: var(--color-primary);
-}
-.text-secondary {
-  color: var(--color-secondary);
-}
-.text-foreground {
-  color: var(--color-text);
-}
-
-/* Background Colors */
-.bg-primary {
-  background-color: var(--color-primary);
-}
-.bg-secondary {
-  background-color: var(--color-secondary);
-}
-.bg-surface {
-  background-color: var(--color-bg);
-}
-
-/* Border Colors */
-.border-primary {
-  border-color: var(--color-primary);
-}
-.border-secondary {
-  border-color: var(--color-secondary);
-}
-
-
-.hover\:bg-primary:hover {
-  background-color: var(--color-primary);
-}
-
-
-
-
-
-
-

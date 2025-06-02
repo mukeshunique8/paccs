@@ -1,0 +1,43 @@
+<!-- dash-sidebar.component.html -->
+<div class="h-full flex flex-col bg-gradient-to-b from-indigo-800 to-indigo-900 text-white shadow-lg">
+  <!-- Logo Section -->
+  <div class="p-4 flex items-center justify-between border-b border-indigo-700">
+    <h1 class="text-xl font-bold whitespace-nowrap overflow-hidden" [class.hidden]="collapsed">
+      Paccs
+    </h1>
+    <button (click)="toggleCollapse.emit()" class="p-2 rounded-full hover:bg-indigo-700">
+  <lucide-icon 
+    [name]="collapsed ? 'arrow-left-from-line' : 'arrow-right-from-line'" 
+    class="w-6 h-6 text-white">
+  </lucide-icon>
+</button>
+
+  </div>
+
+  <!-- Menu Items -->
+  <nav class="flex-1 overflow-y-auto py-4">
+    <ul>
+      <li *ngFor="let item of menuItems">
+        <a (click)="selectItem(item.route)"
+           class="flex items-center px-4 py-3 mx-2 rounded-lg transition-all hover:bg-indigo-700"
+           [class.bg-indigo-600]="activeItem === item.route"
+           [class.justify-center]="collapsed"
+           [title]="collapsed ? item.label : ''">
+          <i [class]="item.icon" class="text-lg"></i>
+          <span class="ml-3 whitespace-nowrap" [class.hidden]="collapsed">{{item.label}}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- User Profile -->
+  <div class="p-4 border-t border-indigo-700">
+    <div class="flex items-center" [class.justify-center]="collapsed">
+      <img src="assets/images/user-avatar.png" alt="User" class="w-10 h-10 rounded-full">
+      <div class="ml-3" [class.hidden]="collapsed">
+        <p class="font-medium">John Doe</p>
+        <p class="text-xs text-indigo-300">Admin</p>
+      </div>
+    </div>
+  </div>
+</div>

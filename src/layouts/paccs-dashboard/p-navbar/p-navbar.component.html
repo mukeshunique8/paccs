@@ -1,0 +1,30 @@
+<!-- dash-nav.component.html -->
+<header class="bg-white shadow-sm z-40">
+  <div class="flex items-center justify-between px-4 py-3 sm:px-6">
+    <!-- Left Section -->
+    <div class="flex items-center">
+      <button (click)="toggleSidebar.emit()" class="p-2 mr-2 rounded-md text-gray-500 hover:bg-gray-100 md:hidden">
+        <i class="pi pi-bars"></i>
+      </button>
+      <div class="relative max-w-md w-full hidden md:block">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <i class="pi pi-search text-gray-400"></i>
+        </div>
+        <input [(ngModel)]="searchQuery" type="text" 
+               class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
+               placeholder="Search...">
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="flex items-center space-x-4">
+      <button class="p-2 rounded-full text-gray-500 hover:bg-gray-100 relative">
+        <i class="pi pi-bell"></i>
+        <!-- <span *ngIf="notifications.filter(n => !n.read).length" 
+              class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500"></span> -->
+      </button>
+      
+      <p-avatar image="assets/images/user-avatar.png" size="large" shape="circle"></p-avatar>
+    </div>
+  </div>
+</header>

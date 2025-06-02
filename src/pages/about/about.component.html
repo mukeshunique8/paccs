@@ -4,7 +4,7 @@
     <!-- Hero Section -->
     <section class="text-center mb-20">
       <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        About <span class="text-green-600">Common Services Centres</span>
+        About <span class="text-primary">Common Services Centres</span>
       </h1>
       <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
         Empowering citizens through accessible digital services across India
@@ -16,7 +16,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div class="p-8">
           <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                <lucide-icon name="badge-info" class="w-8 h-8 text-green-600 mr-3"></lucide-icon>
+                <lucide-icon name="badge-info" class="w-8 h-8 text-primary mr-3"></lucide-icon>
 
             Our Mission
           </h2>
@@ -28,7 +28,7 @@
           <p-button 
             label="Learn About Our Services" 
             icon="lucide-external-link" 
-            styleClass="p-button-outlined border-green-600 text-green-600 hover:bg-green-50"
+            styleClass="p-button-outlined border-green-600 text-primary hover:bg-green-50"
             [routerLink]="['/services']"
           ></p-button>
         </div>
@@ -39,8 +39,8 @@
     <!-- Stats Section -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
       <p-card class="text-center p-6 shadow-none  hover:shadow-md transition-all">
-        <div class="text-green-600 mb-4">
-                <lucide-icon name="map-pinned" class="w-8 h-8 text-green-600 mr-3"></lucide-icon>
+        <div class="text-primary mb-4">
+                <lucide-icon name="map-pinned" class="w-8 h-8 text-primary mr-3"></lucide-icon>
 
         </div>
         <h3 class="text-4xl font-bold text-gray-900 mb-2">4.5L+</h3>
@@ -48,8 +48,8 @@
       </p-card>
       
       <p-card class="text-center p-6 shadow-none  hover:shadow-md transition-all">
-        <div class="text-green-600 mb-4">
-                <lucide-icon name="users" class="w-8 h-8 text-green-600 mr-3"></lucide-icon>
+        <div class="text-primary mb-4">
+                <lucide-icon name="users" class="w-8 h-8 text-primary mr-3"></lucide-icon>
 
         </div>
         <h3 class="text-4xl font-bold text-gray-900 mb-2">300+</h3>
@@ -57,8 +57,8 @@
       </p-card>
       
       <p-card class="text-center p-6 shadow-none  hover:shadow-md transition-all">
-        <div class="text-green-600 mb-4">
-                <lucide-icon name="globe" class="w-8 h-8 text-green-600 mr-3"></lucide-icon>
+        <div class="text-primary mb-4">
+                <lucide-icon name="globe" class="w-8 h-8 text-primary mr-3"></lucide-icon>
 
         </div>
         <h3 class="text-4xl font-bold text-gray-900 mb-2">100%</h3>
@@ -69,7 +69,7 @@
     <!-- Timeline -->
     <div class="mb-20">
       <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center flex justify-center items-center">
-                <lucide-icon name="history" class="w-8 h-8 text-green-600 mr-3"></lucide-icon>
+                <lucide-icon name="history" class="w-8 h-8 text-primary mr-3"></lucide-icon>
 
         Our Journey
       </h2>
@@ -89,7 +89,7 @@
     <!-- Team Section -->
     <div class="mb-20">
       <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center flex justify-center items-center">
-                <lucide-icon name="user-round-cog" class="w-8 h-8 text-green-600 mr-3"></lucide-icon>
+                <lucide-icon name="user-round-cog" class="w-8 h-8 text-primary mr-3"></lucide-icon>
 
         Leadership Team
       </h2>
@@ -103,7 +103,7 @@
           <img [src]="member.image" [alt]="member.name" class="w-full h-full object-cover">
         </div>
         <h3 class="text-xl font-bold text-gray-900">{{ member.name }}</h3>
-        <p class="text-green-600 mb-3">{{ member.position }}</p>
+        <p class="text-primary mb-3">{{ member.position }}</p>
         <p class="text-gray-600 text-sm mt-auto">{{ member.bio }}</p>
       </div>
     </p-card>

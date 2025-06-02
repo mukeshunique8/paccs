@@ -210,7 +210,7 @@ import { TabViewModule } from 'primeng/tabview';
             IconFieldModule,
             InputIconModule,
             AutoFocusModule,
-            OverlayBadgeModule,
+            OverlayBadgeModule,ListboxModule, CardModule, ButtonModule, TabViewModule
         ],
           exports: [
             TabsModule,
@@ -316,6 +316,7 @@ import { TabViewModule } from 'primeng/tabview';
             InputIconModule,
             AutoFocusModule,
             OverlayBadgeModule,
+            ListboxModule, CardModule, ButtonModule, TabViewModule
           ],
     })
     export class NgPrimeModule {}

@@ -1,0 +1,85 @@
+
+    <div class="grid grid-cols-1 gap-4 max-w-2xl mx-auto">
+      <!-- Thirukkural Card with Flip Animation -->
+      <div class="relative h-[172px] perspective-1000">
+        <!-- Card Front (Tamil) -->
+        <div #cardFront
+             class="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d"
+             [class.flipped]="isFlipped">
+          <div class="absolute w-full h-full backface-hidden bg-gradient-to-br from-indigo-700 to-purple-800 rounded-xl shadow-xl p-6 text-white">
+            <!-- Card Header -->
+            <div class="flex justify-between items-center mb-6">
+              <h2 class=" font-bold">திருக்குறள் #{{currentKural?.Number}}</h2>
+              <div class="relative">
+                <!-- <img src="assets/thiruvalluvar-logo.png" alt="Thiruvalluvar" class="w-10 h-10"> -->
+                <div (click)="toggleFlip()"
+                     class="absolute top-0 right-0 cursor-pointer flex items-center text-xs opacity-70 space-x-1 p-1 select-none">
+                  <i class="pi pi-sync"></i>
+                  <!-- <span>Click to flip</span> -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Kural Text -->
+            <div class="text-center my-8">
+              <p class=" font-tamil leading-relaxed">
+                {{currentKural?.Line1}}<br>
+                {{currentKural?.Line2}}
+              </p>
+            </div>
+
+            <!-- Tamil Meaning -->
+            <!-- <div class="mt-6 p-4 bg-white/10 rounded-lg">
+              <h3 class="text-sm font-semibold mb-2">தமிழ் விளக்கம்:</h3>
+              <p class="font-tamil">{{currentKural?.mv}}</p>
+            </div> -->
+
+            <!-- Flip Hint removed from bottom corner -->
+          </div>
+
+          <!-- Card Back (English) -->
+          <div
+            class="absolute w-full h-full backface-hidden bg-gradient-to-br from-amber-600 to-orange-700 rounded-xl shadow-xl p-6 text-white transform-rotate-y-180">
+            <!-- Card Header -->
+            <div class="flex justify-between items-center mb-6">
+              <h2 class=" font-bold">Thirukkural #{{currentKural?.Number}}</h2>
+              <div class="relative">
+                <!-- <img src="assets/thiruvalluvar-logo.png" alt="Thiruvalluvar" class="w-10 h-10"> -->
+                <div (click)="toggleFlip()"
+                     class="absolute top-0 right-0 cursor-pointer flex items-center text-xs opacity-70 space-x-1 p-1 select-none">
+                  <i class="pi pi-sync"></i>
+                  <!-- <span>Click to return</span> -->
+                </div>
+              </div>
+            </div>
+
+            <!-- English Translation -->
+            <div class="my-8">
+              <p class=" italic mb-4">"{{currentKural?.Translation}}"</p>
+              <!-- <p class="">{{currentKural?.explanation}}</p> -->
+            </div>
+
+            <!-- Couplet -->
+            <!-- <div class="mt-6 p-4 bg-white/10 rounded-lg">
+              <p class="font-mono">{{currentKural?.couplet}}</p>
+            </div> -->
+
+            <!-- Flip Hint removed from bottom corner -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Controls -->
+      <div class="flex justify-center gap-4">
+        <!-- <button (click)="previousKural()" class="p-3 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          <i class="pi pi-chevron-left"></i>
+        </button>
+        <button (click)="pickRandomKural()"
+                class="px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 transition flex items-center">
+          <i class="pi pi-refresh mr-2"></i> Random Kural
+        </button>
+        <button (click)="nextKural()" class="p-3 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition">
+          <i class="pi pi-chevron-right"></i>
+        </button> -->
+      </div>
+    </div>

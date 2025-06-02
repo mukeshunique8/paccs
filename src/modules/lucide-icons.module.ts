@@ -77,6 +77,10 @@ import {
   Smile,
   Gift,
   Info,
+  AlignLeft,
+  AlignRightIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
 
   // Add other icons you need here
 } from 'lucide-angular';
@@ -153,7 +157,7 @@ const lucideIcons = {
   AlertCircle,
   UserPlus,
   FileX,
-  FileEdit,Smile,Gift,Info
+  FileEdit,Smile,Gift,Info,AlignLeft,AlignRightIcon,ArrowLeftIcon,ArrowRightIcon
 };
 
 @NgModule({

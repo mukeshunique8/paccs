@@ -25,14 +25,14 @@
       
       <p-carousel [value]="partners" [numVisible]="6" [numScroll]="2" [responsiveOptions]="responsiveOptions" class="mb-12">
         <ng-template let-partner pTemplate="item">
-          <div class="border rounded-lg p-6 m-2 bg-white hover:shadow-md transition-shadow">
+          <div class=" rounded-lg p-6 m-2 bg-white hover:shadow-md transition-shadow">
             <img [src]="partner.logo" [alt]="partner.name" class="h-12 mx-auto object-contain">
           </div>
         </ng-template>
       </p-carousel>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <div *ngFor="let partner of partners" class="border rounded-lg p-6 bg-white hover:shadow-md transition-shadow">
+        <div *ngFor="let partner of partners" class=" rounded-lg p-6 bg-white hover:shadow-md transition-shadow">
           <img [src]="partner.logo" [alt]="partner.name" class="h-12 mx-auto mb-4 object-contain">
           <h3 class="text-lg font-medium text-center mb-2">{{ partner.name }}</h3>
           <p class="text-gray-600 text-sm text-center">{{ partner.industry }}</p>
@@ -110,8 +110,8 @@
       </h2>
       
       <div class="grid md:grid-cols-3 text-black gap-8">
-        <div class="border rounded-xl overflow-hidden">
-          <div class="bg-gray-100 p-6 border-b">
+        <div class=" rounded-xl overflow-hidden">
+          <div class="bg-gray-100 p-6 -b">
             <h3 class="text-xl font-bold text-center">Silver</h3>
             <p class="text-black text-center mt-2">Ideal for emerging businesses</p>
           </div>
@@ -134,8 +134,8 @@
           </div>
         </div>
         
-        <div class="border rounded-xl overflow-hidden shadow-lg transform scale-105 z-10">
-          <div class="bg-blue-600 p-6 border-b">
+        <div class=" rounded-xl overflow-hidden shadow-lg transform scale-105 z-10">
+          <div class="bg-blue-600 p-6 -b">
             <div class="flex justify-between items-center">
               <div>
                 <h3 class="text-xl font-bold text-white">Gold</h3>
@@ -167,8 +167,8 @@
           </div>
         </div>
         
-        <div class="border rounded-xl overflow-hidden">
-          <div class="bg-gray-900 p-6 border-b">
+        <div class=" rounded-xl overflow-hidden">
+          <div class="bg-gray-900 p-6 -b">
             <h3 class="text-xl font-bold text-white">Platinum</h3>
             <p class="text-gray-300 text-center mt-2">For strategic enterprise partners</p>
           </div>
