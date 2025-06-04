@@ -70,7 +70,7 @@ import {
   ShoppingCart,
   Moon,
   FileSearch,
-  AlertCircle,
+  AlertCircle,ShieldOff,
   UserPlus,
   FileX,
   FileEdit,
@@ -81,6 +81,17 @@ import {
   AlignRightIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
+  UserCheck,
+  FilePlus,
+  Calendar,
+  Briefcase,
+  ArrowUpRight,
+  FileSignature,
+  ShieldOffIcon,
+  Edit,
+  Trash2,
+  Clipboard,
+  PhoneCallIcon,
 
   // Add other icons you need here
 } from 'lucide-angular';
@@ -137,7 +148,7 @@ const lucideIcons = {
   SmartphoneCharging,
   Train,
   Bus,
-  ShieldAlert,
+  ShieldAlert,Edit,Trash2,
   Headphones,
   BadgePercent,
   RefreshCw,
@@ -154,10 +165,9 @@ const lucideIcons = {
   Umbrella,
   PenSquare,
   Moon,
-  AlertCircle,
-  UserPlus,
-  FileX,
-  FileEdit,Smile,Gift,Info,AlignLeft,AlignRightIcon,ArrowLeftIcon,ArrowRightIcon
+  AlertCircle,ShieldOff,
+  FileX,UserPlus,
+  FileEdit,Smile,Gift,Info,AlignLeft,AlignRightIcon,ArrowLeftIcon,ArrowRightIcon,UserCheck,FilePlus,Calendar,Briefcase,ArrowUpRight,FileSignature,ShieldOffIcon,Clipboard,PhoneCallIcon
 };
 
 @NgModule({

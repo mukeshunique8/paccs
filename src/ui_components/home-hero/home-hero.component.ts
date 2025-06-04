@@ -25,7 +25,7 @@ export class HomeHeroComponent {
     },
     {
       name: 'BOOKING',
-      services: ['BUS_TICKET_BOOKING', 'TRAIN_BOOKING'],
+      services: ['BUS_BOOKING', 'TRAIN_BOOKING'],
       color: 'bg-purple-50',
       border: 'border-purple-100',
       text: 'text-purple-900'

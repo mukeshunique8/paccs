@@ -126,9 +126,10 @@ body.lang-ta {
 }
 
 body.lang-ta h1 { font-family: var(--tamil-font) !important; font-size: 22px !important; }
-body.lang-ta h2 { font-family: var(--tamil-font) !important; font-size: 20px !important; }
-body.lang-ta h3 { font-family: var(--tamil-font) !important; font-size: 18px !important; }
+body.lang-ta h2 { font-family: var(--tamil-font) !important; font-size: 16px !important; }
+body.lang-ta h3 { font-family: var(--tamil-font) !important; font-size: 14px !important; }
 body.lang-ta a { font-family: var(--tamil-font) !important; font-size: 12px !important; }
+body.lang-ta span { font-family: var(--tamil-font) !important; font-size: 16px !important; }
 
 /* Scrollbar styles (same as before) */
 ::-webkit-scrollbar {
@@ -154,4 +155,14 @@ body.lang-ta a { font-family: var(--tamil-font) !important; font-size: 12px !imp
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+
+
+/* CUSTOM CLASSES */
+
+/* Tamil Font */
+.font-tamil {
+  font-family: 'Noto Sans Tamil', sans-serif;
+  
 }

@@ -19,71 +19,57 @@ export class AppMenu {
     model: MenuItem[] = [];
 
     ngOnInit() {
-        this.model = [
+           this.model = [
             {
-                label: 'Home',
-                items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }]
-            },
-            {
-                label: 'My Account',
-                icon: 'pi pi-fw pi-user',
-                items: [
-                    { label: 'TB Statement', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout'] },
-                    {
-                        label: 'Profile',
-                        icon: 'pi pi-fw pi-user-edit',
-                        items: [
-                            {
-                                label: 'Edit Profile',
-                                icon: 'pi pi-fw pi-pencil',
-                                routerLink: ['/auth/login']
-                            },{
-                                label: 'Change Password',
-                                icon: 'pi pi-fw pi-lock',           
-                                routerLink: ['/auth/login']
-                            }
-                            
-                        ]
-                    },
-                 
-                ]
+              label: 'S_NAV.HOME',
+
+               items: [
+      { label: 'S_NAV.TB_TOPUP_HISTORY', icon: 'pi pi-id-card', routerLink: ['/dashboard'] },
+      { label: 'S_NAV.TB_STATEMENT', icon: 'pi pi-fw pi-envelope', routerLink: ['/tbstatement'] },
+      { label: 'S_NAV.G2C_SERVICES', icon: 'pi pi-cog', routerLink: ['/g2cservices'] },
+      { label: 'S_NAV.SUPPORT_TICKET', icon: 'pi pi-ticket', routerLink: ['/support-ticket'] },
+      { label: 'S_NAV.USER', icon: 'pi pi-user', routerLink: ['/user'] },
+      { label: 'S_NAV.SUPPORT_DETAILS', icon: 'pi pi-info-circle', routerLink: ['/support-details'] },
+      { label: 'S_NAV.PACKAGE_SUBSCRIPTION', icon: 'pi pi-box', routerLink: ['/package-subscription'] }
+    ]
             },
           
-            {
-                label: 'Miscellaneous',
-                icon: 'pi pi-fw pi-ellipsis-h',
-                items: [
-                    {
-                        label: 'Sofware Documentation',
-                        icon: 'pi pi-fw pi-book',
-                       items: [
-                                    { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark' },
-                                    { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark' }
-                                ]
-                    },
-                    {
-                        label: 'Contact Us',
-                        icon: 'pi pi-fw pi-envelope',
-                        routerLink: ['/contact']
-                    },
-                    {
-                        label: 'About Us',
-                        icon: 'pi pi-fw pi-info-circle',
-                        routerLink: ['/about']
-                    },
-                    {
-                        label: 'Partners',
-                        icon: 'pi pi-fw pi-users',
-                        routerLink: ['/partners']
-                    }
+          
+            // {
+            //     label: 'Miscellaneous',
+            //     icon: 'pi pi-fw pi-ellipsis-h',
+            //     items: [
+            //         {
+            //             label: 'Sofware Documentation',
+            //             icon: 'pi pi-fw pi-book',
+            //            items: [
+            //                         { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark' },
+            //                         { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark' }
+            //                     ]
+            //         },
+            //         {
+            //             label: 'Contact Us',
+            //             icon: 'pi pi-fw pi-envelope',
+            //             routerLink: ['/contact']
+            //         },
+            //         {
+            //             label: 'About Us',
+            //             icon: 'pi pi-fw pi-info-circle',
+            //             routerLink: ['/about']
+            //         },
+            //         {
+            //             label: 'Partners',
+            //             icon: 'pi pi-fw pi-users',
+            //             routerLink: ['/partners']
+            //         }
                    
-                ]
-            },
+            //     ]
+            // },
             {
-                label: 'Get Started',
+                label: 'S_NAV.GET_STARTED',
                 items: [
                     {
-                        label: 'Tutorials',
+                        label: 'S_NAV.TUTORIAL',
                         icon: 'pi pi-fw pi-video',
                         routerLink: ['/tutorials']
                     },

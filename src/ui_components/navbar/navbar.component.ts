@@ -32,6 +32,7 @@ export class NavbarComponent {
     'NAV.ABOUT',
     'NAV.CONTACT',
     'NAV.LOGIN',
+    'NAV.DASHBOARD',
   ]).subscribe(translations => {
     this.menuItems = [
       { name: translations['NAV.HOME'], href: '/', subItems: [] },
@@ -40,6 +41,7 @@ export class NavbarComponent {
       { name: translations['NAV.ABOUT'], href: '/about', subItems: [] },
       { name: translations['NAV.CONTACT'], href: '/contact', subItems: [] },
       { name: translations['NAV.LOGIN'], href: '/login', subItems: [] },
+      { name: translations['NAV.DASHBOARD'], href: '/dashboard', subItems: [] },
     ];
   });
 }

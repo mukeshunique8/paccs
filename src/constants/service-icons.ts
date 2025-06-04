@@ -7,7 +7,7 @@ export const SERVICE_ICONS: { [key: string]: string } = {
   'MONEY_TRANSFER': 'send-horizontal',
   
   // Booking
-  'BUS_TICKET_BOOKING': 'bus',
+  'BUS_BOOKING': 'bus',
   'TRAIN_BOOKING': 'train',
   
   // Government

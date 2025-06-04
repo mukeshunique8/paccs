@@ -10,6 +10,7 @@
   "NAV": {
     "HOME": "Home",
     "PARTNERS": "Partners",
+    "DASHBOARD": "Dashboard",
     "SERVICES": "Services",
     "ABOUT": "About",
     "CONTACT": "Contact",
@@ -35,7 +36,7 @@
     "MOVE_TO_BANK": "Move to Bank",
     "M_ATM": "M-ATM",
     "PAN_NSDL": "PAN NSDL",
-    "BUS_TICKET_BOOKING": "Bus Ticket Booking",
+    "BUS_BOOKING": "Bus Ticket Booking",
     "IT_FILING": "IT Filing",
     "IT_NOTICE": "IT Notice",
     "MONEY_TRANSFER": "Money Transfer",
@@ -81,10 +82,25 @@
       "DESCRIPTION": "Schedule recurring payments and never miss a due date"
     }
   },
-   "stats": {
+  "stats": {
     "happyCustomers": "Happy Customers",
     "servicesOffered": "Services Offered",
     "customerSupport": "Customer Support",
     "transactionsMonthly": "Transactions Monthly"
+  },
+  "S_NAV":{
+  "HOME": "Home",
+    "TB_TOPUP_HISTORY": "TB Topup History",
+    "TB_STATEMENT": "TB Statement",
+    "G2C_SERVICES": "G2C Services",
+    "SUPPORT_TICKET": "Support Ticket",
+    "USER": "User",
+    "SUPPORT_DETAILS": "Support Details",
+    "PACKAGE_SUBSCRIPTION": "Package Subscription",  "TUTORIAL": "Tutorial",  "GET_STARTED": "Get Started"
+  },
+   "CONTACT_US": {
+    "TITLE": "Contact Us",
+    "CUSTOMER_SUPPORT": "Customer Support"
   }
+  
 }

@@ -7,7 +7,7 @@ import { LanguageService } from '../../service/language.service';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="flex gap-2 bg-white/10 rounded-full p-1">
+    <div class="flex gap-2 bg-white/10 bg-primary rounded-full p-1">
       <button 
         *ngFor="let lang of supportedLangs"
         (click)="switchLanguage(lang)"
