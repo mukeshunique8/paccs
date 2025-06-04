@@ -21,7 +21,10 @@ import { LucideIconsModule } from '../../modules/lucide-icons.module';
     LanguageSwitcherComponent,
     HeaderMarqueeComponent,LucideIconsModule
 ],
-  template: ` <div class="layout-topbar">
+  template: ` 
+  
+  
+  <div class="layout-topbar">
     <div class="layout-topbar-logo-container">
       <button
         class="layout-menu-button layout-topbar-action"
@@ -39,14 +42,8 @@ import { LucideIconsModule } from '../../modules/lucide-icons.module';
       </a>
       
     </div>
-   <section class="flex w-full items-center justify-between p-4">
-     <div class="text-sm relative my-2 bg-gradient-to-br  from-[#33D4B9] to-[#548c82] rounded-xl shadow-xl  text-white hidden md:block p-2">
-         <p class="font-tamil  ">
-                {{currentKural?.Line1}} <br>
-                {{currentKural?.Line2}}
-              </p>
-              <p class="absolute bottom-0 right-2" ># {{currentKural?.Number}}</p>
-      </div>
+   <section class="flex w-full items-center justify-end p-4">
+     
       <div class=" items-center hidden md:flex   p-3 space-x-4">
     <div class="flex items-center space-x-2">
                 <lucide-icon name="wallet" class="w-8 h-8 text-primary mr-3"></lucide-icon>
