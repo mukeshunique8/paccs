@@ -1,6 +1,7 @@
 {
   "WELCOME": "Welcome🙏",
   "GREETING": "Hello {{name}}!",
+  "WEBSITE_NAME": "REGISTRAR OF COOPERATIVE SOCIETIES",
   "HEADER": {
     "TITLE": "My Website"
   },
@@ -100,7 +101,7 @@
   },
    "CONTACT_US": {
     "TITLE": "Contact Us",
-    "CUSTOMER_SUPPORT": "Customer Support"
-  }
+    "CUSTOMER_SUPPORT": "Customer Support",
+    "EMAIL": "Email" }
   
 }

@@ -15,6 +15,13 @@ import { constants } from '../../constants/enumdata';
 import { NgxFastMarqueeModule } from 'ngx-fast-marquee';
 import { THIRUKKURAL_LIST } from '../../constants/thirukkural';
 import { HeaderMarqueeComponent } from "../../ui_components/header-marquee/header-marquee.component";
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  keyframes,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-dashboard',
@@ -32,6 +39,19 @@ import { HeaderMarqueeComponent } from "../../ui_components/header-marquee/heade
     NgxFastMarqueeModule,
     HeaderMarqueeComponent
 ],
+animations: [
+    trigger('scrollUpAnimation', [
+      transition('* => *', [
+        animate(
+          '30s linear infinite',
+          keyframes([
+            style({ transform: 'translateY(100%)', offset: 0 }),
+            style({ transform: 'translateY(-100%)', offset: 1 }),
+          ])
+        ),
+      ]),
+    ]),
+  ],
   styleUrl: './dashboard.css',
   template: `
   
@@ -61,7 +81,7 @@ import { HeaderMarqueeComponent } from "../../ui_components/header-marquee/heade
     <!-- Image Card - Improved alignment -->
     <div class="flex-1 card-bg rounded-lg shadow-sm flex items-center justify-center p-2 min-h-[80px]">
       <img 
-        src="/images/pacs.png" 
+        src="/images/cooplogo.png" 
         alt="PACs" 
         class="h-full max-h-[80px] w-auto object-contain"
       >
@@ -171,7 +191,7 @@ import { HeaderMarqueeComponent } from "../../ui_components/header-marquee/heade
           </h2>
 
           <div
-            class="category-cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+            class="category-cards grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-6 gap-4"
           >
             <div
               *ngFor="let service of category.services"
@@ -199,111 +219,35 @@ import { HeaderMarqueeComponent } from "../../ui_components/header-marquee/heade
         adsf
       </div>
       <div class="w-full h-fit md:w-1/4  ">
-        <section
-          class="mb-6 bg-white rounded-lg shadow-sm p-6 border border-gray-100"
-        >
-          <p class="font-semibold text-xl mb-6 text-blue-600 flex items-center">
-            <i class="pi pi-info-circle mr-3"></i>News & Updates
+    <section class="mb-6 bg-white rounded-lg shadow-sm p-6 border border-gray-100 max-w-[320px] mx-auto">
+  <p class="font-semibold text-xl mb-6 text-blue-600 flex items-center">
+    <i class="pi pi-info-circle mr-3"></i>News & Updates
+  </p>
+
+  <div class="h-[380px] overflow-hidden relative">
+    <div class="marquee-content">
+      <div *ngFor="let item of newsItems" class="news-item p-3 mb-3 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors duration-200 border-l-4 border-blue-400 w-full flex space-x-3">
+        <div class="p-1.5 rounded-full mt-0.5 flex-shrink-0 text-blue-600 text-sm flex items-center justify-center">
+          <i [class]="'pi ' + item.icon"></i>
+        </div>
+
+        <div class="flex-1 min-w-0 break-words flex flex-col">
+          <p class="text-sm font-semibold text-gray-800 mb-1 truncate">
+            {{ item.title }}
           </p>
-
-          <div class="max-w-[320px] h-[380px] mx-auto">
-            <ngx-fast-marquee
-              direction="up"
-              [speed]="15"
-              [pauseOnHover]="true"
-              class="overflow-hidden"
-            >
-              <div
-                *ngFor="let item of newsItems"
-                class="news-item p-3 mb-3 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors duration-200 border-l-4 border-blue-400 w-full"
-              >
-                <div class="flex">
-                  <div class="p-1.5 rounded-full mr-3 flex-shrink-0 mt-0.5">
-                    <i
-                      [class]="'pi ' + item.icon"
-                      class="text-blue-600 text-sm"
-                    ></i>
-                  </div>
-                  <div class="flex-1 min-w-0">
-                    <p
-                      class="text-sm font-semibold text-gray-800 mb-1 truncate"
-                    >
-                      {{ item.title }}
-                    </p>
-                    <div
-                      class="text-xs text-gray-600 mb-1.5 break-all hyphens-auto overflow-wrap-anywhere line-clamp-3"
-                    >
-                      {{ item.description }}
-                    </div>
-                    <span class="text-[10px] text-gray-500 block">
-                      {{ item.date | date: 'shortDate' }}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </ngx-fast-marquee>
+          <div class="text-xs text-gray-600 mb-1.5 whitespace-normal break-words">
+            {{ item.description }}
           </div>
-        </section>
-        <section
-          class="mb-6 p-6 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 shadow-md hover:shadow-lg transition-shadow duration-300 border border-blue-100"
-        >
-          <!-- Title with gradient accent -->
-          <div class="flex items-center mb-6 pb-4 border-b border-blue-200">
-            <div
-              class="p-2 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 shadow-sm"
-            >
-              <lucide-icon
-                name="phone"
-                class="w-5 h-5 text-white"
-              ></lucide-icon>
-            </div>
-            <h3
-              class="font-semibold text-xl ml-3 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
-            >
-              {{ 'CONTACT_US.TITLE' | translate }}
-            </h3>
-          </div>
+          <span class="text-[10px] text-gray-500 block">
+            {{ item.date | date: 'shortDate' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <!-- Service Detail 1 -->
-          <div
-            class="mb-6 p-4 rounded-lg bg-white shadow-sm hover:bg-blue-50 transition-colors duration-200 flex items-start"
-          >
-            <!-- Icon with gradient background -->
-            <div
-              class="flex-shrink-0 p-2 rounded-full bg-gradient-to-br from-yellow-300 to-yellow-500 shadow-sm"
-            >
-              <lucide-icon name="star" class="w-5 h-5 text-white"></lucide-icon>
-            </div>
 
-            <div class="ml-4">
-              <h3 class="text-md font-bold text-gray-800 mb-1">
-                {{ 'CONTACT_US.CUSTOMER_SUPPORT' | translate }}
-              </h3>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                {{ constants.customerCare }}
-              </p>
-            </div>
-          </div>
-
-          <!-- Optional: Add more contact methods with different colors -->
-          <div
-            class="p-4 rounded-lg bg-white shadow-sm hover:bg-blue-50 transition-colors duration-200 flex items-start"
-          >
-            <div
-              class="flex-shrink-0 p-2 rounded-full bg-gradient-to-br from-green-400 to-green-600 shadow-sm"
-            >
-              <lucide-icon name="mail" class="w-5 h-5 text-white"></lucide-icon>
-            </div>
-            <div class="ml-4">
-              <h3 class="text-md font-bold text-gray-800 mb-1">
-                {{ 'CONTACT_US.EMAIL' | translate }}
-              </h3>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                {{ constants.supportEmail }}
-              </p>
-            </div>
-          </div>
-        </section>
       </div>
     </section>
     <div class="fixed bottom-6 right-6 z-50">

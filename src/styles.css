@@ -118,6 +118,12 @@ body {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
 }
 
+.text-gradient {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 /* Tamil language specific styles */
 body.lang-ta {
   font-family: var(--tamil-font);

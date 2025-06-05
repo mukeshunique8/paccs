@@ -17,9 +17,8 @@ constants = constants;
   // Partner logos (replace with your actual image paths)
   partners = [
     { id: 1, img: '/images/tamilnadugov.png', alt: 'tn' },
-    // { id: 2, img: '/images/digital-india-logo.png', alt: 'digital-india-logo' },
+    { id: 2, img: '/images/cooplogo.png', alt: 'cooplogo' },
     // { id: 3, img: '/images/csc.png', alt: 'csc' },
-    { id: 4, img: '/images/pacs.png', alt: 'pacs' },
   ];
 
 }
