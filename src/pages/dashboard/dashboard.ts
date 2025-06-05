@@ -216,7 +216,6 @@ animations: [
             </div>
           </div>
         </div>
-        adsf
       </div>
       <div class="w-full h-fit md:w-1/4  ">
     <section class="mb-6 bg-white rounded-lg shadow-sm p-6 border border-gray-100 max-w-[320px] mx-auto">
