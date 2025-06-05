@@ -56,9 +56,9 @@ import { trigger, transition, style, animate } from '@angular/animations';
     </div>
    <section class="hidden md:flex w-full items-center justify-between p-4">
      
-<section class="ml-12">
+<section class="">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-center">
-    <p class="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-500 select-none">
+    <p class="text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-500 select-none">
       Primary Agricultural Cooperative Credit Societies
     </p>
   </div>
