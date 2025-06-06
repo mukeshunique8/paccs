@@ -1,18 +1,17 @@
 <div class="w-full py-2 flex flex-col gap-2 items-center overflow-hidden">
   <ng-container *ngIf="showMarquee">
     <ngx-fast-marquee [speed]="50">
-      <div class="flex gap-8 px-4">  <!-- Increased gap and padding -->
-        <!-- Tamil announcement about the portal -->
+      <div class="flex gap-8 px-4">
         <div class="text-nowrap text-sm md:text-base font-medium text-blue-800">
-          ✨ <span class="font-bold">வணக்கம்!</span> தமிழ்நாடு அரசு மாணவர் தகவல் போர்ட்டலுக்கு வரவேற்கிறோம் ✨
+          ✨ <span class="font-bold">{{ 'marquee.line1' | translate }}</span> ✨
         </div>
-        
+
         <div class="text-nowrap text-sm md:text-base text-gray-700">
-          🎓 புதிய மாணவர்கள் பதிவு செய்ய <a href="/register" class="text-blue-600 underline">இங்கே கிளிக் செய்யவும்</a>
+          🏛️ {{ 'marquee.line2' | translate }}
         </div>
-        
+
         <div class="text-nowrap text-sm md:text-base text-green-800">
-          ℹ️ உதவிக்கு: டோல் ஃப்ரீ எண்: 1800-123-4567 (காலை 8:00 - மாலை 8:00)
+          💳 {{ 'marquee.line3' | translate }}
         </div>
       </div>
     </ngx-fast-marquee>

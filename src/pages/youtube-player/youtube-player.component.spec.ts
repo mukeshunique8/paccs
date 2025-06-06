@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PFooterComponent } from './p-footer.component';
+import { YoutubePlayerComponent } from './youtube-player.component';
 
-describe('PFooterComponent', () => {
-  let component: PFooterComponent;
-  let fixture: ComponentFixture<PFooterComponent>;
+describe('YoutubePlayerComponent', () => {
+  let component: YoutubePlayerComponent;
+  let fixture: ComponentFixture<YoutubePlayerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PFooterComponent]
+      imports: [YoutubePlayerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PFooterComponent);
+    fixture = TestBed.createComponent(YoutubePlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

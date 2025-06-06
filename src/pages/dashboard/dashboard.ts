@@ -39,19 +39,7 @@ import {
     NgxFastMarqueeModule,
     HeaderMarqueeComponent
 ],
-animations: [
-    trigger('scrollUpAnimation', [
-      transition('* => *', [
-        animate(
-          '30s linear infinite',
-          keyframes([
-            style({ transform: 'translateY(100%)', offset: 0 }),
-            style({ transform: 'translateY(-100%)', offset: 1 }),
-          ])
-        ),
-      ]),
-    ]),
-  ],
+
   styleUrl: './dashboard.css',
   template: `
   
@@ -193,14 +181,15 @@ animations: [
           <div
             class="category-cards grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-6 gap-4"
           >
-            <div
-              *ngFor="let service of category.services"
-              (click)="goToServicePage(service?.name)"
-              class="popular-service-card card-bg rounded-lg p-4 text-center shadow-sm hover:shadow-md cursor-pointer transition-shadow duration-300 animate-fade-in-up"
-              [style.animation-delay]="
-                0.1 * category.services.indexOf(service) + 's'
-              "
-            >
+           <div
+  *ngFor="let service of category.services"
+  (click)="service.isActive && goToServicePage(service?.name)"
+  class="popular-service-card card-bg rounded-lg p-4 text-center shadow-sm hover:shadow-md cursor-pointer transition-shadow duration-300 animate-fade-in-up"
+  [style.animation-delay]="0.1 * category.services.indexOf(service) + 's'"
+  [class.opacity-40]="!service.isActive"
+  [class.pointer-events-none]="!service.isActive"
+>
+
               <div
                 [ngClass]="service.color"
                 class="p-3 rounded-full w-12 h-12 mx-auto mb-3 flex items-center justify-center"

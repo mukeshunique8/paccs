@@ -137,7 +137,7 @@ export class AppMenu {
                     {
                         label: 'S_NAV.TUTORIAL',
                         icon: 'pi pi-fw pi-video',
-                        routerLink: ['/tutorials']
+                        routerLink: ['/dashboard/tutorials']
                     },
                     // {
                     //     label: 'View Source',

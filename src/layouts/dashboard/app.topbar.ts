@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StyleClassModule } from 'primeng/styleclass';
 import { LayoutService } from '../../pages/services/layout.service';
@@ -10,6 +10,7 @@ import { THIRUKKURAL_LIST } from '../../constants/thirukkural';
 import { HeaderMarqueeComponent } from "../../ui_components/header-marquee/header-marquee.component";
 import { LucideIconsModule } from '../../modules/lucide-icons.module';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { BalanceButton } from "./dash_components/balance.button";
 
 @Component({
   selector: 'app-topbar',
@@ -20,7 +21,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
     StyleClassModule,
     AppConfigurator,
     LanguageSwitcherComponent,
-    HeaderMarqueeComponent,LucideIconsModule
+    HeaderMarqueeComponent, LucideIconsModule,
+    BalanceButton
 ],
  animations: [
     trigger('fadeInOut', [
@@ -65,59 +67,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 </section>
 
       <div class=" items-center hidden md:flex   p-3 space-x-4">
-
-<div
-  class="flex items-center space-x-3 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-300 rounded-md px-3 py-2 max-w-xs mx-auto shadow-md"
->
-  <!-- Icon Button -->
-  <button
-    (click)="toggleBalance()"
-    aria-label="Toggle Wallet Balance"
-    class="flex items-center justify-center w-8 h-8 rounded-full border border-blue-400 bg-white hover:bg-blue-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
-  >
-    <ng-container *ngIf="showLoader">
-      <lucide-icon
-        name="loader2"
-        class="w-5 h-5 text-blue-600 animate-spin"
-      ></lucide-icon>
-    </ng-container>
-
-    <ng-container *ngIf="!showLoader && !showBalance">
-      <lucide-icon
-        name="eye"
-        class="w-5 h-5 text-blue-600 hover:text-blue-800 transition-colors"
-      ></lucide-icon>
-    </ng-container>
-
-    <ng-container *ngIf="!showLoader && showBalance">
-      <lucide-icon
-        name="eye-off"
-        class="w-5 h-5 text-blue-600 hover:text-blue-800 transition-colors"
-      ></lucide-icon>
-    </ng-container>
-  </button>
-
-  <!-- Text Content -->
-  <div class="flex flex-col">
-    <p class="text-base font-semibold text-blue-900 tracking-tight leading-none">
-      My Wallet
-    </p>
-
-    <p
-      class="text-xs text-blue-700 font-mono mt-0.5"
-      [class.tracking-widest]="!showBalance || showLoader"
-    >
-      Balance:
-      <span *ngIf="showBalance && !showLoader" class="text-blue-800 font-semibold">
-        ₹ {{ balance | number: '1.2-2' }}
-      </span>
-      <span *ngIf="!showBalance || showLoader" class="select-none">
-        ●●●●●●●
-      </span>
-    </p>
-  </div>
-</div>
-
+<app-balance-button></app-balance-button>
 
     <!-- Dropdown / Button for more actions (Optional) -->
     <!-- <button class="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600 transition">
@@ -184,10 +134,36 @@ import { trigger, transition, style, animate } from '@angular/animations';
                         <i class="pi pi-inbox"></i>
                         <span>Messages</span>
                     </button> -->
-          <button type="button" class="layout-topbar-action">
-            <i class="pi pi-user"></i>
-            <span>Profile</span>
-          </button>
+        <div class="relative" #dropdownMenu>
+  <!-- Profile Button -->
+  <button
+    type="button"
+    (click)="toggleDropdown()"
+    class="layout-topbar-action flex items-center space-x-2 hover:bg-gray-100 px-3 py-2 rounded-md"
+  >
+    <i class="pi pi-user text-gray-700"></i>
+    <span class="text-sm font-medium text-gray-800">Profile</span>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div
+    *ngIf="isMenuOpen"
+    class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 z-50"
+  >
+    <ul class="py-1 text-sm text-gray-700">
+      <li><a href="dashboard/profile" class="block px-4 py-2 hover:bg-gray-100">👤 My Profile</a></li>
+      <li><a href="dashboard/forgot-password" class="block px-4 py-2 hover:bg-gray-100">🔐 Forgot Password</a></li>
+      <li><a href="dashboard/settings" class="block px-4 py-2 hover:bg-gray-100">⚙️ Settings</a></li>
+      <li>
+        <button (click)="logout()" class="w-full text-left px-4 py-2 hover:bg-red-50 text-red-600">
+          🚪 Logout
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
         </div>
       </div>
     </div>
@@ -197,10 +173,11 @@ export class AppTopbar {
   items!: MenuItem[];
     kuralList = THIRUKKURAL_LIST.kural;
    
+  isMenuOpen = false;
 
 currentKural: any;
   currentIndex = 0;
-  constructor(public layoutService: LayoutService) {}
+  constructor(public layoutService: LayoutService,private router:Router) {}
   balance = 1250.5;
 
   showBalance = false;
@@ -254,5 +231,23 @@ currentKural: any;
       darkTheme: !state.darkTheme,
     }));
   }
-  
+
+  @ViewChild('dropdownMenu', { static: false }) dropdownMenu!: ElementRef;
+
+  toggleDropdown() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  logout() {
+    this.router.navigate(['/']);
+    console.log('Logged out');
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    if (this.isMenuOpen && this.dropdownMenu && !this.dropdownMenu.nativeElement.contains(event.target)) {
+      this.isMenuOpen = false;
+    }
+  }
+
 }

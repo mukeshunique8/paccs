@@ -170,7 +170,7 @@ const lucideIcons = {
   Moon,
   AlertCircle,ShieldOff,
   FileX,UserPlus,
-  FileEdit,Smile,Gift,Info,AlignLeft,AlignRightIcon,ArrowLeftIcon,ArrowRightIcon,UserCheck,FilePlus,Calendar,Briefcase,ArrowUpRight,FileSignature,ShieldOffIcon,Clipboard,PhoneCallIcon,Eye,Loader2,EyeOff
+  FileEdit,Smile,Gift,Info,AlignLeft,AlignRightIcon,ArrowLeftIcon,ArrowRightIcon,UserCheck,FilePlus,Calendar,Briefcase,ArrowUpRight,FileSignature,ShieldOffIcon,Clipboard,PhoneCallIcon,Eye,Loader2,EyeOff,
 };
 
 @NgModule({

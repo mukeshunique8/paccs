@@ -10,9 +10,11 @@ import { BeforeLoginComponent } from '../layouts/before-login/before-login.compo
 import { IdpLoginComponent } from '../pages/idp-login/idp-login.component';
 import { AppLayout } from '../layouts/dashboard/app.layout';
 import { Dashboard } from '../pages/dashboard/dashboard';
+import { ProfileComponent } from '../pages/profile/profile.component';
+import { TutorialsComponent } from '../pages/tutorials/tutorials.component';
 
 export const routes: Routes = [
-   {
+  {
     path: '',
     component: BeforeLoginComponent,
     children: [
@@ -21,18 +23,21 @@ export const routes: Routes = [
       { path: 'partners', component: PartnersComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
-    ]
+    ],
   },
-  
-  { path: 'login', component:IdpLoginComponent  },
-  { path: 'dashboard', component:AppLayout ,   children: [
-            { path: '', component: Dashboard },
-            // { path: 'uikit', loadChildren: () => import('./app/pages/uikit/uikit.routes') },
-            // { path: 'documentation', component: Documentation },
-            // { path: 'pages', loadChildren: () => import('./app/pages/pages.routes') }
-        ] },
-  { path: '**', component: NotfoundComponent } // 404 outside layout
-];
 
+  { path: 'login', component: IdpLoginComponent },
+  {
+    path: 'dashboard',
+    component: AppLayout,
+    children: [
+      { path: '', component: Dashboard },
+      { path: 'tutorials', component: TutorialsComponent },
+      { path: 'profile', component: ProfileComponent },
+     
+    ],
+  },
+  { path: '**', component: NotfoundComponent }, // 404 outside layout
+];
 
 // https://idp.inetcsc.com/auth/realms/inetcsc/protocol/openid-connect/auth?response_type=code&client_id=inetcsc&state=80739

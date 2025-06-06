@@ -2,6 +2,11 @@
   "WELCOME": "Welcome🙏",
   "GREETING": "Hello {{name}}!",
   "WEBSITE_NAME": "REGISTRAR OF COOPERATIVE SOCIETIES",
+   "marquee": {
+    "line1": "The new PACSS portal is now live",
+    "line2": "All government and utility payment services are available in one place!",
+    "line3": "Pay bills, access services, and manage everything easily from this portal."
+  },
   "HEADER": {
     "TITLE": "My Website"
   },
@@ -45,7 +50,10 @@
     "DIGITAL_SIGNATURE": "Digital Signature",
     "INSURANCE": "Insurance",
     "INSURANCE_OFFLINE": "Insurance Offline",
-    "TRAIN_BOOKING": "Train Booking"
+    "TRAIN_BOOKING": "Train Booking",
+    "HOTEL_BOOKING": "Hotel Booking",
+    "FLIGHT_BOOKING": "Flight Booking",
+    "NPS_SCHEME": "NPS Scheme"
   },
   "CATEGORIES": {
     "UTILITY": "Utility Services",
@@ -53,7 +61,10 @@
     "GOVERNMENT": "Government Services",
     "FINANCIAL": "Financial Services",
     "DIGITAL": "Digital Services",
-    "OTHER": "Other Services"
+    "OTHER": "Other Services",
+    "TRAVEL": "Travel Services",
+    "PRODUCT&SALES": "Product & Sales Services",
+    "INSURANCE": "Insurance Services"
   },
   "FEATURES": {
     "HEADING": "Why Choose Our Platform?",

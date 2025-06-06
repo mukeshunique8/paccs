@@ -7,6 +7,7 @@ import { LucideIconsModule } from './lucide-icons.module';
 import { CarouselModule } from 'primeng/carousel';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from '../ui_components/language-switcher/language-switcher.component';
+import { NgPrimeModule } from './ngprime.module';
 
 @NgModule({
   imports: [
@@ -31,7 +32,7 @@ LucideIconsModule,
     // UI modules
     ButtonModule,
     CarouselModule,
-    LanguageSwitcherComponent,TranslateModule
+    LanguageSwitcherComponent,TranslateModule,NgPrimeModule
     
     
   ]

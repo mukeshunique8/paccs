@@ -1,0 +1,39 @@
+<div class="youtube-container bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+  <!-- Main Player Container -->
+  <div class="player-container bg-black">
+    <div #youtubeContainer class="youtube-embed"></div>
+    <div *ngIf="!apiLoaded" class="loading-overlay">
+      <div class="loading-spinner"></div>
+      <p>Loading player...</p>
+    </div>
+  </div>
+
+  <!-- Video Info -->
+  <div class="video-info">
+    <h2>{{ getCurrentVideo()?.title || 'Select a video' }}</h2>
+  </div>
+
+  <!-- Thumbnail Grid -->
+  <div class="thumbnail-grid">
+    <h3>More Videos</h3>
+    <div class="thumbnails">
+      <div 
+        *ngFor="let video of videoList" 
+        (click)="changeVideo(video.id)"
+        [class.active]="video.id === currentVideoId"
+      >
+        <div class="thumbnail-image">
+          <img [src]="video.thumbnail" [alt]="video.title">
+          <div class="duration-badge">{{ video.duration }}</div>
+          <div *ngIf="video.id === currentVideoId" class="playing-indicator">
+            <svg><!-- Play icon --></svg>
+          </div>
+        </div>
+        <div class="thumbnail-info">
+          <h4>{{ video.title }}</h4>
+          <p>{{ video.publishedAt }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

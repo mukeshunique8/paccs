@@ -21,7 +21,7 @@ export class HeaderMarqueeComponent {
   pickRandomKural() {
     const index = Math.floor(Math.random() * this.kuralList.length);
     this.currentKural = this.kuralList[index];
-    console.log('Selected Kural:', this.currentKural);
+    // console.log('Selected Kural:', this.currentKural);
     // Hide the marquee temporarily to reset it
     this.showMarquee = false;
     
