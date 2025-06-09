@@ -108,7 +108,7 @@
     "SUPPORT_TICKET": "Support Ticket",
     "USER": "User",
     "SUPPORT_DETAILS": "Support Details",
-    "PACKAGE_SUBSCRIPTION": "Package Subscription",  "TUTORIAL": "Tutorial",  "GET_STARTED": "Get Started"
+    "PACKAGE_SUBSCRIPTION": "Package Subscription",  "TUTORIAL": "Tutorial",  "GET_STARTED": "Get Started","DASHBOARD": "Dashboard","REPORTS": "Reports","TRANSACTIONS": "Transactions","PAYMENTS": "Payments","SETTINGS": "Settings","LOGOUT": "Logout","USER_MANAGEMENT": "User Management","ID_CREATION": "ID Creation","ID_CREATION_HISTORY": "ID Creation History","ID_CREATION_REQUESTS": "ID Creation Requests","ID_CREATION_APPROVALS": "ID Creation Approvals","ID_CREATION_REJECTIONS": "ID Creation Rejections","ID_CREATION_PENDING": "ID Creation Pending"
   },
    "CONTACT_US": {
     "TITLE": "Contact Us",

@@ -12,6 +12,13 @@ import { AppLayout } from '../layouts/dashboard/app.layout';
 import { Dashboard } from '../pages/dashboard/dashboard';
 import { ProfileComponent } from '../pages/profile/profile.component';
 import { TutorialsComponent } from '../pages/tutorials/tutorials.component';
+import { AdminDashboardComponent } from '../pages/ADMIN/admin-dashboard/admin-dashboard.component';
+import { IdCreationComponent } from '../pages/ADMIN/id-creation/id-creation.component';
+import { IdCreationHistoryComponent } from '../pages/ADMIN/id-creation-history/id-creation-history.component';
+import { AuthGuard } from '../service/auth.guard';
+import { RoleGuard } from '../service/role.guard';
+import { roles } from '../constants/enumdata';
+import { CustomLoginComponent } from '../pages/custom-login/custom-login.component';
 
 export const routes: Routes = [
   {
@@ -26,7 +33,7 @@ export const routes: Routes = [
     ],
   },
 
-  { path: 'login', component: IdpLoginComponent },
+  { path: 'login', component: CustomLoginComponent },
   {
     path: 'dashboard',
     component: AppLayout,
@@ -34,8 +41,20 @@ export const routes: Routes = [
       { path: '', component: Dashboard },
       { path: 'tutorials', component: TutorialsComponent },
       { path: 'profile', component: ProfileComponent },
-     
     ],
+    canActivate: [RoleGuard],
+    data: { expectedRoles: [roles.USER] },
+  },
+  {
+    path: 'admin',
+    component: AppLayout,
+    children: [
+      { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'idcreation', component: IdCreationComponent },
+      { path: 'idcreation_history', component: IdCreationHistoryComponent },
+    ],
+    canActivate: [RoleGuard],
+    data: { expectedRoles: [roles.ADMIN] }, // Only allow ADMIN role
   },
   { path: '**', component: NotfoundComponent }, // 404 outside layout
 ];

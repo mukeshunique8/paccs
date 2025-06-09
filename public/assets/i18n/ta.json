@@ -115,7 +115,7 @@
     "USER": "பயனர்",
     "SUPPORT_DETAILS": "ஆதரவு விவரங்கள்",
     "PACKAGE_SUBSCRIPTION": "பேக்கேஜ் சந்தா",
-     "TUTORIAL": "கையேடு","GET_STARTED": "தொடங்கு"
+     "TUTORIAL": "கையேடு","GET_STARTED": "தொடங்கு","REPORTS": "அறிக்கைகள்","TRANSACTIONS": "பரிவர்த்தனைகள்","PAYMENTS": "கட்டணங்கள்","SETTINGS": "அமைப்புகள்","LOGOUT": "வெளியேறு","DASHBOARD": "டாஷ்போர்ட்","USER_MANAGEMENT": "பயனர் மேலாண்மை","ID_CREATION": "ஐடி உருவாக்கம்","ID_CREATION_HISTORY": "ஐடி உருவாக்க வரலாறு","ID_CREATION_REQUESTS": "ஐடி உருவாக்க கோரிக்கைகள்","ID_CREATION_APPROVALS": "ஐடி உருவாக்க அங்கீகாரங்கள்","ID_CREATION_REJECTIONS": "ஐடி உருவாக்க நிராகரிப்புகள்","ID_CREATION_PENDING": "ஐடி உருவாக்க நிலுவையில்"
   },
   "CONTACT_US": {
   "TITLE": "தொடர்பு கொள்ளவும்",

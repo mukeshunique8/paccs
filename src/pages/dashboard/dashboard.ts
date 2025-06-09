@@ -22,6 +22,7 @@ import {
   animate,
   keyframes,
 } from '@angular/animations';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard',
@@ -183,11 +184,11 @@ import {
           >
            <div
   *ngFor="let service of category.services"
-  (click)="service.isActive && goToServicePage(service?.name)"
-  class="popular-service-card card-bg rounded-lg p-4 text-center shadow-sm hover:shadow-md cursor-pointer transition-shadow duration-300 animate-fade-in-up"
-  [style.animation-delay]="0.1 * category.services.indexOf(service) + 's'"
+  (click)="service.isActive ? goToServicePage(service?.name) : openComingSoonModal()"
+  class="popular-service-card card-bg rounded-lg p-4 text-center shadow-sm hover:shadow-md cursor-pointer transition-shadow duration-700 animate-fade-in-up"
+  [style.animation-delay]="0.2 * category.services.indexOf(service) + 's'"
   [class.opacity-40]="!service.isActive"
-  [class.pointer-events-none]="!service.isActive"
+  
 >
 
               <div
@@ -429,5 +430,26 @@ export class Dashboard implements OnInit {
     if (card) {
       card.classList.toggle('hidden');
     }
+  }
+  openComingSoonModal(){
+     Swal.fire({
+      title: 'Coming Soon',
+      text: 'This feature is coming soon!',
+      icon: 'info',
+      customClass: {
+        container: 'custom-swal-container',
+      },
+      showConfirmButton: false,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Do something when confirmed
+        console.log('Deleted!');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        // Handle cancel
+        console.log('Cancelled!');
+      }
+    });
   }
 }

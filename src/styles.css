@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
-/* Base color scheme */
+/* ============================
+   Root Color & Font Variables
+============================ */
 :root {
-  /* Light mode colors */
+  /* Light Mode Colors */
   --color-primary: #00c9a7;
   --color-primary-hover: #00b397;
   --color-secondary: #845ec2;
@@ -13,7 +15,7 @@
   --color-surface: #f9fafb;
   --color-border: #e5e7eb;
 
-  /* Dark mode colors */
+  /* Dark Mode Colors */
   --color-dark-primary: #00d6b2;
   --color-dark-primary-hover: #00c9a7;
   --color-dark-secondary: #9a7bd4;
@@ -25,20 +27,24 @@
   --color-dark-border: #374151;
 
   /* Scrollbar */
-  --scrollbar-track: #EEEEEE;
+  --scrollbar-track: #eeeeee;
   --scrollbar-thumb: var(--color-primary);
   --scrollbar-thumb-hover: var(--color-primary-hover);
-    --gov-font-inter: 'Inter', sans-serif;
-  --gov-font-roboto: 'Roboto', sans-serif;
+
+  /* Fonts */
+  --gov-font-inter: 'Inter', sans-serif;
   --gov-font-noto: 'Noto Sans', sans-serif;
   --gov-font-source: 'Source Sans 3', sans-serif;
   --gov-font-open: 'Open Sans', sans-serif;
-  --gov-font-merriweather: 'Merriweather', serif; 
-    --tamil-font: 'Noto Sans Tamil', sans-serif;
+  --gov-font-merriweather: 'Merriweather', serif;
+  --tamil-font: 'Noto Sans Tamil', 'Roboto', sans-serif;
+  --inet-font: 'Inter', sans-serif;
 
 }
 
-/* Dark mode class */
+/* ====================
+   Dark Mode Variables
+==================== */
 .dark {
   --color-primary: var(--color-dark-primary);
   --color-primary-hover: var(--color-dark-primary-hover);
@@ -49,69 +55,73 @@
   --color-bg: var(--color-dark-bg);
   --color-surface: var(--color-dark-surface);
   --color-border: var(--color-dark-border);
-  
   --scrollbar-track: #1f2937;
   --scrollbar-thumb: var(--color-dark-primary);
   --scrollbar-thumb-hover: var(--color-dark-primary-hover);
 }
 
-/* Base styles */
+/* ====================
+   Base Font Styling
+==================== */
 body {
-  /* background-color: var(--color-bg); */
-  /* color: var(--color-text); */
-  font-family: var(--gov-font-roboto);
+  font-family: var(--inet-font);
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   transition: background-color 0.3s ease, color 0.3s ease;
+  
 }
+
+/* Tamil Language Font */
+body.lang-ta {
+  font-family: var(--tamil-font);
+  font-size: 0.975rem;
+  line-height: 1.45;
+}
+
+/* Tamil Font for Elements (inherits consistent size) */
+body.lang-ta h1,
+body.lang-ta h2,
+body.lang-ta h3,
+body.lang-ta a,
+body.lang-ta span {
+  font-family: var(--tamil-font);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Optional Utility Class */
+.font-tamil {
+  font-family: var(--tamil-font);
+  line-height: 1.45;
+}
+
+/* ============================
+   Color Utility Classes
+============================ */
 
 /* Text Colors */
-.text-primary {
-  color: var(--color-primary);
-}
-.text-secondary {
-  color: var(--color-secondary);
-}
-.text-foreground {
-  color: var(--color-text);
-}
-.text-muted {
-  color: var(--color-text-muted);
-}
+.text-primary       { color: var(--color-primary); }
+.text-secondary     { color: var(--color-secondary); }
+.text-foreground    { color: var(--color-text); }
+.text-muted         { color: var(--color-text-muted); }
 
 /* Background Colors */
-.bg-primary {
-  background-color: var(--color-primary);
-}
-.bg-secondary {
-  background-color: var(--color-secondary);
-}
-.bg-surface {
-  background-color: var(--color-surface);
-}
+.bg-primary         { background-color: var(--color-primary); }
+.bg-secondary       { background-color: var(--color-secondary); }
+.bg-surface         { background-color: var(--color-surface); }
 
-/* Hover States */
-.hover\:bg-primary:hover {
-  background-color: var(--color-primary-hover);
-}
-.hover\:bg-secondary:hover {
-  background-color: var(--color-secondary-hover);
-}
-.hover\:text-primary:hover {
-  color: var(--color-primary-hover);
-}
-.hover\:text-secondary:hover {
-  color: var(--color-secondary-hover);
-}
+/* Hover Effects */
+.hover\:bg-primary:hover      { background-color: var(--color-primary-hover); }
+.hover\:bg-secondary:hover    { background-color: var(--color-secondary-hover); }
+.hover\:text-primary:hover    { color: var(--color-primary-hover); }
+.hover\:text-secondary:hover  { color: var(--color-secondary-hover); }
 
 /* Border Colors */
-.border-primary {
-  border-color: var(--color-primary);
-}
-.border-secondary {
-  border-color: var(--color-secondary);
-}
-.border-surface {
-  border-color: var(--color-border);
-}
+.border-primary     { border-color: var(--color-primary); }
+.border-secondary   { border-color: var(--color-secondary); }
+.border-surface     { border-color: var(--color-border); }
 
 /* Gradients */
 .bg-primary-gradient {
@@ -124,20 +134,9 @@ body {
   color: transparent;
 }
 
-/* Tamil language specific styles */
-body.lang-ta {
-  font-family: var(--tamil-font);
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-body.lang-ta h1 { font-family: var(--tamil-font) !important; font-size: 22px !important; }
-body.lang-ta h2 { font-family: var(--tamil-font) !important; font-size: 16px !important; }
-body.lang-ta h3 { font-family: var(--tamil-font) !important; font-size: 14px !important; }
-body.lang-ta a { font-family: var(--tamil-font) !important; font-size: 12px !important; }
-body.lang-ta span { font-family: var(--tamil-font) !important; font-size: 16px !important; }
-
-/* Scrollbar styles (same as before) */
+/* ============================
+   Scrollbar Styling
+============================ */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -161,14 +160,4 @@ body.lang-ta span { font-family: var(--tamil-font) !important; font-size: 16px !
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
-}
-
-
-
-/* CUSTOM CLASSES */
-
-/* Tamil Font */
-.font-tamil {
-  font-family: 'Noto Sans Tamil', sans-serif;
-  
 }

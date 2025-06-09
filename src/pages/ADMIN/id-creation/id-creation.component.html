@@ -1,0 +1,241 @@
+<p-card header="ID Creation" class="mx-auto my-6 w-full max-w-7xl">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4"
+  >
+    <!-- Name -->
+    <div class="">
+      <label for="name" class="font-medium mb-2 block">
+        Name <span class="text-red-500">*</span>
+      </label>
+      <input
+        id="name"
+        type="text"
+        pInputText
+        class="w-full"
+        class="w-full"
+        formControlName="name"
+        placeholder="Enter full name"
+        [class.p-invalid]="showError('name')"
+      />
+      @if (showError("name")) {
+        <small class="p-error block mt-1">
+          @if (form.get("name")?.errors?.["required"]) {
+            Name is required
+          }
+          @if (form.get("name")?.errors?.["minlength"]) {
+            Minimum 3 characters
+          }
+        </small>
+      }
+    </div>
+
+    <!-- Mobile No -->
+    <div class="p-fluid">
+      <label for="mobileNo" class="font-medium mb-2 block">
+        Mobile No <span class="text-red-500">*</span>
+      </label>
+      <input
+        id="mobileNo"
+        type="tel"
+        pInputText
+        class="w-full"
+        formControlName="mobileNo"
+        placeholder="Enter 10-digit mobile number"
+        [class.p-invalid]="showError('mobileNo')"
+      />
+      @if (showError("mobileNo")) {
+        <small class="p-error block mt-1">
+          @if (form.get("mobileNo")?.errors?.["required"]) {
+            Mobile number is required
+          }
+          @if (form.get("mobileNo")?.errors?.["pattern"]) {
+            Invalid number format
+          }
+        </small>
+      }
+    </div>
+
+    <!-- WhatsApp No -->
+    <div class="p-fluid">
+      <label for="whatsappNo" class="font-medium mb-2 block">WhatsApp No</label>
+      <input
+        id="whatsappNo"
+        type="tel"
+        pInputText
+        class="w-full"
+        formControlName="whatsappNo"
+        placeholder="Enter WhatsApp number"
+        [class.p-invalid]="showError('whatsappNo')"
+      />
+      @if (showError("whatsappNo")) {
+        <small class="p-error block mt-1">Invalid WhatsApp number</small>
+      }
+    </div>
+
+    <!-- Email -->
+    <div class="p-fluid">
+      <label for="email" class="font-medium mb-2 block">Email ID</label>
+      <input
+        id="email"
+        type="email"
+        pInputText
+        class="w-full"
+        formControlName="email"
+        placeholder="Enter email address"
+        [class.p-invalid]="showError('email')"
+      />
+      @if (showError("email")) {
+        <small class="p-error block mt-1">Invalid email format</small>
+      }
+    </div>
+
+    <!-- Address -->
+    <div class="p-fluid">
+      <label for="address" class="font-medium mb-2 block">
+        Address <span class="text-red-500">*</span>
+      </label>
+      <textarea
+        id="address"
+        pInputTextarea
+        rows="1"
+        class="w-full"
+        formControlName="address"
+        placeholder="Enter full address"
+        [class.p-invalid]="showError('address')"
+      ></textarea>
+      @if (showError("address")) {
+        <small class="p-error block mt-1">
+          @if (form.get("address")?.errors?.["required"]) {
+            Address is required
+          }
+          @if (form.get("address")?.errors?.["minlength"]) {
+            Minimum 10 characters
+          }
+        </small>
+      }
+    </div>
+
+    <!-- State -->
+    <div class="p-fluid">
+      <label for="state" class="font-medium mb-2 block">
+        State <span class="text-red-500">*</span>
+      </label>
+      <p-select
+        id="state"
+        class="w-full"
+        formControlName="state"
+        [options]="states()"
+        optionLabel="name"
+        placeholder="Select state"
+        [showClear]="true"
+        [class.p-invalid]="showError('state')"
+      ></p-select>
+      @if (showError("state")) {
+        <small class="p-error block mt-1">State is required</small>
+      }
+    </div>
+
+    <!-- District -->
+    <div class="p-fluid">
+      <label for="district" class="font-medium mb-2 block">
+        District <span class="text-red-500">*</span>
+      </label>
+      <p-select
+        id="district"
+        class="w-full"
+        formControlName="district"
+        [options]="districts()"
+        optionLabel="name"
+        placeholder="Select district"
+        [disabled]="!form.get('state')?.value"
+        [showClear]="true"
+        [class.p-invalid]="showError('district')"
+      ></p-select>
+      @if (showError("district")) {
+        <small class="p-error block mt-1">District is required</small>
+      }
+    </div>
+
+    <!-- Circle -->
+    <div class="p-fluid">
+      <label for="circle" class="font-medium mb-2 block">
+        Circle <span class="text-red-500">*</span>
+      </label>
+      <p-select
+        id="circle"
+        class="w-full"
+        formControlName="circle"
+        [options]="circles()"
+        optionLabel="name"
+        placeholder="Select circle"
+        [disabled]="!form.get('district')?.value"
+        [showClear]="true"
+        [class.p-invalid]="showError('circle')"
+      ></p-select>
+      @if (showError("circle")) {
+        <small class="p-error block mt-1">Circle is required</small>
+      }
+    </div>
+
+    <!-- Taluk -->
+    <div class="p-fluid">
+      <label for="taluk" class="font-medium mb-2 block">
+        Sub District/Taluk <span class="text-red-500">*</span>
+      </label>
+      <p-select
+        id="taluk"
+        class="w-full"
+        formControlName="taluk"
+        [options]="taluks()"
+        optionLabel="name"
+        placeholder="Select taluk"
+        [disabled]="!form.get('circle')?.value"
+        [showClear]="true"
+        [class.p-invalid]="showError('taluk')"
+      ></p-select>
+      @if (showError("taluk")) {
+        <small class="p-error block mt-1">Taluk is required</small>
+      }
+    </div>
+
+    <!-- Village -->
+    <div class="p-fluid">
+      <label for="village" class="font-medium mb-2 block">
+        Village <span class="text-red-500">*</span>
+      </label>
+      <p-select
+        id="village"
+        class="w-full"
+        formControlName="village"
+        [options]="villages()"
+        optionLabel="name"
+        placeholder="Select village"
+        [disabled]="!form.get('taluk')?.value"
+        [showClear]="true"
+        [class.p-invalid]="showError('village')"
+      ></p-select>
+      @if (showError("village")) {
+        <small class="p-error block mt-1">Village is required</small>
+      }
+    </div>
+
+    <!-- Actions -->
+    <div
+      class="md:col-span-2 flex flex-col md:flex-row justify-end items-center gap-4 mt-6"
+    >
+      <p-button
+        label="Cancel"
+        severity="secondary"
+        (click)="onCancel()"
+        styleClass="w-full md:w-auto"
+      ></p-button>
+      <p-button
+        label="Submit"
+        type="submit"
+        styleClass="w-full md:w-auto"
+      ></p-button>
+    </div>
+  </form>
+</p-card>
