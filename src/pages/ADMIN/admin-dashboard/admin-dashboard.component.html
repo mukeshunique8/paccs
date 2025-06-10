@@ -1,1 +1,45 @@
-<p>admin-dashboard works!</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+  <!-- Total Cards -->
+  <p-card class="bg-blue-100 border-l-4 border-blue-500 shadow-md">
+    <div class="flex items-center gap-4">
+      <i class="pi pi-users text-2xl text-blue-600"></i>
+      <div>
+        <p class="text-sm text-blue-800 font-semibold">Total IDs</p>
+        <p class="text-xl font-bold">{{ idStats.total }}</p>
+      </div>
+    </div>
+  </p-card>
+
+  <!-- Active -->
+  <p-card class="bg-green-100 border-l-4 border-green-500 shadow-md">
+    <div class="flex items-center gap-4">
+      <i class="pi pi-check-circle text-2xl text-green-600"></i>
+      <div>
+        <p class="text-sm text-green-800 font-semibold">Active</p>
+        <p class="text-xl font-bold">{{ idStats.active }}</p>
+      </div>
+    </div>
+  </p-card>
+
+  <!-- Pending -->
+  <p-card class="bg-yellow-100 border-l-4 border-yellow-500 shadow-md">
+    <div class="flex items-center gap-4">
+      <i class="pi pi-clock text-2xl text-yellow-600"></i>
+      <div>
+        <p class="text-sm text-yellow-800 font-semibold">Pending</p>
+        <p class="text-xl font-bold">{{ idStats.pending }}</p>
+      </div>
+    </div>
+  </p-card>
+
+  <!-- Rejected -->
+  <p-card class="bg-red-100 border-l-4 border-red-500 shadow-md">
+    <div class="flex items-center gap-4">
+      <i class="pi pi-times-circle text-2xl text-red-600"></i>
+      <div>
+        <p class="text-sm text-red-800 font-semibold">Rejected</p>
+        <p class="text-xl font-bold">{{ idStats.rejected }}</p>
+      </div>
+    </div>
+  </p-card>
+</div>

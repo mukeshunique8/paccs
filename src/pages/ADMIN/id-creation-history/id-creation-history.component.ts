@@ -180,14 +180,13 @@ export class IdCreationHistoryComponent implements OnInit {
       status: IdCreationStatus.Approved,
       approvedDate: new Date().toISOString(),
     };
-
-    this.updateUserInStore(updatedUser);
-    this.showApproveDialog = false;
     this.messageService.add({
       severity: 'success',
       summary: 'Success',
       detail: 'ID Approved Successfully',
     });
+    this.updateUserInStore(updatedUser);
+    this.showApproveDialog = false;
   }
 
   submitRejection() {

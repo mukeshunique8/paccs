@@ -29,9 +29,7 @@
               "src/styles.css",
               "src/styles/layout/layout.css",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/leaflet/dist/leaflet.css",
-              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           },
@@ -89,9 +87,7 @@
               "src/styles.css",
               "src/styles/layout/layout.css",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/leaflet/dist/leaflet.css",
-              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           }
