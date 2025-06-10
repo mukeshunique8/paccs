@@ -20,6 +20,7 @@ import { MessageModule } from 'primeng/message';
 import { TextareaModule } from 'primeng/textarea';
 import { MessageService } from 'primeng/api';
 import { LocalStoreService } from '../../../service/local-store.service';
+import { IdCreationStatus } from '../../../constants/enumdata';
 
 interface State {
   name: string;
@@ -209,8 +210,12 @@ export class IdCreationComponent {
     }
     if (this.form.valid) {
       try {
-        this.localService.setItem('idCreationData', this.form.value);
-        this.localService.addToArray('idCreationDataArray', this.form.value);
+        const submissionData = {
+          ...this.form.value,
+          status: IdCreationStatus.Pending,
+        };
+        this.localService.setItem('idCreationData', submissionData);
+        this.localService.addToArray('idCreationDataArray', submissionData);
         this.messageService.add({
           severity: 'success',
           summary: 'Form Submitted',

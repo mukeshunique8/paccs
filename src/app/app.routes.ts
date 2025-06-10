@@ -52,6 +52,7 @@ export const routes: Routes = [
       { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'idcreation', component: IdCreationComponent },
       { path: 'idcreation_history', component: IdCreationHistoryComponent },
+      { path: 'approval_history_list', component: IdCreationHistoryComponent },
     ],
     canActivate: [RoleGuard],
     data: { expectedRoles: [roles.ADMIN] }, // Only allow ADMIN role

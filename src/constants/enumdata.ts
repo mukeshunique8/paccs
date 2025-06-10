@@ -8,3 +8,8 @@ export enum roles {
   USER = 'USER',
   ACCOUNTS = 'ACCOUNTS',
 }
+export enum IdCreationStatus {
+  Pending = 'Pending',
+  Approved = 'Approved',
+  Rejected = 'Rejected',
+}

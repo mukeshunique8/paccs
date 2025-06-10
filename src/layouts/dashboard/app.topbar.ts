@@ -4,10 +4,8 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StyleClassModule } from 'primeng/styleclass';
 import { LayoutService } from '../../pages/services/layout.service';
-import { AppConfigurator } from './app.configurator';
 import { LanguageSwitcherComponent } from '../../ui_components/language-switcher/language-switcher.component';
 import { THIRUKKURAL_LIST } from '../../constants/thirukkural';
-import { HeaderMarqueeComponent } from '../../ui_components/header-marquee/header-marquee.component';
 import { LucideIconsModule } from '../../modules/lucide-icons.module';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { BalanceButton } from './dash_components/balance.button';
@@ -21,9 +19,7 @@ import { roles } from '../../constants/enumdata';
     RouterModule,
     CommonModule,
     StyleClassModule,
-    AppConfigurator,
     LanguageSwitcherComponent,
-    HeaderMarqueeComponent,
     LucideIconsModule,
     BalanceButton,
   ],

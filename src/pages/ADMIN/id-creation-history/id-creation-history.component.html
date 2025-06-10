@@ -1,22 +1,509 @@
-<p-card class="text-primary" [header]="'Id Creation History'">
+<p-confirmDialog></p-confirmDialog>
+
+<p-card header="ID Creation History" class="m-3">
   <p-table
-    [columns]="cols"
     [value]="users"
-    [tableStyle]="{ 'min-width': '50rem' }"
+    [paginator]="true"
+    [rows]="5"
+    styleClass="p-datatable-striped p-datatable-gridlines"
+    [tableStyle]="{ 'min-width': '100%' }"
+    [rowsPerPageOptions]="[5, 10, 20]"
   >
-    <ng-template #header let-columns>
+    <ng-template pTemplate="header">
       <tr>
-        <th *ngFor="let col of columns">
+        <th *ngFor="let col of cols" [pSortableColumn]="col.field">
           {{ col.header }}
         </th>
       </tr>
     </ng-template>
-    <ng-template #body let-rowData let-columns="columns">
+
+    <ng-template pTemplate="body" let-user>
       <tr>
-        <td *ngFor="let col of columns">
-          {{ rowData[col.field] }}
+        <td>{{ user.sno }}</td>
+        <td>
+          <div class="flex justify-center gap-2">
+            <button
+              *ngIf="user.status === 'Approved'"
+              pButton
+              icon="pi pi-eye"
+              class="p-button-sm p-button-rounded p-button-info"
+              (click)="viewDetails(user)"
+              pTooltip="Approve"
+            ></button>
+
+            <button
+              *ngIf="user.status === 'Pending'"
+              pButton
+              icon="pi pi-check"
+              class="p-button-sm p-button-rounded p-button-success"
+              (click)="approve(user)"
+              pTooltip="Approve"
+            ></button>
+            <button
+              *ngIf="user.status === 'Pending'"
+              pButton
+              icon="pi pi-times"
+              class="p-button-sm p-button-rounded p-button-danger"
+              (click)="reject(user)"
+              pTooltip="Reject"
+            ></button>
+          </div>
         </td>
+        <td>
+          <p-tag
+            [value]="user.status"
+            [severity]="getStatusSeverity(user.status)"
+          >
+          </p-tag>
+        </td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.mobileNo }}</td>
+        <td>{{ user.whatsappNo }}</td>
+        <td>
+          {{
+            user.address?.length > 20
+              ? (user.address | slice: 0 : 20) + "..."
+              : user.address
+          }}
+        </td>
+        <td>{{ user.district }}</td>
+        <td>{{ user.taluk }}</td>
+        <td>{{ user.village }}</td>
       </tr>
     </ng-template>
   </p-table>
 </p-card>
+
+<!-- Approve Dialog -->
+<p-dialog
+  header="Approve ID Creation"
+  [(visible)]="showApproveDialog"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [breakpoints]="{ '960px': '75vw', '640px': '90vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <form
+    [formGroup]="approvalForm"
+    class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4"
+  >
+    <!-- I-Net ID -->
+    <div class="flex flex-col">
+      <label for="idNumber" class="text-sm font-medium">I‑Net ID</label>
+      <input
+        pInputText
+        id="idNumber"
+        formControlName="idNumber"
+        class="p-inputtext w-full"
+      />
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('idNumber')?.invalid &&
+          approvalForm.get('idNumber')?.touched
+        "
+      >
+        I-Net ID is required
+      </small>
+    </div>
+
+    <!-- Receipt No -->
+    <div class="flex flex-col">
+      <label for="receiptNumber" class="text-sm font-medium">Receipt No</label>
+      <input
+        pInputText
+        id="receiptNumber"
+        formControlName="receiptNumber"
+        class="p-inputtext w-full"
+      />
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('receiptNumber')?.invalid &&
+          approvalForm.get('receiptNumber')?.touched
+        "
+      >
+        Receipt number is required
+      </small>
+    </div>
+
+    <!-- Amount Paid -->
+    <div class="flex flex-col">
+      <label for="amountPaid" class="text-sm font-medium"
+        >Amount Paid (₹)</label
+      >
+      <p-inputNumber
+        id="amountPaid"
+        formControlName="amountPaid"
+        mode="decimal"
+        [min]="1"
+        [max]="100000"
+        [minFractionDigits]="2"
+      ></p-inputNumber>
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('amountPaid')?.invalid &&
+          approvalForm.get('amountPaid')?.touched
+        "
+      >
+        Valid amount is required
+      </small>
+    </div>
+
+    <!-- Payment Type -->
+    <div class="flex flex-col">
+      <label for="paymentType" class="text-sm font-medium">Payment Type</label>
+      <p-dropdown
+        id="paymentType"
+        formControlName="paymentType"
+        [options]="paymentTypeOptions"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Select Type"
+        class="w-full"
+      ></p-dropdown>
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('paymentType')?.invalid &&
+          approvalForm.get('paymentType')?.touched
+        "
+      >
+        Payment type is required
+      </small>
+    </div>
+
+    <!-- Mode of Payment -->
+    <div class="flex flex-col">
+      <label for="modeOfPayment" class="text-sm font-medium"
+        >Mode of Payment</label
+      >
+      <p-dropdown
+        id="modeOfPayment"
+        formControlName="modeOfPayment"
+        [options]="paymentModeOptions"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Select Mode"
+        class="w-full"
+      ></p-dropdown>
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('modeOfPayment')?.invalid &&
+          approvalForm.get('modeOfPayment')?.touched
+        "
+      >
+        Payment mode is required
+      </small>
+    </div>
+
+    <!-- Training Area -->
+    <div class="flex flex-col">
+      <label for="trainingArea" class="text-sm font-medium"
+        >Training Area</label
+      >
+      <p-dropdown
+        id="trainingArea"
+        formControlName="trainingArea"
+        [options]="trainingAreaOptions"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Select Area"
+        class="w-full"
+      ></p-dropdown>
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('trainingArea')?.invalid &&
+          approvalForm.get('trainingArea')?.touched
+        "
+      >
+        Training area is required
+      </small>
+    </div>
+
+    <!-- Admin Name -->
+    <div class="flex flex-col">
+      <label for="adminName" class="text-sm font-medium">Admin Name</label>
+      <p-dropdown
+        id="adminName"
+        formControlName="adminName"
+        [options]="adminOptions"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Select Admin"
+        class="w-full"
+      ></p-dropdown>
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('adminName')?.invalid &&
+          approvalForm.get('adminName')?.touched
+        "
+      >
+        Admin name is required
+      </small>
+    </div>
+
+    <!-- Mobile No -->
+    <div class="flex flex-col">
+      <label for="mobileNo" class="text-sm font-medium">Mobile No</label>
+      <p-inputMask
+        id="mobileNo"
+        formControlName="mobileNo"
+        mask="9999999999"
+        placeholder="Enter 10-digit number"
+        class="w-full"
+      ></p-inputMask>
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('mobileNo')?.invalid &&
+          approvalForm.get('mobileNo')?.touched
+        "
+      >
+        Valid 10-digit mobile number is required
+      </small>
+    </div>
+
+    <!-- Email Id (full width) -->
+    <div class="md:col-span-2 flex flex-col">
+      <label for="email" class="text-sm font-medium">Email Id</label>
+      <input
+        pInputText
+        id="email"
+        type="email"
+        formControlName="email"
+        class="p-inputtext w-full"
+      />
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('email')?.invalid &&
+          approvalForm.get('email')?.touched
+        "
+      >
+        Valid email is required
+      </small>
+    </div>
+
+    <!-- Address (full width) -->
+    <div class="md:col-span-2 flex flex-col">
+      <label for="address" class="text-sm font-medium">Address</label>
+      <textarea
+        pInputTextarea
+        id="address"
+        formControlName="address"
+        rows="3"
+        class="p-inputtext w-full"
+      ></textarea>
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('address')?.invalid &&
+          approvalForm.get('address')?.touched
+        "
+      >
+        Address is required
+      </small>
+    </div>
+
+    <!-- District -->
+    <div class="flex flex-col">
+      <label for="district" class="text-sm font-medium">District</label>
+      <p-dropdown
+        id="district"
+        formControlName="district"
+        [options]="districtOptions"
+        optionLabel="name"
+        optionValue="code"
+        (onChange)="onDistrictChange()"
+        placeholder="Select District"
+        class="w-full"
+      ></p-dropdown>
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('district')?.invalid &&
+          approvalForm.get('district')?.touched
+        "
+      >
+        District is required
+      </small>
+    </div>
+
+    <!-- Taluk -->
+    <div class="flex flex-col">
+      <label for="taluk" class="text-sm font-medium">Taluk</label>
+      <p-dropdown
+        id="taluk"
+        formControlName="taluk"
+        [options]="talukOptions"
+        optionLabel="name"
+        optionValue="code"
+        (onChange)="onTalukChange()"
+        [disabled]="!approvalForm.get('district')?.value"
+        placeholder="Select Taluk"
+        class="w-full"
+      ></p-dropdown>
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('taluk')?.invalid &&
+          approvalForm.get('taluk')?.touched
+        "
+      >
+        Taluk is required
+      </small>
+    </div>
+
+    <!-- Village -->
+    <div class="flex flex-col">
+      <label for="village" class="text-sm font-medium">Village</label>
+      <p-dropdown
+        id="village"
+        formControlName="village"
+        [options]="villageOptions"
+        optionLabel="name"
+        optionValue="code"
+        [disabled]="!approvalForm.get('taluk')?.value"
+        placeholder="Select Village"
+        class="w-full"
+      ></p-dropdown>
+      <small
+        class="text-red-500 text-xs"
+        *ngIf="
+          approvalForm.get('village')?.invalid &&
+          approvalForm.get('village')?.touched
+        "
+      >
+        Village is required
+      </small>
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <div class="flex justify-end gap-2 px-4 pb-4">
+      <button
+        pButton
+        label="Cancel"
+        icon="pi pi-times"
+        class="p-button-text"
+        (click)="showApproveDialog = false"
+      ></button>
+      <button
+        pButton
+        label="Approve"
+        icon="pi pi-check"
+        (click)="confirmApproval()"
+        [disabled]="approvalForm.invalid"
+      ></button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<!-- Reject Dialog -->
+<p-dialog
+  header="Reject ID Creation"
+  [(visible)]="showRejectDialog"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [breakpoints]="{ '960px': '75vw', '640px': '90vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <form [formGroup]="rejectForm" class="p-fluid">
+    <div class="flex flex-col justify-start items-start">
+      <label for="remarks" class="text-muted">Remarks</label>
+      <textarea
+        class="w-full mt-2"
+        pInputTextarea
+        id="remarks"
+        formControlName="remarks"
+        rows="3"
+        placeholder="Enter reason for rejection (minimum 10 characters)"
+      ></textarea>
+      <small
+        class="p-error"
+        *ngIf="
+          rejectForm.get('remarks')?.invalid &&
+          rejectForm.get('remarks')?.touched
+        "
+      >
+        <span *ngIf="rejectForm.get('remarks')?.errors?.['required']"
+          >Remarks are required</span
+        >
+        <span *ngIf="rejectForm.get('remarks')?.errors?.['minlength']"
+          >Minimum 10 characters required</span
+        >
+      </small>
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <div class="flex justify-content-end gap-2">
+      <button
+        pButton
+        label="Cancel"
+        icon="pi pi-times"
+        class="p-button-text"
+        (click)="showRejectDialog = false"
+      ></button>
+      <button
+        pButton
+        label="Reject"
+        icon="pi pi-times"
+        class="p-button-danger"
+        (click)="confirmRejection()"
+        [disabled]="rejectForm.invalid"
+      ></button>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<!-- View Details Dialog -->
+<p-dialog
+  header="ID Creation Details"
+  [(visible)]="showDetailsDialog"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [breakpoints]="{ '960px': '75vw', '640px': '90vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="p-fluid">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col">
+        <label class="text-sm font-medium">Name</label>
+        <span>{{ selectedUser?.name }}</span>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-medium">Email</label>
+        <span>{{ selectedUser?.email }}</span>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-medium">Mobile No</label>
+        <span>{{ selectedUser?.mobileNo }}</span>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-medium">Address</label>
+        <span>{{ selectedUser?.address }}</span>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-medium">District</label>
+        <span>{{ selectedUser?.district }}</span>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-medium">Taluk</label>
+        <span>{{ selectedUser?.taluk }}</span>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-sm font-medium">Village</label>
+        <span>{{ selectedUser?.village }}</span>
+      </div>
+    </div>
+  </div>
+</p-dialog>
