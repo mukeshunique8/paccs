@@ -55,7 +55,19 @@ export const routes: Routes = [
       { path: 'approval_history_list', component: IdCreationHistoryComponent },
     ],
     canActivate: [RoleGuard],
-    data: { expectedRoles: [roles.ADMIN] }, // Only allow ADMIN role
+    data: { expectedRoles: [roles.SUPER_ADMIN] }, // Only allow ADMIN role
+  },
+  {
+    path: 'sales',
+    component: AppLayout,
+    children: [
+      { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'idcreation', component: IdCreationComponent },
+      { path: 'idcreation_history', component: IdCreationHistoryComponent },
+      { path: 'approval_history_list', component: IdCreationHistoryComponent },
+    ],
+    canActivate: [RoleGuard],
+    data: { expectedRoles: [roles.SALES] }, // Only allow ADMIN role
   },
   { path: '**', component: NotfoundComponent }, // 404 outside layout
 ];

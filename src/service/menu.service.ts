@@ -42,13 +42,13 @@ export class MenuService {
           label: 'S_NAV.USER',
           icon: 'pi pi-user',
           routerLink: ['/user'],
-          roles: [roles.ADMIN], // Only for ADMIN
+          roles: [roles.SUPER_ADMIN], // Only for ADMIN
         },
         {
           label: 'S_NAV.SUPPORT_DETAILS',
           icon: 'pi pi-info-circle',
           routerLink: ['/support-details'],
-          roles: [roles.ACCOUNTS],
+          roles: [roles.NORMAL_ACCOUNTANT],
         },
         {
           label: 'S_NAV.PACKAGE_SUBSCRIPTION',
@@ -72,36 +72,36 @@ export class MenuService {
     },
     {
       label: 'S_NAV.HOME',
-      roles: [roles.ADMIN],
+      roles: [roles.SUPER_ADMIN],
       items: [
         {
           label: 'S_NAV.DASHBOARD',
           icon: 'pi pi-fw pi-video',
           routerLink: ['/admin/dashboard'],
-          roles: [roles.ADMIN],
+          roles: [roles.SUPER_ADMIN],
         },
         {
           label: 'S_NAV.ID_CREATION',
           icon: 'pi pi-id-card',
-          roles: [roles.ADMIN],
+          roles: [roles.SUPER_ADMIN, roles],
           items: [
             {
               label: 'S_NAV.ID_CREATION',
               icon: 'pi pi-id-card',
               routerLink: ['/admin/idcreation'],
-              roles: [roles.ADMIN],
+              roles: [roles.SUPER_ADMIN],
             },
             {
               label: 'S_NAV.ID_CREATION_HISTORY',
               icon: 'pi pi-history',
               routerLink: ['/admin/idcreation_history'],
-              roles: [roles.ADMIN],
+              roles: [roles.SUPER_ADMIN],
             },
             // {
             //   label: 'S_NAV.APPROVAL_HISTORY',
             //   icon: 'pi pi-history',
             //   routerLink: ['/admin/approval_history_list'],
-            //   roles: [roles.ADMIN],
+            //   roles: [roles.SUPER_ADMIN],
             // },
           ],
         },
@@ -109,19 +109,53 @@ export class MenuService {
           label: 'S_NAV.REPORTS',
           icon: 'pi pi-chart-bar',
           routerLink: ['/admin/reports'],
-          roles: [roles.ADMIN],
+          roles: [roles.SUPER_ADMIN],
         },
         {
           label: 'S_NAV.SETTINGS',
           icon: 'pi pi-cog',
           routerLink: ['/admin/settings'],
-          roles: [roles.ADMIN],
+          roles: [roles.SUPER_ADMIN],
         },
         {
           label: 'S_NAV.USER_MANAGEMENT',
           icon: 'pi pi-users',
           routerLink: ['/admin/user-management'],
-          roles: [roles.ADMIN],
+          roles: [roles.SUPER_ADMIN],
+        },
+      ],
+    },
+
+    // SALES
+
+    {
+      label: 'S_NAV.HOME',
+      roles: [roles.SALES],
+      items: [
+        {
+          label: 'S_NAV.DASHBOARD',
+          icon: 'pi pi-fw pi-video',
+          routerLink: ['/sales/dashboard'],
+          roles: [roles.SALES],
+        },
+        {
+          label: 'S_NAV.ID_CREATION',
+          icon: 'pi pi-id-card',
+          roles: [roles.SALES, roles],
+          items: [
+            {
+              label: 'S_NAV.ID_CREATION',
+              icon: 'pi pi-id-card',
+              routerLink: ['/sales/idcreation'],
+              roles: [roles.SALES],
+            },
+            {
+              label: 'S_NAV.ID_CREATION_HISTORY',
+              icon: 'pi pi-history',
+              routerLink: ['/sales/idcreation_history'],
+              roles: [roles.SALES],
+            },
+          ],
         },
       ],
     },

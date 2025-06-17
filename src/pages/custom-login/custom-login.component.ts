@@ -9,17 +9,17 @@ import { roles } from '../../constants/enumdata';
   selector: 'app-custom-login',
   imports: [SharedModule],
   templateUrl: './custom-login.component.html',
-  styleUrl: './custom-login.component.css'
+  styleUrl: './custom-login.component.css',
 })
 export class CustomLoginComponent {
-username = signal('');
+  username = signal('');
   password = signal('');
   isLoading = signal(false);
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
   ) {}
 
   onLogin() {
@@ -33,19 +33,21 @@ username = signal('');
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
-          detail: 'Login successful'
+          detail: 'Login successful',
         });
         const userRole = this.authService.getCurrentUserRole();
-        if( userRole === roles.ADMIN) {
+        if (userRole === roles.SUPER_ADMIN) {
           this.router.navigate(['/admin/dashboard']);
+        } else if (userRole === roles.SALES) {
+          this.router.navigate(['/sales/dashboard']);
         } else {
           this.router.navigate(['/dashboard']);
-        } 
+        }
       } else {
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
-          detail: 'Invalid credentials'
+          detail: 'Invalid credentials',
         });
       }
 

@@ -1,5 +1,7 @@
 <!-- about.component.html -->
-<div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+<div
+  class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8"
+>
   <div class="max-w-7xl mx-auto">
     <!-- Hero Section -->
     <section class="text-center mb-20">
@@ -12,54 +14,70 @@
     </section>
 
     <!-- Mission Section -->
-    <p-card class="mb-16 shadow-none  rounded-xl overflow-hidden">
+    <p-card class="mb-16 shadow-none rounded-xl overflow-hidden">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div class="p-8">
           <h2 class="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-                <lucide-icon name="badge-info" class="w-8 h-8 text-primary mr-3"></lucide-icon>
+            <lucide-icon
+              name="badge-info"
+              class="w-8 h-8 text-primary mr-3"
+            ></lucide-icon>
 
             Our Mission
           </h2>
           <p class="text-gray-600 mb-6 leading-relaxed">
-            To deliver government and essential services to every corner of India through our extensive network of 
-            Common Services Centres, bridging the digital divide and empowering citizens with easy access to 
-            critical services.
+            To deliver government and essential services to every corner of
+            India through our extensive network of Common Services Centres,
+            bridging the digital divide and empowering citizens with easy access
+            to critical services.
           </p>
-          <p-button 
-            label="Learn About Our Services" 
-            icon="lucide-external-link" 
+          <p-button
+            label="Learn About Our Services"
+            icon="lucide-external-link"
             styleClass="p-button-outlined border-green-600 text-primary hover:bg-green-50"
             [routerLink]="['/services']"
           ></p-button>
         </div>
-        <div class="hidden lg:block bg-[url('/assets/about-mission.jpg')] bg-cover bg-center"></div>
+        <!-- <div class="hidden lg:block bg-[url('/assets/about-mission.jpg')] bg-cover bg-center"></div> -->
       </div>
     </p-card>
 
     <!-- Stats Section -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-      <p-card class="text-center p-6 shadow-none  hover:shadow-md transition-all">
+      <p-card
+        class="text-center p-6 shadow-none hover:shadow-md transition-all"
+      >
         <div class="text-primary mb-4">
-                <lucide-icon name="map-pinned" class="w-8 h-8 text-primary mr-3"></lucide-icon>
-
+          <lucide-icon
+            name="map-pinned"
+            class="w-8 h-8 text-primary mr-3"
+          ></lucide-icon>
         </div>
         <h3 class="text-4xl font-bold text-gray-900 mb-2">4.5L+</h3>
         <p class="text-gray-600">Service Centers</p>
       </p-card>
-      
-      <p-card class="text-center p-6 shadow-none  hover:shadow-md transition-all">
-        <div class="text-primary mb-4">
-                <lucide-icon name="users" class="w-8 h-8 text-primary mr-3"></lucide-icon>
 
+      <p-card
+        class="text-center p-6 shadow-none hover:shadow-md transition-all"
+      >
+        <div class="text-primary mb-4">
+          <lucide-icon
+            name="users"
+            class="w-8 h-8 text-primary mr-3"
+          ></lucide-icon>
         </div>
         <h3 class="text-4xl font-bold text-gray-900 mb-2">300+</h3>
         <p class="text-gray-600">Services Offered</p>
       </p-card>
-      
-      <p-card class="text-center p-6 shadow-none  hover:shadow-md transition-all">
-        <div class="text-primary mb-4">
-                <lucide-icon name="globe" class="w-8 h-8 text-primary mr-3"></lucide-icon>
 
+      <p-card
+        class="text-center p-6 shadow-none hover:shadow-md transition-all"
+      >
+        <div class="text-primary mb-4">
+          <lucide-icon
+            name="globe"
+            class="w-8 h-8 text-primary mr-3"
+          ></lucide-icon>
         </div>
         <h3 class="text-4xl font-bold text-gray-900 mb-2">100%</h3>
         <p class="text-gray-600">District Coverage</p>
@@ -68,49 +86,72 @@
 
     <!-- Timeline -->
     <div class="mb-20">
-      <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center flex justify-center items-center">
-                <lucide-icon name="history" class="w-8 h-8 text-primary mr-3"></lucide-icon>
+      <h2
+        class="text-3xl font-bold text-gray-900 mb-12 text-center flex justify-center items-center"
+      >
+        <lucide-icon
+          name="history"
+          class="w-8 h-8 text-primary mr-3"
+        ></lucide-icon>
 
         Our Journey
       </h2>
-      
-   <p-timeline [value]="timelineItems" align="alternate" class="custom-timeline">
-  <ng-template pTemplate="content" let-item>
-    <p-card class="shadow-none  rounded-xl">
-      <h3 class="text-xl font-bold text-gray-900 mb-1">{{ item.year }}</h3>
-      <h4 class="text-md font-semibold text-gray-700">{{ item.title }}</h4>
-      <p class="text-gray-600 mt-2">{{ item.description }}</p>
-    </p-card>
-  </ng-template>
-</p-timeline>
 
+      <p-timeline
+        [value]="timelineItems"
+        align="alternate"
+        class="custom-timeline"
+      >
+        <ng-template pTemplate="content" let-item>
+          <p-card class="shadow-none rounded-xl">
+            <h3 class="text-xl font-bold text-gray-900 mb-1">
+              {{ item.year }}
+            </h3>
+            <h4 class="text-md font-semibold text-gray-700">
+              {{ item.title }}
+            </h4>
+            <p class="text-gray-600 mt-2">{{ item.description }}</p>
+          </p-card>
+        </ng-template>
+      </p-timeline>
     </div>
 
     <!-- Team Section -->
     <div class="mb-20">
-      <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center flex justify-center items-center">
-                <lucide-icon name="user-round-cog" class="w-8 h-8 text-primary mr-3"></lucide-icon>
+      <h2
+        class="text-3xl font-bold text-gray-900 mb-12 text-center flex justify-center items-center"
+      >
+        <lucide-icon
+          name="user-round-cog"
+          class="w-8 h-8 text-primary mr-3"
+        ></lucide-icon>
 
         Leadership Team
       </h2>
-      
-     <div class="flex items-center justify-center ">
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-    <p-card *ngFor="let member of teamMembers" 
-            class="flex flex-col justify-between text-center shadow-none hover:scale-105 transition-all h-full">
-      <div class="flex flex-col flex-1 p-4 items-center">
-        <div class="w-32 h-32 mb-4 rounded-full bg-gray-200 overflow-hidden">
-          <img [src]="member.image" [alt]="member.name" class="w-full h-full object-cover">
+
+      <div class="flex items-center justify-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <p-card
+            *ngFor="let member of teamMembers"
+            class="flex flex-col justify-between text-center shadow-none hover:scale-105 transition-all h-full"
+          >
+            <div class="flex flex-col flex-1 p-4 items-center">
+              <div
+                class="w-32 h-32 mb-4 rounded-full bg-gray-200 overflow-hidden"
+              >
+                <img
+                  [src]="member.image"
+                  [alt]="member.name"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900">{{ member.name }}</h3>
+              <p class="text-primary mb-3">{{ member.position }}</p>
+              <p class="text-gray-600 text-sm mt-auto">{{ member.bio }}</p>
+            </div>
+          </p-card>
         </div>
-        <h3 class="text-xl font-bold text-gray-900">{{ member.name }}</h3>
-        <p class="text-primary mb-3">{{ member.position }}</p>
-        <p class="text-gray-600 text-sm mt-auto">{{ member.bio }}</p>
       </div>
-    </p-card>
-  </div>
-</div>
-
-
     </div>
   </div>
 </div>

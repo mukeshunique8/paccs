@@ -1,41 +1,45 @@
 <!-- Top Bar - Visible on desktop, hidden on mobile -->
-<div class="shadow-lg border-b  border-gray-100 w-full hidden md:block z-20">
+<div class="shadow-lg border-b border-gray-100 w-full hidden md:block z-20">
   <!-- Main Bar -->
-  <div class="bg-primary text-white w-full flex justify-between items-center px-6 py-1">
+  <div
+    class="bg-primary text-white w-full flex justify-between items-center px-6 py-1"
+  >
     <!-- Toll Free Number -->
     <div class="flex items-center space-x-2">
       <span class="text-sm font-medium">
-        {{ "CUSTOMERCARE" | translate }} - {{constants.customerCare}}
+        {{ "CUSTOMERCARE" | translate }} - {{ constants.customerCare }}
       </span>
     </div>
     <div class="flex items-center space-x-2">
       <!-- Welcome Text -->
-    <span class="text-sm font-medium">{{ "WELCOME" | translate }}</span>
+      <span class="text-sm font-medium">{{ "WELCOME" | translate }}</span>
 
-    <!-- Language Switcher -->
-    <app-language-switcher></app-language-switcher>
+      <!-- Language Switcher -->
+      <app-language-switcher></app-language-switcher>
     </div>
-
-  
   </div>
 
   <!-- Info Bar -->
-  <div class="w-full flex flex-wrap items-center justify-between px-6 py-2 gap-4">
+  <div
+    class="w-full flex flex-wrap items-center justify-between px-6 py-2 gap-4"
+  >
     <!-- Left: Logo -->
-    <div class="flex items-center">
-      <!-- <img src="/images/tamilnadugov.png" alt="Your Logo" class="h-12 sm:h-14 md:h-16" /> -->
-      <img src="/images/inetlogo.png" alt="Your Logo" class="h-12 sm:h-14 md:h-16" />
+    <div class="flex items-center space-x-8 justify-end flex-wrap">
+      @for (partner of leftSidepartners; track partner.id) {
+        <img
+          [src]="partner.img"
+          [alt]="partner.alt"
+          class="h-10 sm:h-12 md:h-18 object-contain flex-shrink-0"
+        />
+      }
     </div>
 
     <!-- Center: Tagline -->
     <div class="flex-1 text-center">
-    
- <h2 class="text-3xl text-gradient  text-center ">
-   Primary Agricultural Cooperative Credit Societies
-   <!-- {{'WEBSITE_NAME' | translate}} -->
-
-</h2>
-
+      <h2 class="text-3xl text-gradient text-center">
+        Primary Agricultural Cooperative Credit Societies
+        <!-- {{'WEBSITE_NAME' | translate}} -->
+      </h2>
     </div>
 
     <!-- Right: Partner Logos -->
@@ -44,7 +48,7 @@
         <img
           [src]="partner.img"
           [alt]="partner.alt"
-          class="h-10 sm:h-12 md:h-14 object-contain flex-shrink-0"
+          class="h-10 sm:h-12 md:h-18 object-contain flex-shrink-0"
         />
       }
     </div>

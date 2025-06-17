@@ -87,11 +87,7 @@ import Swal from 'sweetalert2';
             ]"
           >
             <!-- Background pattern -->
-            <div class="absolute inset-0 opacity-10">
-              <div
-                class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+')]"
-              ></div>
-            </div>
+            <div class="absolute inset-0 opacity-10"></div>
 
             <!-- Card content - made more compact for mobile -->
             <div

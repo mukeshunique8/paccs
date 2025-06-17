@@ -21,7 +21,7 @@
       <tr>
         <td>{{ user.sno }}</td>
         <td>
-          <div class="flex justify-center gap-2">
+          <div class="flex gap-2">
             <button
               *ngIf="user.status === 'Approved'"
               pButton
@@ -31,22 +31,24 @@
               pTooltip="Approve"
             ></button>
 
-            <button
-              *ngIf="user.status === 'Pending'"
-              pButton
-              icon="pi pi-check"
-              class="p-button-sm p-button-rounded p-button-success"
-              (click)="approve(user)"
-              pTooltip="Approve"
-            ></button>
-            <button
-              *ngIf="user.status === 'Pending'"
-              pButton
-              icon="pi pi-times"
-              class="p-button-sm p-button-rounded p-button-danger"
-              (click)="reject(user)"
-              pTooltip="Reject"
-            ></button>
+            <div class="flex gap-2" *ngIf="userRole == roles.SALES">
+              <button
+                *ngIf="user.status === 'Pending'"
+                pButton
+                icon="pi pi-check"
+                class="p-button-sm p-button-rounded p-button-success"
+                (click)="approve(user)"
+                pTooltip="Approve"
+              ></button>
+              <button
+                *ngIf="user.status === 'Pending'"
+                pButton
+                icon="pi pi-times"
+                class="p-button-sm p-button-rounded p-button-danger"
+                (click)="reject(user)"
+                pTooltip="Reject"
+              ></button>
+            </div>
           </div>
         </td>
         <td>

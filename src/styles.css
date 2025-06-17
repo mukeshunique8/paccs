@@ -32,14 +32,13 @@
   --scrollbar-thumb-hover: var(--color-primary-hover);
 
   /* Fonts */
-  --gov-font-inter: 'Inter', sans-serif;
-  --gov-font-noto: 'Noto Sans', sans-serif;
-  --gov-font-source: 'Source Sans 3', sans-serif;
-  --gov-font-open: 'Open Sans', sans-serif;
-  --gov-font-merriweather: 'Merriweather', serif;
-  --tamil-font: 'Noto Sans Tamil', 'Roboto', sans-serif;
-  --inet-font: 'Inter', sans-serif;
-
+  --gov-font-inter: "Inter", sans-serif;
+  --gov-font-noto: "Noto Sans", sans-serif;
+  --gov-font-source: "Source Sans 3", sans-serif;
+  --gov-font-open: "Open Sans", sans-serif;
+  --gov-font-merriweather: "Merriweather", serif;
+  --tamil-font: "Noto Sans Tamil", "Roboto", sans-serif;
+  --inet-font: "Inter", sans-serif;
 }
 
 /* ====================
@@ -69,8 +68,9 @@ body {
   line-height: 1.5;
   background-color: var(--color-bg);
   color: var(--color-text);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Tamil Language Font */
@@ -102,34 +102,70 @@ body.lang-ta span {
 ============================ */
 
 /* Text Colors */
-.text-primary       { color: var(--color-primary); }
-.text-secondary     { color: var(--color-secondary); }
-.text-foreground    { color: var(--color-text); }
-.text-muted         { color: var(--color-text-muted); }
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.text-foreground {
+  color: var(--color-text);
+}
+.text-muted {
+  color: var(--color-text-muted);
+}
 
 /* Background Colors */
-.bg-primary         { background-color: var(--color-primary); }
-.bg-secondary       { background-color: var(--color-secondary); }
-.bg-surface         { background-color: var(--color-surface); }
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.bg-surface {
+  background-color: var(--color-surface);
+}
 
 /* Hover Effects */
-.hover\:bg-primary:hover      { background-color: var(--color-primary-hover); }
-.hover\:bg-secondary:hover    { background-color: var(--color-secondary-hover); }
-.hover\:text-primary:hover    { color: var(--color-primary-hover); }
-.hover\:text-secondary:hover  { color: var(--color-secondary-hover); }
+.hover\:bg-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+.hover\:bg-secondary:hover {
+  background-color: var(--color-secondary-hover);
+}
+.hover\:text-primary:hover {
+  color: var(--color-primary-hover);
+}
+.hover\:text-secondary:hover {
+  color: var(--color-secondary-hover);
+}
 
 /* Border Colors */
-.border-primary     { border-color: var(--color-primary); }
-.border-secondary   { border-color: var(--color-secondary); }
-.border-surface     { border-color: var(--color-border); }
+.border-primary {
+  border-color: var(--color-primary);
+}
+.border-secondary {
+  border-color: var(--color-secondary);
+}
+.border-surface {
+  border-color: var(--color-border);
+}
 
 /* Gradients */
 .bg-primary-gradient {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
 }
 
 .text-gradient {
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary)
+  );
   -webkit-background-clip: text;
   color: transparent;
 }

@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { LocalStoreService } from '../../../service/local-store.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IdCreationStatus } from '../../../constants/enumdata';
+import { IdCreationStatus, roles } from '../../../constants/enumdata';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
 import { SharedModule } from '../../../modules/shared.module';
 import { NgPrimeModule } from '../../../modules/ngprime.module';
+import { AuthService } from '../../../service/auth.service';
 
 interface User {
   sno: number;
@@ -37,7 +38,8 @@ export class IdCreationHistoryComponent implements OnInit {
   showApproveDialog = false;
   showRejectDialog = false;
   showDetailsDialog = false;
-
+  roles = roles;
+  userRole: any;
   // Options for form controls
   paymentTypeOptions = [
     { label: 'Full', value: 'Full' },
@@ -69,6 +71,7 @@ export class IdCreationHistoryComponent implements OnInit {
     private localStoreService: LocalStoreService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
+    private authService: AuthService,
   ) {
     this.approvalForm = this.fb.group({
       idNumber: ['', Validators.required],
@@ -94,6 +97,7 @@ export class IdCreationHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.initializeColumns();
     this.loadUsers();
+    this.userRole = this.authService.getCurrentUserRole();
   }
 
   initializeColumns(): void {

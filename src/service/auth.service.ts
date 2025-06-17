@@ -4,9 +4,8 @@ import { Router } from '@angular/router';
 import { User } from '../interfaces/User';
 import { roles } from '../constants/enumdata';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   // Dummy users data
@@ -15,9 +14,9 @@ export class AuthService {
       id: '1',
       username: 'admin',
       password: 'admin123',
-      role: roles.ADMIN,
+      role: roles.SUPER_ADMIN,
       name: 'System Admin',
-      email: 'admin@example.com'
+      email: 'admin@example.com',
     },
     {
       id: '2',
@@ -25,16 +24,32 @@ export class AuthService {
       password: 'user123',
       role: roles.USER,
       name: 'Regular User',
-      email: 'user@example.com'
+      email: 'user@example.com',
     },
     {
       id: '3',
       username: 'account',
       password: 'account123',
-      role: roles.ACCOUNTS,
+      role: roles.NORMAL_ACCOUNTANT,
       name: 'Accounts User',
-      email: 'accounts@example.com'
-    }
+      email: 'accounts@example.com',
+    },
+    {
+      id: '4',
+      username: 'superaccount',
+      password: 'account123',
+      role: roles.SUPER_ACCOUNTANT,
+      name: 'Accounts User',
+      email: 'accounts@example.com',
+    },
+    {
+      id: '5',
+      username: 'sales',
+      password: 'sales123',
+      role: roles.SALES,
+      name: 'Accounts User',
+      email: 'accounts@example.com',
+    },
   ];
 
   // Signal for current user
@@ -52,7 +67,7 @@ export class AuthService {
 
   login(username: string, password: string): boolean {
     const user = this.dummyUsers.find(
-      u => u.username === username && u.password === password
+      (u) => u.username === username && u.password === password,
     );
 
     if (user) {

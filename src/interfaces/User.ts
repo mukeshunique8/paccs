@@ -1,8 +1,10 @@
+import { roles } from '../constants/enumdata';
+
 export interface User {
   id: string;
   username: string;
   password: string;
-  role: 'ADMIN' | 'USER' | 'ACCOUNTS';
+  role: roles;
   name: string;
   email: string;
 }
