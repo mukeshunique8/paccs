@@ -76,7 +76,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
     <div class="layout-topbar-actions">
       <div class="layout-config-menu">
-        <button
+        <!-- <button
           type="button"
           class="layout-topbar-action"
           (click)="toggleDarkMode()"
@@ -88,7 +88,7 @@ import { TranslateModule } from '@ngx-translate/core';
               'pi-sun': !layoutService.isDarkTheme(),
             }"
           ></i>
-        </button>
+        </button> -->
         <!-- <div class="relative">
                     <button
                         class="layout-topbar-action layout-topbar-action-highlight"
