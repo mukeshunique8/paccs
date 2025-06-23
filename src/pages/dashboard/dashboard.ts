@@ -31,39 +31,61 @@ import Swal from 'sweetalert2';
 
   styleUrl: './dashboard.css',
   template: `
-    <section class="p-4 flex flex-col md:flex-row w-full gap-4 items-stretch">
-      <!-- Left Column - Marquee -->
-      <div class="w-full md:w-1/2 min-w-0 flex items-center ">
-        <app-header-marquee class="w-full"></app-header-marquee>
+    <app-header-marquee class="w-full"></app-header-marquee>
+
+    <section class="p-4 flex flex-col md:flex-row w-full gap-4">
+      <!-- Left Cards Section - Now more responsive -->
+      <div class="w-full md:w-3/4 min-w-0">
+        <div class="flex flex-wrap gap-4 justify-end">
+          <div
+            class="hidden md:flex items-center gap-3 bg-primary text-white px-4 py-2 rounded-full shadow-lg"
+          >
+            <img
+              src="/images/mkstalin.jpg"
+              alt="mkstalin"
+              class="h-12 w-12 object-cover rounded-full border-2 border-white"
+            />
+            <div class="leading-tight">
+              <p class="font-semibold text-sm">Thiru M.K.Stalin</p>
+              <p class="text-xs">Honourable Chief Minister</p>
+            </div>
+          </div>
+          <div
+            class="hidden md:flex items-center gap-3 bg-primary text-white px-4 py-2 rounded-full shadow-lg"
+          >
+            <img
+              src="/images/pannerselvam.jpeg"
+              alt="pannerselvam"
+              class="h-12 w-12 object-cover rounded-full border-2 border-white"
+            />
+            <div class="leading-tight">
+              <p class="font-semibold text-sm">Thiru M.R.K. Panneerselvam</p>
+              <p class="text-xs">Hon'ble Minister for Agriculture</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Right Column - ID and Image Cards -->
-      <div class="w-full md:w-1/2 flex flex-col sm:flex-row gap-4">
+      <!-- Right Side Section - Improved layout -->
+      <div class="w-full md:w-1/4 flex flex-col gap-4 min-w-[250px]">
         <!-- ID Card - Now with equal height -->
         <div
-          class="flex-1 card-bg rounded-lg shadow-sm p-4 flex flex-col items-center justify-center min-h-[80px] border-l-4 border-blue-500"
+          class="flex card-bg rounded-lg shadow-sm p-4 items-center justify-start min-h-[80px] border-l-4 border-blue-500 gap-4"
         >
-          <!-- ID Number -->
-          <p class="text-center font-bold text-sm mb-1">ID: TN4848585858</p>
+          <!-- Image on Left -->
 
-          <!-- Name Display -->
-          <div class="text-center">
-            <p class="font-semibold text-lg ">UdayaKumar S</p>
+          <lucide-icon name="UserCircle" class="h-14 w-14"></lucide-icon>
+
+          <!-- Content on Right -->
+          <div>
+            <p class="font-bold text-sm mb-1">ID: TN4848585858</p>
+            <p class="font-semibold text-lg">UdayaKumar S</p>
             <p class="text-xs text-gray-500 mt-1">Registered User</p>
           </div>
         </div>
-        <!-- Image Card - Improved alignment -->
-        <div
-          class="flex-1 card-bg rounded-lg shadow-sm flex items-center justify-center p-2 min-h-[80px]"
-        >
-          <img
-            src="/images/cooplogo.png"
-            alt="PACs"
-            class="h-full max-h-[80px] w-auto object-contain"
-          />
-        </div>
       </div>
     </section>
+
     <section class="p-4 flex flex-col md:flex-row w-full gap-4">
       <!-- Left Cards Section - Now more responsive -->
       <div class="w-full md:w-3/4 min-w-0">
@@ -238,7 +260,7 @@ import Swal from 'sweetalert2';
       </div>
       <div class="w-full h-fit md:w-1/4  ">
         <section
-          class="mb-6 bg-white rounded-lg shadow-sm p-6 border border-gray-100 max-w-[320px] mx-auto"
+          class="mb-6 bg-white rounded-lg shadow-sm p-6 border border-gray-100  mx-auto"
         >
           <p class="font-semibold text-xl mb-6 text-blue-600 flex items-center">
             <i class="pi pi-info-circle mr-3"></i>News & Updates

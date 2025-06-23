@@ -2,7 +2,6 @@
 <nav class="bg-white w-full border-b md:mt-5 border-gray-100 z-10">
   <div class="container mx-auto px-4">
     <div class="flex justify-center items-center h-16">
-      
       <!-- Logo -->
       <!-- <div class="flex items-center">
         <img src="/images/inetlogo.png" alt="inet logo" class="h-10 object-contain" />
@@ -15,7 +14,7 @@
             [routerLink]="item.href"
             routerLinkActive="bg-primary text-white"
             [routerLinkActiveOptions]="{ exact: true }"
-            class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-primary transition"
+            class="px-3 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-black transition"
           >
             {{ item.name }}
           </a>
@@ -34,9 +33,12 @@
       <div class="md:hidden flex items-center">
         <button
           (click)="toggleMenu()"
-          class="p-2 text-gray-700 hover:text-primary focus:outline-none"
+          class="p-2 text-gray-700 hover:text-black focus:outline-none"
         >
-          <lucide-icon [name]="isMenuOpen ? 'x' : 'menu'" class="w-5 h-5"></lucide-icon>
+          <lucide-icon
+            [name]="isMenuOpen ? 'x' : 'menu'"
+            class="w-5 h-5"
+          ></lucide-icon>
         </button>
       </div>
     </div>
@@ -51,7 +53,7 @@
             [routerLink]="item.href"
             routerLinkActive="bg-primary text-white"
             [routerLinkActiveOptions]="{ exact: true }"
-            class="block px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-primary transition"
+            class="block px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 hover:text-black transition"
           >
             {{ item.name }}
           </a>

@@ -1,5 +1,5 @@
 <!-- Top Bar - Visible on desktop, hidden on mobile -->
-<div class="shadow-lg border-b border-gray-100 w-full hidden md:block z-20">
+<div class="shadow-lg bg-white border-gray-100 w-full hidden md:block z-20">
   <!-- Main Bar -->
   <div
     class="bg-primary text-white w-full flex justify-between items-center px-6 py-1"
@@ -29,26 +29,54 @@
         <img
           [src]="partner.img"
           [alt]="partner.alt"
-          class="h-10 sm:h-12 md:h-18 object-contain flex-shrink-0"
+          class="h-10 sm:h-12 md:h-18 object-contain rounded-full flex-shrink-0"
         />
       }
+      <div
+        class="hidden md:flex items-center gap-3 bg-primary text-white px-4 py-2 rounded-full shadow-lg"
+      >
+        <img
+          src="/images/mkstalin.jpg"
+          alt="mkstalin"
+          class="h-12 w-12 object-cover rounded-full border-2 border-white"
+        />
+        <div class="leading-tight">
+          <p class="font-semibold text-sm">Thiru M.K.Stalin</p>
+          <p class="text-xs">Honourable Chief Minister</p>
+        </div>
+      </div>
     </div>
 
     <!-- Center: Tagline -->
     <div class="flex-1 text-center">
-      <h2 class="text-3xl text-gradient text-center">
-        Primary Agricultural Cooperative Credit Societies
-        <!-- {{'WEBSITE_NAME' | translate}} -->
-      </h2>
+      <p class="text-xs md:text-lg font-bold text-center">
+        <!-- Primary Agricultural Cooperative Credit Societies -->
+        {{ "WEBSITE_NAME" | translate }}
+      </p>
     </div>
 
     <!-- Right: Partner Logos -->
     <div class="flex items-center space-x-4 justify-end flex-wrap">
-      @for (partner of partners; track partner.id) {
+      <div
+        class="hidden md:flex items-center gap-3 bg-primary text-white px-4 py-2 rounded-full shadow-lg"
+      >
+        <div class="leading-tight">
+          <p class="font-semibold text-sm">Thiru M.R.K. Panneerselvam</p>
+          <p class="text-xs">Hon'ble Minister for Agriculture</p>
+
+          <!-- and Farmer’s Welfare -->
+        </div>
+        <img
+          src="/images/pannerselvam.jpeg"
+          alt="pannerselvam"
+          class="h-12 w-12 object-cover rounded-full border-2 border-white"
+        />
+      </div>
+      @for (partner of rightSidepartners; track partner.id) {
         <img
           [src]="partner.img"
           [alt]="partner.alt"
-          class="h-10 sm:h-12 md:h-18 object-contain flex-shrink-0"
+          class="h-10 sm:h-12 md:h-18 rounded-full object-contain flex-shrink-0"
         />
       }
     </div>

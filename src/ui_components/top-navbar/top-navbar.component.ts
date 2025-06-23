@@ -14,15 +14,12 @@ import { constants } from '../../constants/enumdata';
 export class TopNavbarComponent {
   constants = constants;
   // Partner logos (replace with your actual image paths)
-  partners = [
-    { id: 2, img: '/images/cooplogo.png', alt: 'cooplogo' },
-    { id: 3, img: '/images/inetlogo.png', alt: 'csc' },
+  rightSidepartners = [
+    // { id: 2, img: '/images/pannerselvam.jpeg', alt: 'pannerselvam' },
+    { id: 1, img: '/images/cooplogo.png', alt: 'cooplogo' },
   ];
   leftSidepartners = [
-    { id: 1, img: '/images/mkstalin.jpg', alt: 'mkstalin' },
-    { id: 2, img: '/images/pannerselvam.jpeg', alt: 'pannerselvam' },
     { id: 3, img: '/images/tamilnadugov.png', alt: 'tn' },
-
-    // { id: 3, img: '/images/csc.png', alt: 'csc' },
+    // { id: 1, img: '/images/mkstalin.jpg', alt: 'mkstalin' },
   ];
 }
