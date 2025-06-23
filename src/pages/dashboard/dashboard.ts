@@ -36,41 +36,61 @@ import Swal from 'sweetalert2';
     <section class="p-4 flex flex-col md:flex-row w-full gap-4">
       <!-- Left Cards Section - Now more responsive -->
       <div class="w-full md:w-3/4 min-w-0">
-        <div class="flex flex-wrap gap-4 justify-end">
-          <div
-            class="hidden md:flex items-center gap-3 bg-primary text-white px-4 py-2 rounded-full shadow-lg"
-          >
-            <img
-              src="/images/mkstalin.jpg"
-              alt="mkstalin"
-              class="h-12 w-12 object-cover rounded-full border-2 border-white"
-            />
-            <div class="leading-tight">
-              <p class="font-semibold text-sm">Thiru M.K.Stalin</p>
-              <p class="text-xs">Honourable Chief Minister</p>
+        <div
+          class="bg-amber-50 rounded-lg shadow-md p-5 flex-1 border-l-4 border-amber-400"
+        >
+          <div class="flex flex-col h-full space-y-3">
+            <!-- Header with decorative elements -->
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-xl text-amber-800">
+                திருக்குறள் #{{ currentKural?.Number }}
+              </h3>
+              <div class="text-amber-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  ></path>
+                </svg>
+              </div>
             </div>
-          </div>
-          <div
-            class="hidden md:flex items-center gap-3 bg-primary text-white px-4 py-2 rounded-full shadow-lg"
-          >
-            <img
-              src="/images/pannerselvam.jpeg"
-              alt="pannerselvam"
-              class="h-12 w-12 object-cover rounded-full border-2 border-white"
-            />
-            <div class="leading-tight">
-              <p class="font-semibold text-sm">Thiru M.R.K. Panneerselvam</p>
-              <p class="text-xs">Hon'ble Minister for Agriculture</p>
+
+            <!-- Kural text with Tamil-optimized typography -->
+            <div
+              class="bg-white p-4 rounded-md shadow-inner border border-amber-100"
+            >
+              <p
+                class="text-lg leading-relaxed text-gray-800 text-start font-tamil"
+              >
+                {{ currentKural?.Line1 }}<br />
+                {{ currentKural?.Line2 }}
+              </p>
             </div>
+
+            <!-- Optional footer with explanation -->
+            <!-- <div class="mt-auto pt-2 border-t border-amber-100">
+      <p class="text-sm text-amber-700">
+        <span class="font-medium">அதிகாரம்:</span> {{currentKural?.Chapter}}
+      </p>
+    </div> -->
           </div>
         </div>
       </div>
 
       <!-- Right Side Section - Improved layout -->
-      <div class="w-full md:w-1/4 flex flex-col gap-4 min-w-[250px]">
+      <div class="w-full md:w-1/4 flex flex-col gap-4 ">
         <!-- ID Card - Now with equal height -->
         <div
-          class="flex card-bg rounded-lg shadow-sm p-4 items-center justify-start min-h-[80px] border-l-4 border-blue-500 gap-4"
+          class="flex card-bg rounded-lg shadow-sm p-4 items-center justify-start h-full w-full border-l-4 border-blue-500 gap-4"
         >
           <!-- Image on Left -->
 
@@ -90,9 +110,7 @@ import Swal from 'sweetalert2';
       <!-- Left Cards Section - Now more responsive -->
       <div class="w-full md:w-3/4 min-w-0">
         <!-- Added min-w-0 to prevent shrinking -->
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
-        >
+        <div class="grid grid-cols-1 md:grid-cols-2  gap-4 md:gap-6">
           <!-- Adjusted gaps -->
           <div
             *ngFor="let card of cards; let i = index"
@@ -160,58 +178,43 @@ import Swal from 'sweetalert2';
       </div>
 
       <!-- Right Side Section - Improved layout -->
-      <div class="w-full md:w-1/4 flex flex-col gap-4 min-w-[250px]">
-        <!-- Added min-width -->
-
-        <!-- Third Card (Add your content here) -->
-        <div
-          class="bg-amber-50 rounded-lg shadow-md p-5 flex-1 border-l-4 border-amber-400"
+      <div class="w-full md:w-1/4 flex flex-col gap-4 ">
+        <section
+          class="mb-6 bg-white rounded-lg shadow-sm p-6 border border-gray-100  mx-auto"
         >
-          <div class="flex flex-col h-full space-y-3">
-            <!-- Header with decorative elements -->
-            <div class="flex items-center justify-between">
-              <h3 class="font-semibold text-xl text-amber-800">
-                திருக்குறள் #{{ currentKural?.Number }}
-              </h3>
-              <div class="text-amber-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+          <p class="font-semibold text-xl mb-6 text-blue-600 flex items-center">
+            <i class="pi pi-info-circle mr-3"></i>News & Updates
+          </p>
+
+          <div class="h-[380px] overflow-hidden relative">
+            <div class="marquee-content">
+              <div
+                *ngFor="let item of newsItems"
+                class="news-item p-3 mb-3 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors duration-200 border-l-4 border-blue-400 w-full flex space-x-3"
+              >
+                <div
+                  class="p-1.5 rounded-full mt-0.5 flex-shrink-0 text-blue-600 text-sm flex items-center justify-center"
                 >
-                  <path
-                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                  ></path>
-                </svg>
+                  <i [class]="'pi ' + item.icon"></i>
+                </div>
+
+                <div class="flex-1 min-w-0 break-words flex flex-col">
+                  <p class="text-sm font-semibold text-gray-800 mb-1 truncate">
+                    {{ item.title }}
+                  </p>
+                  <div
+                    class="text-xs text-gray-600 mb-1.5 whitespace-normal break-words"
+                  >
+                    {{ item.description }}
+                  </div>
+                  <span class="text-[10px] text-gray-500 block">
+                    {{ item.date | date: 'shortDate' }}
+                  </span>
+                </div>
               </div>
             </div>
-
-            <!-- Kural text with Tamil-optimized typography -->
-            <div
-              class="bg-white p-4 rounded-md shadow-inner border border-amber-100"
-            >
-              <p
-                class="text-lg leading-relaxed text-gray-800 text-center font-tamil"
-              >
-                {{ currentKural?.Line1 }}<br />
-                {{ currentKural?.Line2 }}
-              </p>
-            </div>
-
-            <!-- Optional footer with explanation -->
-            <!-- <div class="mt-auto pt-2 border-t border-amber-100">
-      <p class="text-sm text-amber-700">
-        <span class="font-medium">அதிகாரம்:</span> {{currentKural?.Chapter}}
-      </p>
-    </div> -->
           </div>
-        </div>
+        </section>
       </div>
     </section>
     <!-- <div class="border-t border-gray-300 my-6"></div> -->
@@ -258,44 +261,7 @@ import Swal from 'sweetalert2';
           </div>
         </div>
       </div>
-      <div class="w-full h-fit md:w-1/4  ">
-        <section
-          class="mb-6 bg-white rounded-lg shadow-sm p-6 border border-gray-100  mx-auto"
-        >
-          <p class="font-semibold text-xl mb-6 text-blue-600 flex items-center">
-            <i class="pi pi-info-circle mr-3"></i>News & Updates
-          </p>
-
-          <div class="h-[380px] overflow-hidden relative">
-            <div class="marquee-content">
-              <div
-                *ngFor="let item of newsItems"
-                class="news-item p-3 mb-3 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors duration-200 border-l-4 border-blue-400 w-full flex space-x-3"
-              >
-                <div
-                  class="p-1.5 rounded-full mt-0.5 flex-shrink-0 text-blue-600 text-sm flex items-center justify-center"
-                >
-                  <i [class]="'pi ' + item.icon"></i>
-                </div>
-
-                <div class="flex-1 min-w-0 break-words flex flex-col">
-                  <p class="text-sm font-semibold text-gray-800 mb-1 truncate">
-                    {{ item.title }}
-                  </p>
-                  <div
-                    class="text-xs text-gray-600 mb-1.5 whitespace-normal break-words"
-                  >
-                    {{ item.description }}
-                  </div>
-                  <span class="text-[10px] text-gray-500 block">
-                    {{ item.date | date: 'shortDate' }}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+      <div class="w-full h-fit md:w-1/4  "></div>
     </section>
     <div class="fixed bottom-6 right-6 z-50">
       <!-- Main WhatsApp Card -->
