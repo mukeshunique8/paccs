@@ -130,6 +130,63 @@
   "CONTACT_US": {
     "TITLE": "Contact Us",
     "CUSTOMER_SUPPORT": "Customer Support",
-    "EMAIL": "Email"
+    "EMAIL": "Email",
+    "WHATSAPP": "Whatsapp"
+  },
+  "DASH_CARDS": {
+    "TODAYS_TRANSACTIONS": "Today's Transactions",
+    "OVERALL_TRANSACTIONS": "Overall Transactions",
+    "PENDING_TRANSACTIONS": "Pending Transactions",
+    "TOTAL_BALANCE": "Total Balance"
+  },
+  "NEWS_UPDATES": {
+    "TITLE": "News & Updates",
+    "LATEST_NEWS": "Latest News",
+    "RECENT_UPDATES": "Recent Updates",
+    "VIEW_ALL": "View All",
+    "NO_UPDATES": "No updates available"
+  },
+
+  "WALLET": {
+    "BALANCE": "Portal Balance",
+    "AVAILABLE_BALANCE": "Available Balance",
+    "CURRENT_BALANCE": "Current Balance",
+    "TOTAL_BALANCE": "Total Balance",
+    "WALLET_BALANCE": "Wallet Balance",
+    "RUPEE_SYMBOL": "₹",
+    "CURRENCY": "INR",
+    "BALANCE_TYPES": {
+      "CREDIT": "Credit",
+      "DEBIT": "Debit",
+      "HOLD": "On Hold"
+    }
+  },
+  "NEWS": {
+    "MAINTENANCE": {
+      "TITLE": "System Maintenance Scheduled",
+      "DESCRIPTION": "Planned maintenance this Saturday from 2:00 AM to 4:00 AM. Services may be temporarily unavailable."
+    },
+    "NEW_FEATURE": {
+      "TITLE": "New Feature Released",
+      "DESCRIPTION": "We've added new reporting tools to help you analyze your transactions more effectively."
+    },
+    "MOBILE_UPDATE": {
+      "TITLE": "Mobile App Update",
+      "DESCRIPTION": "Version 2.5 of our mobile app is now available with improved performance and new UI."
+    },
+    "HOLIDAY_SCHEDULE": {
+      "TITLE": "Holiday Schedule",
+      "DESCRIPTION": "Our customer support will have limited availability during the upcoming national holidays."
+    },
+    "LOADING_NEWS": "Loading news updates...",
+    "NEWS_FETCH_FAILED": "Couldn't load latest news",
+    "RETRY": "Retry",
+    "DEFAULT_NEWS": "Showing default news"
+  },
+  "USER": {
+    "ID": "ID",
+    "VERIFIED": "Verified",
+    "REGISTERED_USER": "Registered User",
+    "TIME_AGO": "{time} ago"
   }
 }

@@ -17,6 +17,7 @@ import {
   keyframes,
 } from '@angular/animations';
 import Swal from 'sweetalert2';
+import { NewsTickerComponent } from '../../ui_components/news-ticker/news-ticker.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,6 +28,7 @@ import Swal from 'sweetalert2';
     TranslateModule,
     NgxFastMarqueeModule,
     HeaderMarqueeComponent,
+    NewsTickerComponent,
   ],
 
   styleUrl: './dashboard.css',
@@ -34,83 +36,126 @@ import Swal from 'sweetalert2';
     <app-header-marquee class="w-full"></app-header-marquee>
 
     <section class="p-4 flex flex-col md:flex-row w-full gap-4">
-      <!-- Left Cards Section - Now more responsive -->
-      <div class="w-full md:w-3/4 min-w-0">
-        <div
-          class="bg-amber-50 rounded-lg shadow-md p-5 flex-1 border-l-4 border-amber-400"
-        >
-          <div class="flex flex-col h-full space-y-3">
-            <!-- Header with decorative elements -->
-            <div class="flex items-center justify-between">
-              <h3 class="font-semibold text-xl text-amber-800">
-                திருக்குறள் #{{ currentKural?.Number }}
-              </h3>
-              <div class="text-amber-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+      <aside class="w-full md:w-3/4 flex-col">
+        <!-- THIRUKURAL/USERID -->
+        <div class="flex flex-col md:flex-row gap-4 w-full mb-4 md:mb-6">
+          <!-- Thirukkural Card (3/4 width on md+, full on small) -->
+          <div class="w-full md:w-[60%]">
+            <div
+              class="bg-amber-50 rounded-lg shadow-md p-5 border-l-4 border-amber-400 h-full"
+            >
+              <div class="flex flex-col h-full space-y-3">
+                <!-- Header with decorative elements -->
+                <div class="flex items-center justify-between">
+                  <h3 class="font-semibold text-xl text-amber-800">
+                    திருக்குறள் #{{ currentKural?.Number }}
+                  </h3>
+                  <div class="text-amber-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Kural text with Tamil-optimized typography -->
+                <div
+                  class="bg-white p-4 rounded-md shadow-inner border border-amber-100"
                 >
-                  <path
-                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                  ></path>
-                </svg>
+                  <p
+                    class="text-lg leading-relaxed text-gray-800 text-start font-tamil"
+                  >
+                    {{ currentKural?.Line1 }}<br />
+                    {{ currentKural?.Line2 }}
+                  </p>
+                </div>
               </div>
             </div>
+          </div>
 
-            <!-- Kural text with Tamil-optimized typography -->
+          <!-- User Card (1/4 width on md+, full on small) -->
+          <div class="w-full md:w-[40%]">
             <div
-              class="bg-white p-4 rounded-md shadow-inner border border-amber-100"
+              class="bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-sm p-4 border-l-4 border-blue-500 h-full transition-all duration-300 hover:shadow-md"
             >
-              <p
-                class="text-lg leading-relaxed text-gray-800 text-start font-tamil"
+              <div class="flex items-center gap-3 min-w-0">
+                <!-- Added min-w-0 to prevent overflow -->
+                <!-- User Avatar with modern ring -->
+                <div class="relative flex-shrink-0">
+                  <lucide-icon
+                    name="UserCircle"
+                    class="h-12 w-12 text-blue-600"
+                  ></lucide-icon>
+                  <span
+                    class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white"
+                  ></span>
+                  <!-- Online indicator -->
+                </div>
+
+                <!-- User Details with truncation -->
+                <div class="min-w-0 flex-1">
+                  <!-- Critical for text truncation -->
+                  <div class="flex items-baseline justify-between gap-2">
+                    <p class="font-bold text-sm text-blue-800 truncate">
+                      {{ 'USER.ID' | translate }}: TN4848585858
+                    </p>
+                  </div>
+
+                  <h3 class="font-semibold text-lg text-gray-800 truncate">
+                    <!-- Assuming the name doesn't need translation -->
+                    UdayaKumar S
+                  </h3>
+
+                  <div class="flex items-center gap-2 mt-1">
+                    <span class="text-xs text-gray-500 truncate">
+                      {{ 'USER.REGISTERED_USER' | translate }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional interactive elements -->
+              <div
+                class="flex justify-between mt-3 pt-3 border-t border-gray-100"
               >
-                {{ currentKural?.Line1 }}<br />
-                {{ currentKural?.Line2 }}
-              </p>
+                <button
+                  class="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                >
+                  <lucide-icon
+                    name="MessageSquare"
+                    class="h-4 w-4"
+                  ></lucide-icon>
+                  Message
+                </button>
+                <button
+                  class="text-xs text-gray-600 hover:text-gray-800 flex items-center gap-1"
+                >
+                  <!-- <lucide-icon name="Settings" class="h-4 w-4"></lucide-icon> -->
+                  <span
+                    class="text-xs px-2 py-0.5 bg-blue-100 text-blue-600 rounded-full whitespace-nowrap"
+                  >
+                    {{ 'USER.VERIFIED' | translate }}
+                  </span>
+                </button>
+              </div>
             </div>
-
-            <!-- Optional footer with explanation -->
-            <!-- <div class="mt-auto pt-2 border-t border-amber-100">
-      <p class="text-sm text-amber-700">
-        <span class="font-medium">அதிகாரம்:</span> {{currentKural?.Chapter}}
-      </p>
-    </div> -->
           </div>
         </div>
-      </div>
-
-      <!-- Right Side Section - Improved layout -->
-      <div class="w-full md:w-1/4 flex flex-col gap-4 ">
-        <!-- ID Card - Now with equal height -->
+        <!-- DASHBOARD CARDS -->
         <div
-          class="flex card-bg rounded-lg shadow-sm p-4 items-center justify-start h-full w-full border-l-4 border-blue-500 gap-4"
+          class="grid grid-cols-1 md:grid-cols-2  gap-4 md:gap-6  mb-4 md:mb-6"
         >
-          <!-- Image on Left -->
-
-          <lucide-icon name="UserCircle" class="h-14 w-14"></lucide-icon>
-
-          <!-- Content on Right -->
-          <div>
-            <p class="font-bold text-sm mb-1">ID: TN4848585858</p>
-            <p class="font-semibold text-lg">UdayaKumar S</p>
-            <p class="text-xs text-gray-500 mt-1">Registered User</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="p-4 flex flex-col md:flex-row w-full gap-4">
-      <!-- Left Cards Section - Now more responsive -->
-      <div class="w-full md:w-3/4 min-w-0">
-        <!-- Added min-w-0 to prevent shrinking -->
-        <div class="grid grid-cols-1 md:grid-cols-2  gap-4 md:gap-6">
           <!-- Adjusted gaps -->
           <div
             *ngFor="let card of cards; let i = index"
@@ -147,7 +192,7 @@ import Swal from 'sweetalert2';
                   <h3
                     class="font-semibold text-white text-sm md:text-lg truncate"
                   >
-                    {{ card.title }}
+                    {{ card.titleKey | translate }}
                   </h3>
                   <p
                     class="text-white text-opacity-80 text-xs md:text-sm truncate"
@@ -175,52 +220,7 @@ import Swal from 'sweetalert2';
             ></div>
           </div>
         </div>
-      </div>
-
-      <!-- Right Side Section - Improved layout -->
-      <div class="w-full md:w-1/4 flex flex-col gap-4 ">
-        <section
-          class="mb-6 bg-white rounded-lg shadow-sm p-6 border border-gray-100  mx-auto"
-        >
-          <p class="font-semibold text-xl mb-6 text-blue-600 flex items-center">
-            <i class="pi pi-info-circle mr-3"></i>News & Updates
-          </p>
-
-          <div class="h-[380px] overflow-hidden relative">
-            <div class="marquee-content">
-              <div
-                *ngFor="let item of newsItems"
-                class="news-item p-3 mb-3 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors duration-200 border-l-4 border-blue-400 w-full flex space-x-3"
-              >
-                <div
-                  class="p-1.5 rounded-full mt-0.5 flex-shrink-0 text-blue-600 text-sm flex items-center justify-center"
-                >
-                  <i [class]="'pi ' + item.icon"></i>
-                </div>
-
-                <div class="flex-1 min-w-0 break-words flex flex-col">
-                  <p class="text-sm font-semibold text-gray-800 mb-1 truncate">
-                    {{ item.title }}
-                  </p>
-                  <div
-                    class="text-xs text-gray-600 mb-1.5 whitespace-normal break-words"
-                  >
-                    {{ item.description }}
-                  </div>
-                  <span class="text-[10px] text-gray-500 block">
-                    {{ item.date | date: 'shortDate' }}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </section>
-    <!-- <div class="border-t border-gray-300 my-6"></div> -->
-
-    <section class="p-4 flex flex-col md:flex-row w-full gap-4">
-      <div class=" w-full md:w-3/4">
+        <!-- SERVICE CARDS -->
         <div
           *ngFor="let category of serviceCategories"
           class="category-section mb-8"
@@ -260,9 +260,21 @@ import Swal from 'sweetalert2';
             </div>
           </div>
         </div>
-      </div>
-      <div class="w-full h-fit md:w-1/4  "></div>
+      </aside>
+      <aside class="w-full md:w-1/4">
+        <section
+          class="mb-6 bg-white rounded-lg shadow-sm p-6 border border-gray-100 "
+        >
+          <p class="font-semibold text-xl mb-6 text-blue-600 flex items-center">
+            <i class="pi pi-info-circle mr-3"></i
+            >{{ 'NEWS_UPDATES.TITLE' | translate }}
+          </p>
+
+          <app-news-ticker></app-news-ticker>
+        </section>
+      </aside>
     </section>
+
     <div class="fixed bottom-6 right-6 z-50">
       <!-- Main WhatsApp Card -->
       <div
@@ -347,53 +359,45 @@ import Swal from 'sweetalert2';
 export class Dashboard implements OnInit {
   serviceCategories: any[] = [];
   constants = constants;
-
+  // In your component
+  ngAfterViewInit() {
+    const container = document.querySelector('.marquee-content');
+    if (container) {
+      container.innerHTML += container.innerHTML; // Duplicate content
+    }
+  }
   constructor(
     private serviceCategoryService: ServiceCategoryService,
     private router: Router,
   ) {}
   cards = [
     {
-      title: "Today's Transactions",
+      titleKey: 'DASH_CARDS.TODAYS_TRANSACTIONS',
       value: '₹ 12,350',
       change: '+15%',
       color: 'bg-blue-500',
       icon: 'wallet',
     },
     {
-      title: 'Overall Transactions',
+      titleKey: 'DASH_CARDS.OVERALL_TRANSACTIONS',
       value: '₹ 98,000',
       change: '+8%',
       color: 'bg-green-500',
       icon: 'credit-card',
     },
     {
-      title: 'Pending Transactions',
+      titleKey: 'DASH_CARDS.PENDING_TRANSACTIONS',
       value: '₹ 2,540',
       change: '+5%',
       color: 'bg-yellow-500',
       icon: 'clock',
     },
     {
-      title: 'Total Balance',
+      titleKey: 'DASH_CARDS.TOTAL_BALANCE',
       value: '₹ 50,000',
       change: '₹ 50K',
       color: 'bg-indigo-500',
       icon: 'indian-rupee',
-    },
-    {
-      title: 'New Users',
-      value: '25 New',
-      change: '+10%',
-      color: 'bg-purple-500',
-      icon: 'user-plus',
-    },
-    {
-      title: 'Total Orders',
-      value: '120 Orders',
-      change: '+6%',
-      color: 'bg-teal-500',
-      icon: 'shopping-cart',
     },
   ];
   newsItems = [

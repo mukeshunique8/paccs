@@ -81,7 +81,7 @@ body.lang-ta {
 }
 
 /* Tamil Font for Elements (inherits consistent size) */
-body.lang-ta h1,
+/* body.lang-ta h1,
 body.lang-ta h2,
 body.lang-ta h3,
 body.lang-ta a,
@@ -89,7 +89,7 @@ body.lang-ta span {
   font-family: var(--tamil-font);
   font-size: inherit;
   line-height: inherit;
-}
+} */
 
 /* Optional Utility Class */
 .font-tamil {

@@ -2,6 +2,7 @@ export enum constants {
   customerCare = '044 6644 0666',
   supportEmail = '044 6644 0666',
   supportEmails = '044 6644 0666',
+  whatsappNumber = '044 6644 0666',
 }
 export enum roles {
   ADMIN = 'ADMIN',

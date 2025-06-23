@@ -97,6 +97,9 @@ import {
   Loader2,
   EyeOff,
   UserCircle,
+  MessageSquare,
+  Settings,
+  MessageCircle,
 
   // Add other icons you need here
 } from 'lucide-angular';
@@ -197,6 +200,9 @@ const lucideIcons = {
   Eye,
   Loader2,
   EyeOff,
+  MessageSquare,
+  Settings,
+  MessageCircle,
 };
 
 @NgModule({

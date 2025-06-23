@@ -10,13 +10,18 @@ import { SharedModule } from '../../../modules/shared.module';
     <div>
       <button (click)="checkBalance()" class="balanceCheckbtn">
         <ng-container [ngSwitch]="isShowBalance">
-          <span *ngSwitchCase="'default'">₹ Portal Balance</span>
+          <span *ngSwitchCase="'default'"
+            >{{ 'WALLET.RUPEE_SYMBOL' | translate }}
+            {{ 'WALLET.BALANCE' | translate }}</span
+          >
           <div *ngSwitchCase="'loading'" class="mini-loader"></div>
-          <span *ngSwitchCase="'visible'">₹ {{ balance | number: '1.2-2' }}</span>
+          <span *ngSwitchCase="'visible'"
+            >₹ {{ balance | number: '1.2-2' }}</span
+          >
         </ng-container>
       </button>
     </div>
-  `
+  `,
 })
 export class BalanceButton {
   isShowBalance: 'default' | 'loading' | 'visible' = 'default';

@@ -1,0 +1,26 @@
+.marquee-content {
+  position: relative;
+  height: 200%; /* Double the height to accommodate the duplicated content */
+}
+
+.marquee-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: scroll 15s linear infinite;
+}
+
+/* Pause on hover */
+.marquee-content:hover .marquee-inner {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}

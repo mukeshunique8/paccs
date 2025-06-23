@@ -12,6 +12,7 @@ import { BalanceButton } from './dash_components/balance.button';
 import { AuthService } from '../../service/auth.service';
 import { roles } from '../../constants/enumdata';
 
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-topbar',
   standalone: true,
@@ -22,6 +23,7 @@ import { roles } from '../../constants/enumdata';
     LanguageSwitcherComponent,
     LucideIconsModule,
     BalanceButton,
+    TranslateModule,
   ],
   animations: [
     trigger('fadeInOut', [
@@ -57,7 +59,7 @@ import { roles } from '../../constants/enumdata';
           <p
             class="text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-500 select-none"
           >
-            Primary Agricultural Cooperative Credit Societies
+            {{ 'WEBSITE_NAME' | translate }}
           </p>
         </div>
       </section>

@@ -60,30 +60,16 @@
   border-radius: var(--content-border-radius);
 }
 @keyframes slideUp {
-  from { transform: translateY(100px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .w-64 {
   animation: slideUp 0.5s ease-out;
-}
-
-
-/* NEWS MARQUEE */
-.marquee-content {
-  display: block;
-  animation: scrollUp 30s linear infinite;
-}
-
-.marquee-content:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scrollUp {
-  0% {
-    transform: translateY(0%);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
 }
